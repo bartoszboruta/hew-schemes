@@ -24,3 +24,5 @@ export * from './PoolTank';
 export * from './Furnace';
 export * from './Clock';
 export * from './TriValve';
+export * from './ValuesContainer';
+export * from './ArrowLine';

@@ -3,11 +3,11 @@ import PropTypes from 'prop-types';
 import { connect } from "react-redux";
 import { bindActionCreators } from 'redux';
 import { updateData, updateDimensions } from './actions';
-import { Split, Solar } from './schemes';
+import { Split, Solar, COP } from './schemes';
 
 class App extends Component {
     componentDidMount() {
-        // const data = { //example
+        // const data = { //example SPLIT
         //     date: {
         //         fill: '#00b100',
         //         value: '15-12-2017 14:01:50'
@@ -114,75 +114,210 @@ class App extends Component {
         //         value: 0
         //     },
         // };
-        const data = {
-            date: {
-                fill: '#00b100',
-                value: '15-12-2017 14:01:50'
-            },
-            p128: { //visible, position
-                name: 'T1',
-                value: 123,
-                unit: '°C',
-                visible: true,
-                position: 'default'
-            },
-            p130: {
-                name: 'T2',
-                value: 11,
-                unit: '°C',
-                visible: true,
-                position: 'default'
-            },
-            p132: {
-                name: 'T3',
-                value: 33,
-                unit: '°C',
-                visible: true,
-                position: 'default'
-            },
-            p134: {
-                name: 'T4',
-                value: 34,
-                unit: '°C',
-                visible: true,
-                position: 'default'
-            },
-            p136: {
-                name: 'T5',
-                value: 34,
-                unit: '°C',
-                visible: true,
-                position: 'default'
-            },
-            p138: {
-                name: 'T6',
-                value: 34,
-                unit: '°C',
-                visible: true,
-                position: 'default'
-            },
-            p152: {
-                name: 'F1',
-                value: 33,
-                unit: 'l/min',
-                visible: true,
-                position: 'default'
-            },
-            p292: {
-                name: 'F2',
-                value: 12,
-                unit: 'l/min',
-                visible: true,
-                position: 'default'
-            },
-            p156: {
-                name: 'E1',
-                value: 100,
-                unit: '%',
-                visible: true,
-                position: 'default'
-            }
-        };
+
+
+        // const data = { //example solar
+        //     date: {
+        //         fill: '#00b100',
+        //         value: '15-12-2017 14:01:50'
+        //     },
+        //     p128: { //visible, position
+        //         name: 'T1',
+        //         value: 123,
+        //         unit: '°C',
+        //         visible: true,
+        //         position: 'default'
+        //     },
+        //     p130: {
+        //         name: 'T2',
+        //         value: 11,
+        //         unit: '°C',
+        //         visible: true,
+        //         position: 'default'
+        //     },
+        //     p132: {
+        //         name: 'T3',
+        //         value: 33,
+        //         unit: '°C',
+        //         visible: true,
+        //         position: 'default'
+        //     },
+        //     p134: {
+        //         name: 'T4',
+        //         value: 34,
+        //         unit: '°C',
+        //         visible: true,
+        //         position: 'default'
+        //     },
+        //     p136: {
+        //         name: 'TEMPERATURA T1',
+        //         value: 34,
+        //         unit: '°C',
+        //         visible: true,
+        //         position: 'default'
+        //     },
+        //     p138: {
+        //         name: 'T6',
+        //         value: 34,
+        //         unit: '°C',
+        //         visible: true,
+        //         position: 'default'
+        //     },
+        //     p152: {
+        //         name: 'F1',
+        //         value: 33,
+        //         unit: 'l/min',
+        //         visible: true,
+        //         position: 'default'
+        //     },
+        //     p292: {
+        //         name: 'F2',
+        //         value: 12,
+        //         unit: 'l/min',
+        //         visible: true,
+        //         position: 'default'
+        //     },
+        //     p156: {
+        //         name: 'E1',
+        //         value: 100,
+        //         unit: '%',
+        //         visible: true,
+        //         position: 'default'
+        //     }
+        // };
+
+      const data = { //example COP
+        date: {
+          fill: '#00b100',
+          value: '15-12-2017 14:01:50'
+        },
+        p128: {
+          name: 'Moc',
+          value: 1,
+          unit: 'W',
+          visible: true,
+          position: 'default'
+        },
+        p132: {
+          name: 'Moc',
+          value: 11,
+          unit: 'W',
+          visible: true,
+          position: 'default'
+        },
+        p140: {
+          name: 'Napięcie',
+          value: 1,
+          unit: 'V',
+          visible: true,
+          position: 'default'
+        },
+        p144: {
+          name: 'Napięcie',
+          value: 1,
+          unit: 'V',
+          visible: true,
+          position: 'default'
+        },
+        p148: {
+          name: 'Natężenie',
+          value: 1,
+          unit: 'A',
+          visible: true,
+          position: 'default'
+        },
+        p152: {
+          name: 'Natężenie',
+          value: 1,
+          unit: 'A',
+          visible: true,
+          position: 'default'
+        },
+        p160: {
+          name: 'Ogrzewanie 1',
+          value: 1,
+          unit: 'kWh',
+          visible: true,
+          position: 'default'
+        },
+        p168: {
+          name: 'Ogrzewanie 2',
+          value: 122,
+          unit: 'kWh',
+          visible: true,
+          position: 'default'
+        },
+        p184: {
+          name: 'Temperatura T1',
+          value: 122,
+          unit: '°C',
+          visible: true,
+          position: 'default'
+        },
+        p186: {
+          name: 'Temperatura T2',
+          value: 122,
+          unit: '°C',
+          visible: true,
+          position: 'default'
+        },
+        p186_p184: {
+          name: 'Różnica T1 - T2',
+          value: 122,
+          unit: '°C',
+          visible: true,
+          position: 'default'
+        },
+        p192: {
+          name: 'Moc',
+          value: 11,
+          unit: 'W',
+          visible: true,
+          position: 'default'
+        },
+        p190: {
+          name: 'Przepływ',
+          value: 122,
+          unit: 'l/min',
+          visible: true,
+          position: 'default'
+        },
+        p200: {
+          name: 'Ciepło',
+          value: 122,
+          unit: 'kWh',
+          visible: true,
+          position: 'default'
+        },
+        p208: {
+          name: 'Wodomierz',
+          value: 122,
+          unit: 'l',
+          visible: true,
+          position: 'default'
+        },
+        p230: {
+          name: 'Chłód',
+          value: 11,
+          unit: 'kWh',
+          visible: true,
+          position: 'default'
+        },
+        p232: {
+          name: 'Rozmrażanie',
+          value: 11,
+          unit: 'kWh',
+          visible: true,
+          position: 'default'
+        },
+        p238: {
+          name: 'Chłodzenie',
+          value: 12,
+          unit: 'kWh',
+          visible: true,
+          position: 'default'
+        },
+      };
         window.addEventListener("resize", this.updateDimensions.bind(this));
         this.props.updateData(data);
         this.updateDimensions()
@@ -200,7 +335,8 @@ class App extends Component {
     render() {
         return (
            //<Split width={840} height={553}/>
-            <Solar />
+            //<Solar />
+          <COP />
         );
     }
 }

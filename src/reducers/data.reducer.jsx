@@ -31,6 +31,26 @@ const initialState = {
     p154: {},
     p156: {},
     p292: {},
+
+  //cop needed params
+  p128: {},
+  p132: {},
+  p140: {},
+  p144: {},
+  p148: {},
+  p160: {},
+  p168: {},
+  p184: {},
+  p186: {},
+  p186_p184: {},
+  p190: {},
+  p192: {},
+  p200: {},
+  p208: {},
+  p230: {},
+  p232: {},
+  p238: {},
+
 };
 
 export const data = (state = initialState, action) => {
