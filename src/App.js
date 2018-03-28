@@ -172,7 +172,7 @@ class App extends Component {
             },
             p170: {
                 name: 'Schemat',
-                value: 8,
+                value: 9,
             },
             p292: {
                 name: 'F2',
