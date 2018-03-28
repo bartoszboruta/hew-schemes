@@ -34,7 +34,7 @@ class ArrowLine extends Component {
 export { ArrowLine }
 
 ArrowLine.propTypes = {
-  direction: PropTypes.oneOf('left', 'right', 'top', 'bottom'),
+  direction: PropTypes.oneOf(['left', 'right', 'top', 'bottom']),
   left: PropTypes.number,
   lineWidth: PropTypes.number,
   top: PropTypes.number,

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { AutomaticBoiler, Clock, SvgContainer, SolarPanel, Boiler, Coil, Connector, Pipe, Pump, FlowMeter, ReadField, DateRead, Shower, TriConnector } from '../../../components';
+import { AutomaticBoiler, Clock, SvgContainer, SolarPanel, Boiler, Coil, Connector, Pipe, Pump, FlowMeter, ReadField, Shower, TriConnector } from '../../../components';
 import PropTypes from 'prop-types';
 
 class Scheme3 extends Component {

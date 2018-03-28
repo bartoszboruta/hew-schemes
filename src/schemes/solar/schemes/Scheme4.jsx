@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Heater, Clock, SvgContainer, SolarPanel, Boiler, Coil, Connector, Pipe, Pump, FlowMeter, ReadField, DateRead, Shower, TriConnector } from '../../../components';
+import { Heater, Clock, SvgContainer, SolarPanel, Boiler, Coil, Connector, Pipe, Pump, FlowMeter, ReadField, Shower, TriConnector } from '../../../components';
 import PropTypes from 'prop-types';
 
 class Scheme4 extends Component {
@@ -93,7 +93,7 @@ class Scheme4 extends Component {
   }
 
   renderPumpP() {
-    return <g transform={'translate('+ 32 + ' ' + 300 +')'}>
+    return <g transform={'translate(' + 32 + ' ' + 300 + ')'}>
       <Pump active={this.props.data.p156.value} />
       <ReadField param={'p156'} left={35} top={3} />
     </g>
@@ -105,11 +105,11 @@ class Scheme4 extends Component {
 
   renderFlowMeters() {
     return <g>
-      {this.props.data.p152.visible && <g transform={'translate('+ 34 + ' ' + 270 +')'}>
-        <FlowMeter/>
+      {this.props.data.p152.visible && <g transform={'translate(' + 34 + ' ' + 270 + ')'}>
+        <FlowMeter />
         <ReadField param={'p152'} left={33} />
       </g>}
-      {this.props.data.p292.visible && <g transform={'translate('+ 190 + ' ' + 393.5 +')'}>
+      {this.props.data.p292.visible && <g transform={'translate(' + 190 + ' ' + 393.5 + ')'}>
         <FlowMeter direction={'horizontal'} />
         <ReadField param={'p292'} left={-25} top={30} />
       </g>}
@@ -122,7 +122,7 @@ class Scheme4 extends Component {
       {this.renderCirculation()}
       <Shower left={384.25} top={165} />
       <SolarPanel left={50} />
-      <Clock left={459}/>
+      <Clock left={459} />
       {this.renderBoiler()}
       {this.renderHeater()}
       {this.renderPumpP()}

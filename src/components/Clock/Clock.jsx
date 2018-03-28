@@ -35,7 +35,7 @@ class Clock extends Component {
             d="m 12.220381,6.9178884 v 5.9442136 l 3.007095,2.599291"
           />
         </g>
-        {this.state.hover && <DateRead left={25} top={40} />}
+        {this.state.hover && <DateRead top={40} />}
       </g>
     )
   }
