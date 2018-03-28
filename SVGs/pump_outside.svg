@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="86.713303mm"
+   height="189.5863mm"
+   viewBox="0 0 86.713303 189.5863"
+   version="1.1"
+   id="svg5499"
+   inkscape:version="0.92.2 (5c3e80d, 2017-08-06)"
+   sodipodi:docname="pump_outside.svg">
+  <defs
+     id="defs5493">
+    <linearGradient
+       id="SVGID_81_"
+       gradientUnits="userSpaceOnUse"
+       x1="-0.00048828131"
+       y1="150.7002"
+       x2="0.99900001"
+       y2="150.7002"
+       gradientTransform="matrix(7.9166,0,0,28.2382,138.4961,-4150.8853)">
+      <stop
+         offset="0"
+         style="stop-color:#EBECEC"
+         id="stop1774" />
+      <stop
+         offset="1"
+         style="stop-color:#FEFEFE"
+         id="stop1776" />
+    </linearGradient>
+    <clipPath
+       id="SVGID_80_-6">
+      <use
+         height="100%"
+         width="100%"
+         y="0"
+         x="0"
+         style="overflow:visible"
+         xlink:href="#SVGID_79_"
+         overflow="visible"
+         id="use1771-6" />
+    </clipPath>
+    <rect
+       id="rect5927"
+       x="138.494"
+       y="90.495003"
+       width="7.9159999"
+       height="28.237" />
+    <linearGradient
+       id="SVGID_81_-5"
+       gradientUnits="userSpaceOnUse"
+       x1="-0.00048828131"
+       y1="150.7002"
+       x2="0.99900001"
+       y2="150.7002"
+       gradientTransform="matrix(7.9166,0,0,28.2382,138.4961,-4150.8853)">
+      <stop
+         offset="0"
+         style="stop-color:#EBECEC"
+         id="stop1774-1" />
+      <stop
+         offset="1"
+         style="stop-color:#FEFEFE"
+         id="stop1776-7" />
+    </linearGradient>
+    <clipPath
+       id="SVGID_80_">
+      <use
+         height="100%"
+         width="100%"
+         y="0"
+         x="0"
+         style="overflow:visible"
+         xlink:href="#SVGID_79_"
+         overflow="visible"
+         id="use1771" />
+    </clipPath>
+    <rect
+       id="SVGID_79_"
+       x="138.494"
+       y="90.495003"
+       width="7.9159999"
+       height="28.237" />
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.45254834"
+     inkscape:cx="-68.135153"
+     inkscape:cy="-130.56053"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="1920"
+     inkscape:window-height="1027"
+     inkscape:window-x="1912"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata5496">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <rect
+       style="clip-rule:evenodd;fill:#ffffff;fill-rule:evenodd;stroke-width:0.26458332"
+       x="9.1053333"
+       y="0.30742645"
+       width="59.444798"
+       height="157.62199"
+       id="rect1744" />
+    <rect
+       style="clip-rule:evenodd;fill:#808080;fill-rule:evenodd;stroke-width:0.26458332"
+       x="8.8615932"
+       y="1.4893417"
+       width="0.90100002"
+       height="155.85181"
+       id="rect1746" />
+    <rect
+       style="clip-rule:evenodd;fill:#808080;fill-rule:evenodd;stroke-width:0.26458332"
+       x="8.8615932"
+       y="156.74753"
+       width="59.688599"
+       height="1.1819001"
+       id="rect1748" />
+    <polygon
+       transform="matrix(5.3,0,0,5.3,-713.4595,-472.5321)"
+       style="fill:#c4c7c7;stroke-width:0.04992139"
+       points="134.615,120.597 134.967,120.597 148.704,120.597 149.056,120.597 150.975,123.992 150.976,124.928 150.555,124.928 148.535,121.593 135.615,121.593 135.615,124.928 134.615,124.928 134.615,120.948 "
+       id="polygon1750" />
+    <rect
+       style="clip-rule:evenodd;fill:#e6e6e6;fill-rule:evenodd;stroke-width:0.26458332"
+       x="19.090557"
+       y="7.0914001"
+       width="1.4681001"
+       height="149.6561"
+       id="rect1752" />
+    <rect
+       style="clip-rule:evenodd;fill-rule:evenodd;stroke-width:0.26458332"
+       x="2.5280395"
+       y="161.61292"
+       width="7.9976997"
+       height="5.0137997"
+       id="rect1754" />
+    <polygon
+       transform="matrix(5.3,0,0,5.3,-713.4595,-472.5321)"
+       style="clip-rule:evenodd;fill:#b3b3b3;fill-rule:evenodd;stroke-width:0.04992139"
+       points="136.517,118.955 135.578,119.65 137.451,119.65 137.451,118.955 "
+       id="polygon1756" />
+    <rect
+       style="clip-rule:evenodd;fill-rule:evenodd;stroke-width:0.26458332"
+       x="66.674095"
+       y="161.61292"
+       width="7.9976997"
+       height="5.0137997"
+       id="rect1758" />
+    <polygon
+       transform="matrix(5.3,0,0,5.3,-713.4595,-472.5321)"
+       style="clip-rule:evenodd;fill:#b3b3b3;fill-rule:evenodd;stroke-width:0.04992139"
+       points="147.279,118.955 148.218,119.65 146.345,119.65 146.345,118.955 "
+       id="polygon1760" />
+    <rect
+       style="clip-rule:evenodd;fill:#1a1a1a;fill-rule:evenodd;stroke-width:0.26458332"
+       x="62.513569"
+       y="6.7893372"
+       width="5.8459005"
+       height="149.95821"
+       id="rect1762" />
+    <rect
+       style="clip-rule:evenodd;fill:#ffffff;fill-rule:evenodd;stroke-width:0.26458332"
+       x="8.8615932"
+       y="0.30205536"
+       width="59.688599"
+       height="6.4925003"
+       id="rect1764" />
+    <path
+       inkscape:connector-curvature="0"
+       style="fill:#808080;stroke-width:0.26458332"
+       d="M 68.09972,6.2380937 V 0.85331371 H 9.312127 V 6.2380937 Z m 0.726102,-5.93598999 v 6.49248999 0.30199 H 68.550222 8.8616328 8.5860318 V 6.7945937 0.30210371 1.1371094e-4 h 0.275604 59.6885902 0.275604 z"
+       id="path1766" />
+    <g
+       transform="matrix(5.3,0,0,5.3,-713.4595,-472.5321)"
+       id="g1781"
+       style="stroke-width:0.04992139">
+      <defs
+         id="defs1769">
+        <rect
+           id="rect6117"
+           x="138.494"
+           y="90.495003"
+           width="7.9159999"
+           height="28.237" />
+      </defs>
+      <clipPath
+         id="clipPath5773">
+        <use
+           height="100%"
+           width="100%"
+           y="0"
+           x="0"
+           style="overflow:visible"
+           xlink:href="#SVGID_79_"
+           overflow="visible"
+           id="use5771" />
+      </clipPath>
+      <linearGradient
+         id="linearGradient5779"
+         gradientUnits="userSpaceOnUse"
+         x1="-0.00048828131"
+         y1="150.7002"
+         x2="0.99900001"
+         y2="150.7002"
+         gradientTransform="matrix(7.9166,0,0,28.2382,138.4961,-4150.8853)">
+        <stop
+           offset="0"
+           style="stop-color:#EBECEC"
+           id="stop5775" />
+        <stop
+           offset="1"
+           style="stop-color:#FEFEFE"
+           id="stop5777" />
+      </linearGradient>
+      <rect
+         style="fill:url(#SVGID_81_);stroke-width:0.04992139"
+         x="138.494"
+         y="90.495003"
+         clip-path="url(#SVGID_80_-6)"
+         width="7.9159999"
+         height="28.237"
+         id="rect1779" />
+    </g>
+    <polygon
+       transform="matrix(5.3,0,0,5.3,-713.4595,-472.5321)"
+       style="clip-rule:evenodd;fill:#c4c2c2;fill-rule:evenodd;stroke-width:0.04992139"
+       points="146.41,90.495 136.646,90.495 136.434,90.495 136.422,90.495 136.422,118.509 136.42,118.509 136.42,118.732 136.422,118.732 136.646,118.732 146.41,118.732 146.41,118.509 136.646,118.509 136.646,90.718 146.41,90.718 "
+       id="polygon1783" />
+  </g>
+</svg>

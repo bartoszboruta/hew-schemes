@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="183.354mm"
+   height="142.19099mm"
+   viewBox="0 0 183.354 142.19099"
+   version="1.1"
+   id="svg631"
+   inkscape:version="0.92.2 (5c3e80d, 2017-08-06)"
+   sodipodi:docname="solar_panel.svg">
+  <defs
+     id="defs625">
+    <linearGradient
+       id="linearGradient3049-1"
+       spreadMethod="pad"
+       gradientTransform="matrix(144.21258,-171.65352,-175.73983,-147.27601,107.44134,230.56054)"
+       gradientUnits="userSpaceOnUse"
+       y2="0"
+       x2="0.89999998"
+       y1="0"
+       x1="0.1">
+      <stop
+         id="stop3051-6"
+         offset="0"
+         style="stop-opacity:1;stop-color:#053a8a" />
+      <stop
+         id="stop3053-6"
+         offset="1"
+         style="stop-opacity:1;stop-color:#ef0705" />
+    </linearGradient>
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.24748737"
+     inkscape:cx="904.77396"
+     inkscape:cy="199.3177"
+     inkscape:document-units="mm"
+     inkscape:current-layer="svg631"
+     showgrid="false"
+     inkscape:window-width="1920"
+     inkscape:window-height="1027"
+     inkscape:window-x="1912"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata628">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <path
+     id="path3055"
+     style="fill:url(#linearGradient3049-1);fill-rule:evenodd;stroke:none;stroke-width:6.72771025"
+     d="M 172.09563,1.21296 1.5314961,127.91341 c -0.68255023,0.507 -0.82508968,1.47602 -0.317457,2.15772 l 7.8846782,10.5882 c 0.5072606,0.68169 1.4778657,0.82479 2.1604157,0.31817 L 181.82327,14.27704 c 0.68254,-0.507 0.82509,-1.47602 0.31746,-2.15771 L 174.25604,1.53114 c -0.50763,-0.68171 -1.47897,-0.82481 -2.16041,-0.31818"
+     inkscape:connector-curvature="0" />
+  <path
+     inkscape:connector-curvature="0"
+     d="M 179.2144,8.59675 6.3123234,137.03378"
+     style="fill:none;stroke:#e5e5e5;stroke-width:1.52584457;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:22.92558479;stroke-dasharray:none;stroke-opacity:1"
+     id="path3057" />
+  <path
+     inkscape:connector-curvature="0"
+     d="M 177.23931,5.10204 4.3376171,133.53758"
+     style="fill:none;stroke:#e5e5e5;stroke-width:1.52584457;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:22.92558479;stroke-dasharray:none;stroke-opacity:1"
+     id="path3059" />
+  <path
+     inkscape:connector-curvature="0"
+     d="M 172.01413,1.27317 1.6115103,127.85432 c -0.72571931,0.53859 -0.8786808,1.57227 -0.337552,2.29821 l 7.7655848,10.42763 c 0.5392687,0.7248 1.5738839,0.87683 2.2999759,0.33712 L 181.74288,14.33615 c 0.72609,-0.5386 0.87793,-1.5723 0.33756,-2.2971 L 174.31596,1.61142 c -0.54113,-0.72593 -1.57499,-0.87796 -2.30183,-0.33825 z"
+     style="fill:none;stroke:#2b2929;stroke-width:1.9073056;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:22.92558479;stroke-dasharray:none;stroke-opacity:1"
+     id="path3061" />
+</svg>

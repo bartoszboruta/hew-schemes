@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="63.334999mm"
+   height="105.2103mm"
+   viewBox="0 0 63.334999 105.2103"
+   version="1.1"
+   id="svg6357"
+   inkscape:version="0.92.2 (5c3e80d, 2017-08-06)"
+   sodipodi:docname="pump_inside.svg">
+  <defs
+     id="defs6351" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.35355339"
+     inkscape:cx="342.55397"
+     inkscape:cy="400.11213"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="1920"
+     inkscape:window-height="1027"
+     inkscape:window-x="1912"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata6354">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <rect
+       style="clip-rule:evenodd;fill:#c4c2c2;fill-rule:evenodd;stroke-width:0.26458332"
+       x="6.3427733e-006"
+       y="0.0052425489"
+       width="1.1872001"
+       height="104.092"
+       id="rect1785-9" />
+    <rect
+       style="clip-rule:evenodd;fill-rule:evenodd;stroke-width:0.26458332"
+       x="0.82677329"
+       y="0.58298606"
+       width="25.747398"
+       height="103.509"
+       id="rect1787-4" />
+    <rect
+       style="clip-rule:evenodd;fill:#241c75;fill-rule:evenodd;stroke-width:0.26458332"
+       x="7.7803712"
+       y="72.758385"
+       width="11.845499"
+       height="6.0419998"
+       id="rect1789-9" />
+    <rect
+       style="clip-rule:evenodd;fill:#ffffff;fill-rule:evenodd;stroke-width:0.26458332"
+       x="26.579466"
+       y="0.83738059"
+       width="34.455299"
+       height="103.2546"
+       id="rect1791-0" />
+    <polygon
+       transform="matrix(5.3,0,0,5.3,-566.4322,-334.8911)"
+       style="clip-rule:evenodd;fill:#808080;fill-rule:evenodd;stroke-width:0.04992139"
+       points="118.601,82.827 118.601,63.188 118.824,63.188 118.824,82.827 118.824,82.927 118.824,83.038 106.874,83.038 106.874,82.827 "
+       id="polygon1793-8" />
+    <path
+       inkscape:connector-curvature="0"
+       style="clip-rule:evenodd;fill:#c4c2c2;fill-rule:evenodd;stroke-width:0.26458332"
+       d="M 62.15309,104.09199 H 62.14179 60.9546 0.518705 v -1.18723 H 60.95528 V 1.1818766 H 0.519383 V -2.3369141e-5 H 60.95528 62.0789 62.1424 C 62.1424,34.693777 62.1537,69.414067 62.1537,104.09199"
+       id="path1795-6" />
+  </g>
+</svg>

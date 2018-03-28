@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="14.505mm"
+   height="14.506mm"
+   viewBox="0 0 14.505 14.506"
+   version="1.1"
+   id="svg850"
+   inkscape:version="0.92.2 (5c3e80d, 2017-08-06)"
+   sodipodi:docname="tri_connector.svg">
+  <defs
+     id="defs844">
+    <linearGradient
+       id="id14-5"
+       gradientUnits="userSpaceOnUse"
+       x1="243.033"
+       y1="122.319"
+       x2="243.033"
+       y2="117.185">
+      <stop
+         offset="0"
+         stop-color="#A8A6A6"
+         id="stop270-7" />
+      <stop
+         offset="0.17154109"
+         stop-color="#E0E0E0"
+         id="stop272-4" />
+      <stop
+         offset="0.3737874"
+         stop-color="whitesmoke"
+         id="stop274-8" />
+      <stop
+         offset="1"
+         stop-color="#D4D4D4"
+         id="stop276-2" />
+    </linearGradient>
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="3.959798"
+     inkscape:cx="-2.8599463"
+     inkscape:cy="-12.426414"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="1920"
+     inkscape:window-height="1027"
+     inkscape:window-x="1912"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata847">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <polygon
+       style="clip-rule:evenodd;fill:url(#id14-5);fill-rule:evenodd;stroke-width:0.02241785;image-rendering:optimizeQuality;shape-rendering:geometricPrecision;text-rendering:geometricPrecision"
+       points="247.165,117.185 247.165,122.317 238.898,122.317 238.898,117.185 "
+       id="_651556696"
+       transform="matrix(1.7546002,0,0,2.8263835,-419.17047,-331.20931)" />
+    <rect
+       style="clip-rule:evenodd;fill:#b3b3b3;fill-rule:evenodd;stroke-width:0.04992278;image-rendering:optimizeQuality;shape-rendering:geometricPrecision;text-rendering:geometricPrecision"
+       height="9"
+       width="1.1500562"
+       y="5.5059996"
+       x="13.354277"
+       id="_651550096" />
+    <rect
+       style="clip-rule:evenodd;fill:#b3b3b3;fill-rule:evenodd;stroke-width:0.04992278;image-rendering:optimizeQuality;shape-rendering:geometricPrecision;text-rendering:geometricPrecision"
+       height="9"
+       width="1.3899347"
+       y="5.5059996"
+       x="0"
+       id="_651554080" />
+    <rect
+       id="rect1418"
+       x="0.00099468231"
+       y="-11.752"
+       width="1.15"
+       height="9"
+       style="clip-rule:evenodd;fill:#b3b3b3;fill-rule:evenodd;stroke-width:0.04992278;image-rendering:optimizeQuality;shape-rendering:geometricPrecision;text-rendering:geometricPrecision"
+       transform="rotate(90)" />
+    <rect
+       style="opacity:1;fill:#ffffff;fill-opacity:1;stroke-width:0.26458332"
+       id="rect1424"
+       width="2.7519999"
+       height="5.5050001"
+       x="0"
+       y="0.00099468231" />
+    <rect
+       y="0.00099468231"
+       x="11.752"
+       height="5.5050001"
+       width="2.7519999"
+       id="rect1426"
+       style="opacity:1;fill:#ffffff;fill-opacity:1;stroke-width:0.26458332" />
+  </g>
+</svg>
