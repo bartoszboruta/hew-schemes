@@ -3,6 +3,116 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 Below you will find some information on how to perform common tasks.<br>
 You can find the most recent version of this guide [here](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md).
 
+## Example config for split
+```js
+// height={553} width={840} //to app.js
+
+const data = {
+      date: {
+          fill: '#00b100',
+          value: '15-12-2017 14:01:50'
+      },
+      CWU: {
+          value: true,
+          visible: true,
+          type: {
+              name: 'coil', //condenser / coil
+              value: true
+          },
+          additionalHeater: {
+              name: 'heater',
+              unit: '',
+              value: true,
+          },
+          circulation: {
+              value: true,
+              visible: true,
+          },
+      },
+      CO: {
+          visible: true,
+          value: false,
+          type: {
+              name: 'boiler', //noBoiler / boiler
+              value: true
+          },
+          additionalHeater: {
+              name: 'heater', //heater /automatic_boiler
+              unit: '',
+              value: true,
+          }
+      },
+      p128: {
+          name: 'T1',
+          value: 123,
+          unit: '°C',
+      },
+      p132: {
+          name: 'T2',
+          value: 33,
+          unit: '°C',
+      },
+      p134: {
+          name: 'T3',
+          value: 33,
+          unit: '°C',
+      },
+      p140: {
+          name: 'T6',
+          value: 33,
+          unit: '°C',
+      },
+      p146: {
+          name: 'T9',
+          value: 33,
+          unit: '°C',
+      },
+      p150: {
+          name: 'T11',
+          value: 15,
+          unit: '°C',
+      },
+      p152: {
+          name: 'T12',
+          value: 15,
+          unit: '°C',
+      },
+      p154: {
+          name: 'T13',
+          value: 15,
+          unit: '°C',
+      },
+      p156: {
+          name: 'T14',
+          value: 15,
+          unit: '°C',
+      },
+      Output: {
+          circuit1: {
+              value: false,
+              visible: true,
+          },
+          circuit2: {
+              value: false,
+              visible: true,
+          },
+          circuit3: {
+              value: true,
+              visible: false,
+          },
+          temperatureSensor: {
+              name: 'analog' //digital
+          },
+          value: true,
+      },
+      PC1: {
+          value: 10
+      },
+      PC2: {
+          value: 0
+      },
+};
+```
 ## Table of Contents
 
 - [Updating to New Releases](#updating-to-new-releases)
