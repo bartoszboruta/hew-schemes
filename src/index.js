@@ -9,7 +9,7 @@ const target = document.querySelector('#root');
 
 render(
     <Provider store={store}>
-        <App />
+        <App parent={target}/>
     </Provider>,
     target
 );
