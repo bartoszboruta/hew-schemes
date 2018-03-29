@@ -83,6 +83,10 @@ const config = { //example solar
 
 const run = (config, selector) => {
     const target = document.querySelector(selector);
+    if (!target) {
+        return;
+    }
+
     const handler = render(
         <Provider store={store}>
             <App parent={target}/>
