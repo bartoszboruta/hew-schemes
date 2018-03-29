@@ -27,3 +27,4 @@ export * from './TriValve';
 export * from './ValuesContainer';
 export * from './ArrowLine';
 export * from './SingleValve';
+export * from './Overlay';

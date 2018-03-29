@@ -11,6 +11,7 @@ import {
   Scheme7,
   Scheme8,
   Scheme9,
+  Scheme10,
   Scheme17,
 } from './schemes';
 
@@ -24,6 +25,7 @@ class Solar extends Component {
     scheme7: Scheme7,
     scheme8: Scheme8,
     scheme9: Scheme9,
+    scheme10: Scheme10,
     scheme17: Scheme17,
   };
 
