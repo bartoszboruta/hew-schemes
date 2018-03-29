@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="63.334999mm"
+   height="108.7666mm"
+   viewBox="0 0 63.334999 108.7666"
+   version="1.1"
+   id="svg6626"
+   inkscape:version="0.92.2 (5c3e80d, 2017-08-06)"
+   sodipodi:docname="automatic_boiler.svg">
+  <defs
+     id="defs6620">
+    <linearGradient
+       id="SVGID_60_"
+       gradientUnits="userSpaceOnUse"
+       x1="-0.00048828131"
+       y1="150.7002"
+       x2="0.99949998"
+       y2="150.7002"
+       gradientTransform="matrix(4.4283,0,0,1.0879,72.668,-83.6042)">
+      <stop
+         offset="0"
+         style="stop-color:#C4C2C2"
+         id="stop1519" />
+      <stop
+         offset="1"
+         style="stop-color:#A0A0A0"
+         id="stop1521" />
+    </linearGradient>
+    <clipPath
+       id="SVGID_59_">
+      <use
+         height="100%"
+         width="100%"
+         y="0"
+         x="0"
+         style="overflow:visible"
+         xlink:href="#SVGID_58_"
+         overflow="visible"
+         id="use1516" />
+    </clipPath>
+    <linearGradient
+       id="SVGID_57_"
+       gradientUnits="userSpaceOnUse"
+       x1="0"
+       y1="150.7002"
+       x2="1"
+       y2="150.7002"
+       gradientTransform="matrix(11.9503,0,0,19.7399,68.9063,-2901.7593)">
+      <stop
+         offset="0"
+         style="stop-color:#EBECEC"
+         id="stop1488" />
+      <stop
+         offset="1"
+         style="stop-color:#FEFEFE"
+         id="stop1490" />
+    </linearGradient>
+    <clipPath
+       id="SVGID_56_">
+      <use
+         height="100%"
+         width="100%"
+         y="0"
+         x="0"
+         style="overflow:visible"
+         xlink:href="#SVGID_55_"
+         overflow="visible"
+         id="use1485" />
+    </clipPath>
+    <rect
+       id="SVGID_55_"
+       x="68.908997"
+       y="63.171001"
+       width="11.95"
+       height="19.74" />
+    <rect
+       id="SVGID_58_"
+       x="72.668999"
+       y="79.805"
+       width="4.428"
+       height="1.0880001" />
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.7"
+     inkscape:cx="317.94779"
+     inkscape:cy="86.461779"
+     inkscape:document-units="mm"
+     inkscape:current-layer="svg6626"
+     showgrid="false"
+     inkscape:window-width="1920"
+     inkscape:window-height="1027"
+     inkscape:window-x="1912"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata6623">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <rect
+     style="clip-rule:evenodd;fill:#999999;fill-rule:evenodd;stroke-width:0.26458341"
+     x="20.04995"
+     y="3.6522018e-005"
+     width="23.2299"
+     height="3.5563002"
+     id="rect1480" />
+  <g
+     transform="matrix(5.3000001,0,0,5.3000001,-365.21769,-331.25001)"
+     id="g1495"
+     style="stroke-width:0.04992138">
+    <defs
+       id="defs1483">
+      <rect
+         id="rect6870"
+         x="68.908997"
+         y="63.171001"
+         width="11.95"
+         height="19.74" />
+    </defs>
+    <clipPath
+       id="clipPath6784">
+      <use
+         height="100%"
+         width="100%"
+         y="0"
+         x="0"
+         style="overflow:visible"
+         xlink:href="#SVGID_55_"
+         overflow="visible"
+         id="use6782" />
+    </clipPath>
+    <linearGradient
+       id="linearGradient6790"
+       gradientUnits="userSpaceOnUse"
+       x1="0"
+       y1="150.7002"
+       x2="1"
+       y2="150.7002"
+       gradientTransform="matrix(11.9503,0,0,19.7399,68.9063,-2901.7593)">
+      <stop
+         offset="0"
+         style="stop-color:#EBECEC"
+         id="stop6786" />
+      <stop
+         offset="1"
+         style="stop-color:#FEFEFE"
+         id="stop6788" />
+    </linearGradient>
+    <rect
+       style="fill:url(#SVGID_57_);stroke-width:0.04992138"
+       x="68.908997"
+       y="63.171001"
+       clip-path="url(#SVGID_56_)"
+       width="11.95"
+       height="19.74"
+       id="rect1493" />
+  </g>
+  <rect
+     style="clip-rule:evenodd;fill:#c4c2c2;fill-rule:evenodd;stroke-width:0.26458341"
+     x="61.029572"
+     y="3.556349"
+     width="1.1872001"
+     height="104.62201"
+     id="rect1497" />
+  <rect
+     style="clip-rule:evenodd;fill:#cccccc;fill-rule:evenodd;stroke-width:0.26458341"
+     x="0.5883109"
+     y="4.1658311"
+     width="1.1872001"
+     height="104.01251"
+     id="rect1499" />
+  <polygon
+     transform="matrix(5.3000001,0,0,5.3000001,-365.21769,-331.25001)"
+     style="clip-rule:evenodd;fill:#808080;fill-rule:evenodd;stroke-width:0.04992138"
+     points="80.858,82.799 80.858,82.911 80.858,83.022 69.02,83.022 69.02,82.799 80.635,82.799 80.635,63.171 80.858,63.171 "
+     id="polygon1501" />
+  <polygon
+     transform="matrix(5.3000001,0,0,5.3000001,-365.21769,-331.25001)"
+     style="clip-rule:evenodd;fill:#c4c2c2;fill-rule:evenodd;stroke-width:0.04992138"
+     points="69.02,63.394 69.02,63.171 80.424,63.171 80.635,63.171 80.647,63.171 80.647,82.588 80.649,82.588 80.649,82.812 80.647,82.812 80.424,82.812 69.02,82.812 69.02,82.588 80.424,82.588 80.424,63.394 "
+     id="polygon1503" />
+  <rect
+     style="clip-rule:evenodd;fill:#808080;fill-rule:evenodd;stroke-width:0.26458341"
+     x="20.638222"
+     y="3.6522018e-005"
+     width="22.053299"
+     height="3.5563002"
+     id="rect1505" />
+  <rect
+     style="clip-rule:evenodd;fill:#b3b3b3;fill-rule:evenodd;stroke-width:0.26458341"
+     x="17.500622"
+     y="89.379242"
+     width="28.333803"
+     height="10.441"
+     id="rect1507" />
+  <rect
+     style="clip-rule:evenodd;fill:#cccccc;fill-rule:evenodd;stroke-width:0.26458341"
+     x="18.216125"
+     y="90.158356"
+     width="26.8922"
+     height="8.8828001"
+     id="rect1509" />
+  <rect
+     style="clip-rule:evenodd;fill:#808080;fill-rule:evenodd;stroke-width:0.26458341"
+     x="19.016449"
+     y="90.900337"
+     width="25.302202"
+     height="7.3988004"
+     id="rect1511" />
+  <g
+     transform="matrix(5.3000001,0,0,5.3000001,-365.21769,-331.25001)"
+     id="g1526"
+     style="stroke-width:0.04992138">
+    <defs
+       id="defs1514">
+      <rect
+         id="rect6888"
+         x="72.668999"
+         y="79.805"
+         width="4.428"
+         height="1.0880001" />
+    </defs>
+    <clipPath
+       id="clipPath6806">
+      <use
+         height="100%"
+         width="100%"
+         y="0"
+         x="0"
+         style="overflow:visible"
+         xlink:href="#SVGID_58_"
+         overflow="visible"
+         id="use6804" />
+    </clipPath>
+    <linearGradient
+       id="linearGradient6812"
+       gradientUnits="userSpaceOnUse"
+       x1="-0.00048828131"
+       y1="150.7002"
+       x2="0.99949998"
+       y2="150.7002"
+       gradientTransform="matrix(4.4283,0,0,1.0879,72.668,-83.6042)">
+      <stop
+         offset="0"
+         style="stop-color:#C4C2C2"
+         id="stop6808" />
+      <stop
+         offset="1"
+         style="stop-color:#A0A0A0"
+         id="stop6810" />
+    </linearGradient>
+    <rect
+       style="fill:url(#SVGID_60_);stroke-width:0.04992138"
+       x="72.668999"
+       y="79.805"
+       clip-path="url(#SVGID_59_)"
+       width="4.428"
+       height="1.0880001"
+       id="rect1524" />
+  </g>
+</svg>
