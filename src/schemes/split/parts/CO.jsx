@@ -94,7 +94,7 @@ class CO extends Component {
                                 id={"CO_2"}
                                 active={this.props.data.CO.value}
                                 activeColor={'cold'}
-                                d={'M 5 160 L 289 160 S 297 160 297 152 L 297 5'}                                duration={6}
+                                d={'M 5 160 L 289 160 S 297 160 297 152 L 297 5'}
                                 duration={9}
                                 left={344}
                                 top={345}
