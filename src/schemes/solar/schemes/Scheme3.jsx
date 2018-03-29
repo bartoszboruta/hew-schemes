@@ -55,7 +55,6 @@ class Scheme3 extends Component {
         activeColor={'hot'}
         begin={3}
         d={'M 44 5 L 10.8 5 S 5 5 5 10.8 L 5 164.2 S 5 170 10.8 170 L 64 170'}
-        direction={'reversed'}
         duration={7}
         left={206}
         top={139.7}
