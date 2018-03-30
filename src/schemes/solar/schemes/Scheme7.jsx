@@ -21,7 +21,7 @@ class Scheme7 extends Component {
     return (
       <g>
         <Pipe
-          id={'Scheme_1_panel_left_cold'}
+          id={'panel_left_cold'}
           active={this.props.data.p154.value}
           activeColor={'cold'}
           d={'M 15 5 L 9.751545139010435 8.673918402692696 S 5 12 5 17.8 L 5 247.2 S 5 253 10.8 253 L 235 253'}
@@ -31,7 +31,7 @@ class Scheme7 extends Component {
           top={130}
         />
         <Pipe
-          id={'Scheme_1_panel_left_hot'}
+          id={'panel_left_hot'}
           active={this.props.data.p154.value}
           activeColor={'hot'}
           d={'M 210 23 L 230.29310081958133 8.38896740990144 S 235 5 240.3974958658397 7.122978657039074 L 239.4925041341603 6.767021342960927 S 244.89 8.89 245.46712157032178 14.661215703217938 L 245.3128784296782 13.118784296782064 S 245.89 18.89 241.205355212781 22.30966419661081 L 239.464644787219 23.58033580338919 S 234.78 27 230.11987807370778 30.453007910806225 L 174.66012192629222 71.54699208919378 S 170 75 170 80.8 L 170 340.2 S 170 346 175.8 346 L 272 346'}
@@ -155,7 +155,7 @@ class Scheme7 extends Component {
           <ReadField param={'p130'} left={196} top={352.5} />
         )}
         {this.props.data.p132.visible && (
-          <ReadField param={'p132'} left={62} top={237.25} />
+          <ReadField param={'p132'} left={62} top={236.5} />
         )}
         {this.props.data.p134.visible && (
           <ReadField param={'p134'} left={425.5} top={352.5} />
@@ -200,7 +200,7 @@ class Scheme7 extends Component {
 
   render() {
     return (
-      <SvgContainer width={650} height={458.1}>
+      <SvgContainer width={650} height={558.1}>
         {this.renderPipes()}
         {this.renderCirculation()}
         <Shower left={614.25} top={165} />

@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { SvgContainer, SolarPanel, Boiler, Coil, Connector, Pipe, Pump, FlowMeter, ReadField, DateRead, Shower } from '../../../components';
+import { SvgContainer, SolarPanel, Boiler, Coil, Clock, Connector, Pipe, Pump, FlowMeter, ReadField, Shower } from '../../../components';
 import PropTypes from 'prop-types';
 
 class Scheme1 extends Component {
   renderPipes() {
     return <g>
       <Pipe
-        id={'Scheme_1_panel_left_cold'}
+        id={'panel_left_cold'}
         active={this.props.data.p154.value}
         activeColor={'cold'}
         d={'M 15 5 L 9.751545139010435 8.673918402692696 S 5 12 5 17.8 L 5 247.2 S 5 253 10.8 253 L 235 253'}
@@ -17,7 +17,7 @@ class Scheme1 extends Component {
         top={130}
       />
       <Pipe
-        id={'Scheme_1_panel_left_hot'}
+        id={'panel_left_hot'}
         active={this.props.data.p154.value}
         activeColor={'hot'}
         d={'M 210 23 L 230.29310081958133 8.38896740990144 S 235 5 240.3974958658397 7.122978657039074 L 239.4925041341603 6.767021342960927 S 244.89 8.89 245.46712157032178 14.661215703217938 L 245.3128784296782 13.118784296782064 S 245.89 18.89 241.205355212781 22.30966419661081 L 239.464644787219 23.58033580338919 S 234.78 27 230.11987807370778 30.453007910806225 L 174.66012192629222 71.54699208919378 S 170 75 170 80.8 L 170 340.2 S 170 346 175.8 346 L 272 346 '}
@@ -66,16 +66,16 @@ class Scheme1 extends Component {
 
   renderReadFields() {
     return <g>
-      {this.props.data.p128.visible && <ReadField param={'p128'} left={265} />}
-      {this.props.data.p130.visible && <ReadField param={'p130'} left={190} top={352.5} />}
-      {this.props.data.p132.visible && <ReadField param={'p132'} />}
+      {this.props.data.p128.visible && <ReadField param={'p128'} left={256} />}
+      {this.props.data.p130.visible && <ReadField param={'p130'} left={196} top={352.5} />}
+      {this.props.data.p132.visible && <ReadField param={'p132'} left={62} top={236.5} />}
     </g>
   }
 
   renderPumpP() {
     return <g transform={'translate('+ 32 + ' ' + 300 +')'}>
       <Pump active={this.props.data.p156.value} />
-      <ReadField param={'p156'} left={35} top={3} />
+      <ReadField param={'p156'} left={30} top={3} />
     </g>
   }
 
@@ -83,11 +83,11 @@ class Scheme1 extends Component {
     return <g>
       {this.props.data.p152.visible && <g transform={'translate('+ 34 + ' ' + 270 +')'}>
         <FlowMeter/>
-        <ReadField param={'p152'} left={33} />
+        <ReadField param={'p152'} left={28} />
       </g>}
       {this.props.data.p292.visible && <g transform={'translate('+ 190 + ' ' + 393.5 +')'}>
         <FlowMeter direction={'horizontal'} />
-        <ReadField param={'p292'} left={-25} top={30} />
+        <ReadField param={'p292'} left={-25} top={26} />
       </g>}
     </g>
   }
@@ -97,7 +97,7 @@ class Scheme1 extends Component {
       {this.renderPipes()}
       <Shower left={384.25} top={165} />
       <SolarPanel left={50} />
-      <DateRead />
+      <Clock left={400} />
       {this.renderBoiler()}
       {this.renderPumpP()}
       {this.renderReadFields()}
