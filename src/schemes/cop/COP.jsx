@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 
 class COP extends Component {
   render() {
-    return <SvgContainer height={800} width={800} >
+    return <SvgContainer height={775} width={600} >
       <Clock left={735} />
       <ArrowLine width={210} direction={'bottom'} left={487} top={295} />
       <ArrowLine width={221} left={248} top={100} />
