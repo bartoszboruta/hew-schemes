@@ -6,79 +6,138 @@ import { App } from './App';
 import { updateData } from './actions';
 import registerServiceWorker from './registerServiceWorker';
 
-const config = { //example solar
-    type: 'solar',
+const config = {
+    type: 'cop',
     date: {
         fill: '#00b100',
         value: '15-12-2017 14:01:50'
     },
-    p128: { //visible, position
-        name: 'T1',
-        value: 123,
-        unit: '°C',
-        visible: true,
-        position: 'default'
-    },
-    p130: {
-        name: 'T2',
-        value: 11,
-        unit: '°C',
+    p128: {
+        name: 'Moc',
+        value: 1,
+        unit: 'W',
         visible: true,
         position: 'default'
     },
     p132: {
-        name: 'T3',
-        value: 33,
-        unit: '°C',
+        name: 'Moc',
+        value: 11,
+        unit: 'W',
         visible: true,
         position: 'default'
     },
-    p134: {
-        name: 'T4',
-        value: 34,
-        unit: '°C',
+    p140: {
+        name: 'Napięcie',
+        value: 1,
+        unit: 'V',
         visible: true,
         position: 'default'
     },
-    p136: {
-        name: 'T5',
-        value: 34,
-        unit: '°C',
+    p144: {
+        name: 'Napięcie',
+        value: 1,
+        unit: 'V',
         visible: true,
         position: 'default'
     },
-    p138: {
-        name: 'T6',
-        value: 34,
-        unit: '°C',
+    p148: {
+        name: 'Natężenie',
+        value: 1,
+        unit: 'A',
         visible: true,
         position: 'default'
     },
     p152: {
-        name: 'F1',
-        value: 33,
+        name: 'Natężenie',
+        value: 1,
+        unit: 'A',
+        visible: true,
+        position: 'default'
+    },
+    p160: {
+        name: 'Ogrzewanie 1',
+        value: 1,
+        unit: 'kWh',
+        visible: true,
+        position: 'default'
+    },
+    p168: {
+        name: 'Ogrzewanie 2',
+        value: 122,
+        unit: 'kWh',
+        visible: true,
+        position: 'default'
+    },
+    p184: {
+        name: 'Temperatura T1',
+        value: 122,
+        unit: '°C',
+        visible: true,
+        position: 'default'
+    },
+    p186: {
+        name: 'Temperatura T2',
+        value: 122,
+        unit: '°C',
+        visible: true,
+        position: 'default'
+    },
+    p186_p184: {
+        name: 'Różnica T1 - T2',
+        value: 122,
+        unit: '°C',
+        visible: true,
+        position: 'default'
+    },
+    p192: {
+        name: 'Moc',
+        value: 11,
+        unit: 'W',
+        visible: true,
+        position: 'default'
+    },
+    p190: {
+        name: 'Przepływ',
+        value: 122,
         unit: 'l/min',
         visible: true,
         position: 'default'
     },
-    p170: {
-        name: 'Schemat',
-        value: 3,
+    p200: {
+        name: 'Ciepło',
+        value: 122,
+        unit: 'kWh',
+        visible: true,
+        position: 'default'
     },
-    p292: {
-        name: 'F2',
+    p208: {
+        name: 'Wodomierz',
+        value: 122,
+        unit: 'l',
+        visible: true,
+        position: 'default'
+    },
+    p230: {
+        name: 'Chłód',
+        value: 11,
+        unit: 'kWh',
+        visible: true,
+        position: 'default'
+    },
+    p232: {
+        name: 'Rozmrażanie',
+        value: 11,
+        unit: 'kWh',
+        visible: true,
+        position: 'default'
+    },
+    p238: {
+        name: 'Chłodzenie',
         value: 12,
-        unit: 'l/min',
+        unit: 'kWh',
         visible: true,
         position: 'default'
     },
-    p156: {
-        name: 'E1',
-        value: 100,
-        unit: '%',
-        visible: true,
-        position: 'default'
-    }
 };
 
 const run = (config, selector) => {

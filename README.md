@@ -8,6 +8,75 @@ You can find the most recent version of guide [here](https://github.com/facebook
     yarn start - runs app for developer
     yarn build - creates static files for app in ./build directory
 
+#### Needed params
+
+###### Solar
+```js
+params = {
+    p128: {},
+    p130: {},
+    p132: {},
+    p134: {},
+    p136: {},
+    p138: {},
+    p152: {},
+    p154: {},
+    p156: {},
+    p170: {
+    value: 1
+    },
+    p292: {}
+}
+
+```
+###### Split
+```js
+params = {
+  CO: {
+    type: {},
+    additionalHeater: {}
+  },
+  CWU: {
+    type: {},
+    additionalHeater: {},
+    circulation: {}
+  },
+  date: {},
+  PC1: {},
+  PC2: {},
+  Output: {
+    circuit1: {},
+    circuit2: {},
+    circuit3: {},
+    temperatureSensor: {}
+  },
+}
+```
+
+###### COP
+```js
+params = {
+    p128: {},
+    p132: {},
+    p140: {},
+    p144: {},
+    p148: {},
+    p160: {},
+    p168: {},
+    p184: {},
+    p186: {},
+    p186_p184: {},
+    p190: {},
+    p192: {},
+    p200: {},
+    p208: {},
+    p230: {},
+    p232: {},
+    p238: {},
+}
+
+```
+
 ### Ekontrol usage example
 ```js
 
@@ -197,51 +266,139 @@ config = {
 
 scheme.updateConfig(config);
 
-```
-
-#### Needed params
-
-###### Solar
-```js
-params = {
-    p128: {},
-    p130: {},
-    p132: {},
-    p134: {},
-    p136: {},
-    p138: {},
-    p152: {},
-    p154: {},
-    p156: {},
-    p170: {
-    value: 1
+config = {
+    type: 'cop',
+    date: {
+        fill: '#00b100',
+        value: '15-12-2017 14:01:50'
     },
-    p292: {}
-}
-
-```
-
-###### COP
-```js
-params = {
-    p128: {},
-    p132: {},
-    p140: {},
-    p144: {},
-    p148: {},
-    p160: {},
-    p168: {},
-    p184: {},
-    p186: {},
-    p186_p184: {},
-    p190: {},
-    p192: {},
-    p200: {},
-    p208: {},
-    p230: {},
-    p232: {},
-    p238: {},
-}
+    p128: {
+        name: 'Moc',
+        value: 1,
+        unit: 'W',
+        visible: true,
+        position: 'default'
+    },
+    p132: {
+        name: 'Moc',
+        value: 11,
+        unit: 'W',
+        visible: true,
+        position: 'default'
+    },
+    p140: {
+        name: 'Napięcie',
+        value: 1,
+        unit: 'V',
+        visible: true,
+        position: 'default'
+    },
+    p144: {
+        name: 'Napięcie',
+        value: 1,
+        unit: 'V',
+        visible: true,
+        position: 'default'
+    },
+    p148: {
+        name: 'Natężenie',
+        value: 1,
+        unit: 'A',
+        visible: true,
+        position: 'default'
+    },
+    p152: {
+        name: 'Natężenie',
+        value: 1,
+        unit: 'A',
+        visible: true,
+        position: 'default'
+    },
+    p160: {
+        name: 'Ogrzewanie 1',
+        value: 1,
+        unit: 'kWh',
+        visible: true,
+        position: 'default'
+    },
+    p168: {
+        name: 'Ogrzewanie 2',
+        value: 122,
+        unit: 'kWh',
+        visible: true,
+        position: 'default'
+    },
+    p184: {
+        name: 'Temperatura T1',
+        value: 122,
+        unit: '°C',
+        visible: true,
+        position: 'default'
+    },
+    p186: {
+        name: 'Temperatura T2',
+        value: 122,
+        unit: '°C',
+        visible: true,
+        position: 'default'
+    },
+    p186_p184: {
+        name: 'Różnica T1 - T2',
+        value: 122,
+        unit: '°C',
+        visible: true,
+        position: 'default'
+    },
+    p192: {
+        name: 'Moc',
+        value: 11,
+        unit: 'W',
+        visible: true,
+        position: 'default'
+    },
+    p190: {
+        name: 'Przepływ',
+        value: 122,
+        unit: 'l/min',
+        visible: true,
+        position: 'default'
+    },
+    p200: {
+        name: 'Ciepło',
+        value: 122,
+        unit: 'kWh',
+        visible: true,
+        position: 'default'
+    },
+    p208: {
+        name: 'Wodomierz',
+        value: 122,
+        unit: 'l',
+        visible: true,
+        position: 'default'
+    },
+    p230: {
+        name: 'Chłód',
+        value: 11,
+        unit: 'kWh',
+        visible: true,
+        position: 'default'
+    },
+    p232: {
+        name: 'Rozmrażanie',
+        value: 11,
+        unit: 'kWh',
+        visible: true,
+        position: 'default'
+    },
+    p238: {
+        name: 'Chłodzenie',
+        value: 12,
+        unit: 'kWh',
+        visible: true,
+        position: 'default'
+    },
+};
 
 ```
 Good luck!
