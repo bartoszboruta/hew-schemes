@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 
 class Heater extends Component {
     static getGradients() {
@@ -59,7 +60,7 @@ class Heater extends Component {
                 height='8.2965469'
                 style={{stroke:'#b3b3b3' ,fill:'#e8e8e8', fillRule:'evenodd'}}>
                 {
-                    this.props.active &&
+                    !this.props.data.animationsPaused && this.props.active &&
                         <animate
                             attributeName='fill'
                             dur='8s'
@@ -82,16 +83,26 @@ class Heater extends Component {
     }
 }
 
-export { Heater }
+const mapStateToProps = (state) => {
+  const { data } = state;
+  return {
+    data,
+  };
+};
+
+const ConnectedHeater = connect(mapStateToProps)(Heater);
+export { ConnectedHeater as Heater }
 
 Heater.propTypes = {
-    active: PropTypes.bool,
-    left: PropTypes.number,
-    top: PropTypes.number,
+  active: PropTypes.bool,
+  data: PropTypes.object,
+  left: PropTypes.number,
+  top: PropTypes.number,
 };
 
 Heater.defaultProps = {
     active: false,
+    data: {},
     left: 0,
     top: 0,
 };

@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-
+import { connect } from 'react-redux';
+ 
 class FlowHeater extends Component {
     static getGradients() {
         return <defs>
@@ -74,7 +75,7 @@ class FlowHeater extends Component {
                     }}
                     transform='matrix(4.8565804,0,0,4.3173383,-297.29557,-460.33188)'>
                     {
-                        this.props.active &&
+                        !this.props.animationsPaused && this.props.active &&
                         <animate
                             attributeName='fill'
                             dur='8s'
@@ -101,14 +102,24 @@ class FlowHeater extends Component {
     }
 }
 
-export { FlowHeater }
+const mapStateToProps = (state) => {
+  const { data } = state;
+  return {
+    data,
+  };
+};
+
+const ConnectedFlowHeater = connect(mapStateToProps)(FlowHeater);
+export { ConnectedFlowHeater as FlowHeater }
 
 FlowHeater.propTypes = {
-    left: PropTypes.number,
-    top: PropTypes.number,
+  data: PropTypes.object,
+  left: PropTypes.number,
+  top: PropTypes.number,
 };
 
 FlowHeater.defaultProps = {
-    left: 0,
-    top: 0,
+  data: {},
+  left: 0,
+  top: 0,
 };

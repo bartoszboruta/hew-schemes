@@ -28,3 +28,4 @@ export * from './ValuesContainer';
 export * from './ArrowLine';
 export * from './SingleValve';
 export * from './Overlay';
+export * from './Pause';

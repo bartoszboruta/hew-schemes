@@ -13,6 +13,7 @@ import {
   Scheme9,
   Scheme10,
   Scheme11,
+  Scheme12,
   Scheme17,
 } from './schemes';
 
@@ -28,6 +29,7 @@ class Solar extends Component {
     scheme9: Scheme9,
     scheme10: Scheme10,
     scheme11: Scheme11,
+    scheme12: Scheme12,
     scheme17: Scheme17,
   };
 
@@ -36,7 +38,7 @@ class Solar extends Component {
     if (!Scheme) {
       return null;
     }
-    
+
     return <Scheme />;
   }
 }

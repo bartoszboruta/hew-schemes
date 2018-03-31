@@ -1,20 +1,38 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { SvgContainer, SolarPanel, Boiler, Coil, Connector, Pipe, Pump, FlowMeter, ReadField, Clock, Shower, TriConnector, TriValve, Overlay } from '../../../components';
+import { SvgContainer, SolarPanel, Boiler, Coil, Connector, Pipe, Pump, FlowMeter, ReadField, Clock, Shower, TriConnector, Overlay, Pause } from '../../../components';
 import PropTypes from 'prop-types';
 
-class Scheme11 extends Component {
+class Scheme12 extends Component {
   renderPipes() {
     return <g>
       <Pipe
         id={'left_boiler_to_panel_output_cold'}
         active={true}
         activeColor={'cold'}
-        d={'M 5 5 L 240 5'}
+        d={'M 5 5 L 19.2 5 S 25 5 25 10.8 L 25 207.2 S 25 213 30.8 213 L 230 213'}
         direction={'reversed'}
         duration={9}
         left={40}
-        top={378}
+        top={170}
+      />
+      <Pipe
+        id={'panel_left_cold'}
+        active={this.props.data.p154.value}
+        activeColor={'cold'}
+        d={'M 15 5 L 9.751545139010435 8.673918402692696 S 5 12 5 17.8 L 5 40'}
+        duration={10}
+        left={40}
+        top={130}
+      />
+      <Pipe
+        id={'panel_left_cold_1'}
+        active={this.props.data.p154.value}
+        activeColor={'cold'}
+        d={'M 25 5 L 10.8 5 S 5 5 5 10.8 L 5 290.2 S 5 296 10.8 296 L 454.2 296 S 460 296 460 290.2 L 460 219.8 S 460 214 465.8 214 L 480 214 '}
+        duration={10}
+        left={20}
+        top={170}
       />
       <Pipe
         id={'left_boiler_output_cold'}
@@ -26,16 +44,6 @@ class Scheme11 extends Component {
         top={399}
       />
       <Overlay width={20} height={34} left={163} top={377.5}/>
-      <Pipe
-        id={'panel_left_cold'}
-        active={this.props.data.p154.value}
-        activeColor={'cold'}
-        d={'M 15 5 L 9.751545139010435 8.673918402692696 S 5 12 5 17.8 L 5 330.2 S 5 336 10.8 336 L 434.2 336 S 440 336 440 330.2 L 440 258.3 S 440 252.5 445.8 252.5 L 460 252.5'}
-        direction={'reversed'}
-        duration={10}
-        left={40}
-        top={130}
-      />
       <Pipe
         id={'panel_left_hot'}
         active={this.props.data.p154.value}
@@ -89,7 +97,7 @@ class Scheme11 extends Component {
       <Connector left={270} top={379.5} />
       <TriConnector direction={'rotatedRight'} left={167} top={335} />
       <TriConnector direction={'reversedVertical'} left={472.25} top={140} />
-      <TriValve left={29} top={372.5} />
+      <TriConnector left={37} top={167.5} />
     </g>
   }
 
@@ -104,13 +112,20 @@ class Scheme11 extends Component {
     return <g>
       {this.props.data.p128.visible && <ReadField param={'p128'} left={256} />}
       {this.props.data.p130.visible && <ReadField param={'p130'} left={196} top={352.5} />}
-      {this.props.data.p132.visible && <ReadField param={'p132'} left={62} top={236.5} />}
+      {this.props.data.p132.visible && <ReadField param={'p132'} left={82} top={236.5} />}
       {this.props.data.p134.visible && <ReadField param={'p134'} left={426} top={316} />}
     </g>
   }
 
   renderPumpP() {
-    return <g transform={'translate('+ 32 + ' ' + 300 +')'}>
+    return <g transform={'translate('+ 52 + ' ' + 300 +')'}>
+      <Pump active={this.props.data.p156.value} />
+      <ReadField param={'p156'} left={30} top={3} />
+    </g>
+  }
+
+  renderPumpK() {
+    return <g transform={'translate('+ 13 + ' ' + 416.5 +')'}>
       <Pump active={this.props.data.p156.value} />
       <ReadField param={'p156'} left={30} top={3} />
     </g>
@@ -118,7 +133,7 @@ class Scheme11 extends Component {
 
   renderFlowMeters() {
     return <g>
-      {this.props.data.p152.visible && <g transform={'translate('+ 34 + ' ' + 270 +')'}>
+      {this.props.data.p152.visible && <g transform={'translate('+ 54 + ' ' + 270 +')'}>
         <FlowMeter/>
         <ReadField param={'p152'} left={28} />
       </g>}
@@ -165,13 +180,15 @@ class Scheme11 extends Component {
     return <SvgContainer width={650} height={558.1}>
       {this.renderPipes()}
       <Shower left={614.25} top={165} />
+      <Pause />
       <SolarPanel left={50} />
       <Clock left={615}/>
       {this.renderCirculation()}
       {this.renderBoiler()}
       {this.renderBoilerRight()}
-      {Scheme11.renderConnectors()}
+      {Scheme12.renderConnectors()}
       {this.renderPumpP()}
+      {this.renderPumpK()}
       {this.renderReadFields()}
       {this.renderFlowMeters()}
     </SvgContainer>
@@ -184,16 +201,16 @@ const mapStateToProps = ({ data }) => {
   };
 };
 
-const ConnectedScheme11 = connect(mapStateToProps)(Scheme11);
-export { ConnectedScheme11 as Scheme11 }
+const ConnectedScheme12 = connect(mapStateToProps)(Scheme12);
+export { ConnectedScheme12 as Scheme12 }
 
-Scheme11.propTypes = {
+Scheme12.propTypes = {
   data: PropTypes.object,
   height: PropTypes.number,
   width: PropTypes.number,
 };
 
-Scheme11.defaultProps = {
+Scheme12.defaultProps = {
   data: {},
   height: 0,
   width: 0,

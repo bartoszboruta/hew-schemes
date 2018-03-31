@@ -17,8 +17,7 @@ class DateRead extends Component {
                     x={0}
                     y={0}>
                     {
-                      // this.props.data.date.value
-                      new Date().toLocaleString()
+                      this.props.data.date.value
                     }
                 </text>
             </g>

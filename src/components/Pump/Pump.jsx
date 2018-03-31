@@ -1,11 +1,11 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 
 class Pump extends Component {
     render() {
         return (
             <g className='Pump' transform={'translate(' + this.props.left + ' ' + this.props.top + ')'}>
-
                 <circle
                     style={{fill:'#ffffff', fillRule:'nonzero', strokeWidth:'0.26458332'}}
                     cx='12.324'
@@ -32,9 +32,8 @@ class Pump extends Component {
                     <path
                         style={{fill:'#dddddd', fillRule:'nonzero', strokeWidth:'0.26458454'}}
                         d='m 18.692232,15.215338 -6.368366,0 -6.3683662,0 3.184183,-5.5151669 3.1841832,-5.5151669 3.184183,5.5151667 z'/>
-
                         {
-                            this.props.active &&
+                            !this.props.data.animationsPaused && this.props.active &&
                                 <animateTransform
                                     attributeName='transform'
                                     attributeType='XML'
@@ -51,16 +50,26 @@ class Pump extends Component {
     }
 }
 
-export { Pump }
+const mapStateToProps = (state) => {
+  const { data } = state;
+  return {
+    data,
+  };
+};
+
+const ConnectedPump = connect(mapStateToProps)(Pump);
+export { ConnectedPump as Pump }
 
 Pump.propTypes = {
     activeDuration: PropTypes.number,
+    data: PropTypes.object,
     left: PropTypes.number,
     top: PropTypes.number,
 };
 
 Pump.defaultProps = {
     activeDuration: 2,
+    data: {},
     left: 0,
     top: 0,
 };
