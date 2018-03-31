@@ -1,45 +1,54 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Clock, SvgContainer, LongReadField, ValuesContainer, ArrowLine } from '../../components';
+import { Clock, SvgContainer, ValuesContainer, ArrowLine } from '../../components';
 import PropTypes from 'prop-types';
 
 class COP extends Component {
   render() {
-    return <SvgContainer height={775} width={600} >
+    return <SvgContainer width={775} height={600} >
       <Clock left={735} />
       <ArrowLine width={210} direction={'bottom'} left={487} top={295} />
       <ArrowLine width={221} left={248} top={100} />
       <ArrowLine width={221} left={248} top={130} />
 
-      <ValuesContainer name={'Zasilanie elektryczne'} top={40}>
-        <LongReadField param={'p160'} left={50} top={40}/>
-        <LongReadField param={'p168'} left={50} top={70}/>
-        <LongReadField param={'p238'} left={50} top={100}/>
-      </ValuesContainer>
-
-        <LongReadField param={'p140'} left={285} top={0}/>
-        <LongReadField param={'p148'} left={285} top={30}/>
-        <LongReadField param={'p128'} left={285} top={60}/>
-
-        <LongReadField param={'p144'} left={285} top={150}/>
-        <LongReadField param={'p152'} left={285} top={180}/>
-        <LongReadField param={'p132'} left={285} top={210}/>
-
-      <ValuesContainer name={'Źródło ciepła'} left={467} top={40}>
-        <LongReadField param={'p200'} left={50} top={40}/>
-        <LongReadField param={'p230'} left={50} top={70}/>
-        <LongReadField param={'p232'} left={50} top={100}/>
-      </ValuesContainer>
-
-      <LongReadField param={'p184'} left={612} top={225}/>
-      <LongReadField param={'p186'} left={612} top={255}/>
-      <LongReadField param={'p186_p184'} left={612} top={285}/>
-      <LongReadField param={'p192'} left={612} top={315}/>
-      <LongReadField param={'p190'} left={612} top={345}/>
-
-      <ValuesContainer name={'Odbiornik ciepła'} height={90} left={467} top={400}>
-        <LongReadField param={'p208'} left={50} top={40}/>
-      </ValuesContainer>
+      <ValuesContainer
+        name={'Zasilanie elektryczne'}
+        params={['p160','p168','p238']}
+        color={'#ed9c28'}
+        textColor={'white'}
+        top={40}
+      />
+      <ValuesContainer
+        params={['p140','p148','p128']}
+        left={235}
+        top={0}
+      />
+      <ValuesContainer
+        params={['p144','p152','p132']}
+        left={235}
+        top={140}
+      />
+      <ValuesContainer
+        name={'Źródło ciepła'}
+        params={['p200','p230','p232']}
+        color={'#ed9c28'}
+        textColor={'white'}
+        left={467}
+        top={40}
+      />
+      <ValuesContainer
+        params={['p184','p186','p186_p184','p192','p190']}
+        left={562}
+        top={215}
+      />
+      <ValuesContainer
+        name={'Odbiornik ciepła'}
+        params={['p208']}
+        color={'#ed9c28'}
+        textColor={'white'}
+        left={467}
+        top={400}
+      />
     </SvgContainer>
   }
 }
