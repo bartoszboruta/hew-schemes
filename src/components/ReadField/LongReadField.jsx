@@ -25,7 +25,6 @@ class LongReadField extends Component {
 
   static getDerivedStateFromProps(nextProps, prevState) {
     if (nextProps.rectWidth !== prevState.rectWidth) {
-      console.log(nextProps, prevState)
       return {
         rectWidth: nextProps.rectWidth,
         rectTranslateX: prevState.rectWidth + prevState.rectTranslateX - nextProps.rectWidth,

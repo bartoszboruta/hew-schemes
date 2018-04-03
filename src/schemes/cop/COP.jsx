@@ -30,7 +30,7 @@ class COP extends Component {
       />
       <ValuesContainer
         name={'Źródło ciepła'}
-        params={['p200','p230','p232']}
+        params={['p200','p230_h_10','p230_l_10']} //sum of 230 lasting for a period of time h_10 >= 10min, l_10 < 10min
         color={'#ed9c28'}
         textColor={'white'}
         left={467}
