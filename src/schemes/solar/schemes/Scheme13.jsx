@@ -83,8 +83,6 @@ class Scheme13 extends Component {
         {this.props.data.p128.visible && <ReadField left={256} param={'p128'} />}
         {this.props.data.p130.visible && <ReadField left={196} param={'p130'} top={352.5} />}
         {this.props.data.p132.visible && <ReadField left={62} param={'p132'} top={236.5} />}
-        {this.props.data.p134.visible && <ReadField left={372} param={'p134'} top={248.75} />}
-        {this.props.data.p136.visible && <ReadField left={472} param={'p136'} top={248.75} />}
       </g>
     )
   }
@@ -112,23 +110,54 @@ class Scheme13 extends Component {
           left={250}
           top={-60}
         />
-        {/* <Pipe
-          id={'furnace_cold'}
+        <Pipe
           active={active}
           activeColor={'cold'}
           begin={0}
-          d={'M 0 5 L 24.2 5 S 30 5 30 10.8 L 30 119.2 S 30 125 35.8 125 L 120 125'}
+          d={'M 5 5 L 60 5 '}
           duration={7}
-          left={76}
-          top={38}
-        /> */}
+          id={'furnace_cold_1'}
+          left={68}
+          top={163}
+        />
+        <Pipe
+          active={active}
+          activeColor={'cold'}
+          begin={0}
+          d={'M 5 5 L 60 5 '}
+          duration={7}
+          id={'furnace_cold_2'}
+          left={135}
+          top={163}
+        />
 
-        <TriValve left={120} />
+        <Pipe
+          active={active}
+          activeColor={'cold'}
+          begin={0}
+          d={'M 5 220 L 5 35.8 S 5 30 10.8 30 L 94.2 30 S 100 30 100 24.2 L 100 5'}
+          duration={7}
+          id={'furnace_cold_3'}
+          left={128}
+          top={-60}
+        />
+
+        <Pipe
+          active={active}
+          activeColor={'hot'}
+          begin={0}
+          d={'M 5 5 L 94.2 5 S 100 5 100 10.8 L 100 170'}
+          duration={7}
+          id={'furnace_hot'}
+          left={68}
+          top={-2.5}
+        />
+
+        <TriValve direction="bottom" left={120} top={161} />
 
         <Furnace left={190} top={59} />
-        <Pump active={active} left={93} top={91.5} />
 
-        <Connector left={65.5} top={90} />
+        <Connector left={65.5} top={144} />
         <Connector left={65.5} top={-22.5} />
       </g>
     )
