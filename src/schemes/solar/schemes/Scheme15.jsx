@@ -152,6 +152,14 @@ class Scheme15 extends Component {
     )
   }
 
+  renderPumpK() {
+    return (
+      <g transform={'translate(' + 581 + ' ' + 300 + ')'}>
+        <Pump active={this.props.data.p156.value} />
+      </g>
+    )
+  }
+
   renderFlowMeters() {
     return (
       <g>
@@ -184,6 +192,7 @@ class Scheme15 extends Component {
         {this.renderCirculation()}
         {this.renderBoiler()}
         {this.renderPumpP()}
+        {this.renderPumpK()}
         {this.renderReadFields()}
         {this.renderFlowMeters()}
       </SvgContainer>
