@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
 
 import {
   Scheme1,
@@ -14,9 +14,12 @@ import {
   Scheme10,
   Scheme11,
   Scheme12,
+  Scheme13,
+  Scheme14,
+  Scheme15,
+  Scheme16,
   Scheme17,
-} from './schemes';
-
+} from './schemes'
 class Solar extends Component {
   schemes = {
     scheme1: Scheme1,
@@ -30,37 +33,39 @@ class Solar extends Component {
     scheme10: Scheme10,
     scheme11: Scheme11,
     scheme12: Scheme12,
+    scheme13: Scheme13,
+    scheme14: Scheme14,
+    scheme15: Scheme15,
+    scheme16: Scheme16,
     scheme17: Scheme17,
-  };
+  }
 
   render() {
-    const Scheme = this.schemes['scheme' + this.props.data.p170.value];
+    const Scheme = this.schemes['scheme' + this.props.data.p170.value]
     if (!Scheme) {
-      return null;
+      return null
     }
 
-    return <Scheme />;
+    return <Scheme />
   }
 }
 
 const mapStateToProps = state => {
-  const { data } = state;
+  const { data } = state
   return {
-    data
-  };
-};
+    data,
+  }
+}
 
-const ConnectedSolar = connect(mapStateToProps)(Solar);
-export { ConnectedSolar as Solar };
+const ConnectedSolar = connect(mapStateToProps)(Solar)
+export { ConnectedSolar as Solar }
 
 Solar.propTypes = {
   data: PropTypes.object,
-  height: PropTypes.number,
-  width: PropTypes.number
-};
+}
 
 Solar.defaultProps = {
   data: {},
   height: 0,
-  width: 0
-};
+  width: 0,
+}

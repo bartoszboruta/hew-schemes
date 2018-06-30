@@ -1,1 +1,1 @@
-export * from './Solar';
+export * from './Solar'
