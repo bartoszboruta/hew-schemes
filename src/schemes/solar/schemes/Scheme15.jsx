@@ -12,10 +12,11 @@ import {
   FlowMeter,
   ReadField,
   Shower,
+  TriConnector,
 } from '../../../components'
 import PropTypes from 'prop-types'
 
-class Scheme1 extends Component {
+class Scheme15 extends Component {
   renderPipes() {
     return (
       <g>
@@ -63,6 +64,28 @@ class Scheme1 extends Component {
           left={245}
           top={139.5}
         />
+        <Pipe
+          active={true}
+          activeColor={'cold'}
+          d={
+            'M 5 5 L 5 64.2 S 5 70 10.8 70 L 487.2 70 S 493 70 493 64.2 L 493 -233.2 S 493 -239 488.24845486098957 -242.3260815973073 L 483 -246'
+          }
+          duration={22}
+          id={'right_boiler_output_cold'}
+          left={100}
+          top={380}
+        />
+        <Pipe
+          active={true}
+          activeColor={'hot'}
+          d={
+            'm 5,50 h 214.2 c 0,0 5.8,0 5.8,-5.8 V 5.9961305 -13.27441 -40.165882 c 0,-2.866517 1.6049,-7.079113 7.61144,-7.079113 0,0 3.80668,-0.132408 7.3857,4.580482'
+          }
+          duration={10}
+          id={'right_boiler_output_hot'}
+          left={170}
+          top={50}
+        />
       </g>
     )
   }
@@ -74,6 +97,28 @@ class Scheme1 extends Component {
         <Connector left={270} top={317} />
         <Connector left={270} top={359} />
         <Connector left={270} top={379.5} />
+        <TriConnector direction={'reversedVertical'} left={242.25} top={140} />
+        <TriConnector direction={'reversedVertical'} left={97.25} top={378.5} />
+        <TriConnector direction={'rotatedRight'} left={166.5} top={94} />
+      </g>
+    )
+  }
+
+  renderCirculation() {
+    return (
+      <g>
+        <Pipe
+          active={true}
+          activeColor={'hot'}
+          begin={3}
+          d={'M 44 5 L 10.8 5 S 5 5 5 10.8 L 5 164.2 S 5 170 10.8 170 L 64 170 '}
+          direction={'reversed'}
+          duration={7}
+          id={'left_boiler_circulation_1'}
+          left={206}
+          top={139.7}
+        />
+        <Pump active={this.props.data.p156.value} left={199} top={216} />
       </g>
     )
   }
@@ -83,7 +128,7 @@ class Scheme1 extends Component {
       <g>
         <Boiler left={270} top={200} />
         <Coil active={this.props.data.p154.value} direction={'right'} left={270} top={340} />
-        {Scheme1.renderConnectors()}
+        {Scheme15.renderConnectors()}
       </g>
     )
   }
@@ -91,9 +136,9 @@ class Scheme1 extends Component {
   renderReadFields() {
     return (
       <g>
-        {this.props.data.p128.visible && <ReadField left={256} param={'p128'} />}
+        {this.props.data.p128.visible && <ReadField left={254} param={'p128'} />}
         {this.props.data.p130.visible && <ReadField left={196} param={'p130'} top={352.5} />}
-        {this.props.data.p132.visible && <ReadField left={62} param={'p132'} top={236.5} />}
+        {this.props.data.p132.visible && <ReadField left={324} param={'p132'} />}
       </g>
     )
   }
@@ -132,7 +177,11 @@ class Scheme1 extends Component {
         {this.renderPipes()}
         <Shower left={384.25} top={165} />
         <SolarPanel left={50} />
-        <Clock left={400} />
+        <g transform={'scale(-1,1)'}>
+          <SolarPanel left={-588} />
+        </g>
+        <Clock left={600} />
+        {this.renderCirculation()}
         {this.renderBoiler()}
         {this.renderPumpP()}
         {this.renderReadFields()}
@@ -148,14 +197,14 @@ const mapStateToProps = ({ data }) => {
   }
 }
 
-const ConnectedScheme1 = connect(mapStateToProps)(Scheme1)
-export { ConnectedScheme1 as Scheme1 }
+const ConnectedScheme15 = connect(mapStateToProps)(Scheme15)
+export { ConnectedScheme15 as Scheme15 }
 
-Scheme1.propTypes = {
+Scheme15.propTypes = {
   data: PropTypes.object,
 }
 
-Scheme1.defaultProps = {
+Scheme15.defaultProps = {
   data: {},
   height: 0,
   width: 0,
