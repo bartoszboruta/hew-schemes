@@ -121,16 +121,25 @@ class Scheme13 extends Component {
           top={163}
         />
         <Pipe
-          active={active}
+          active={active} // p154_1 > 0 = szary ; p154_1=0 = niebieski;
           activeColor={'cold'}
           begin={0}
-          d={'M 5 5 L 60 5 '}
+          d={'M 5 5 L 30 5 '}
           duration={7}
           id={'furnace_cold_2'}
           left={135}
           top={163}
         />
-
+        <Pipe
+          active={active} // p154_1 == 0 && niebieski kiedy p154_1=0; p154_1 > 0 to czerwony
+          activeColor={'cold'} //czerwony albo niebieski
+          begin={0}
+          d={'M 5 5 L 30 5 '}
+          duration={7}
+          id={'furnace_cold_2_1'}
+          left={165}
+          top={163}
+        />
         <Pipe
           active={active}
           activeColor={'cold'}

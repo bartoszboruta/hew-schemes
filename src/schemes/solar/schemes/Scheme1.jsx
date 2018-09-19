@@ -20,7 +20,7 @@ class Scheme1 extends Component {
     return (
       <g>
         <Pipe
-          active={this.props.data.p154.value}
+          active={this.props.data.p154.value} //p154_0 && p156 > 0
           activeColor={'cold'}
           d={
             'M 15 5 L 9.751545139010435 8.673918402692696 S 5 12 5 17.8 L 5 247.2 S 5 253 10.8 253 L 235 253'
@@ -32,7 +32,7 @@ class Scheme1 extends Component {
           top={130}
         />
         <Pipe
-          active={this.props.data.p154.value}
+          active={this.props.data.p154.value} //p154_0 && p156 > 0
           activeColor={'hot'}
           begin={5}
           d={
