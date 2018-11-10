@@ -4,6 +4,7 @@ import { SvgContainer } from '../../components/SvgContainer'
 import { Clock, ReadField, HeatPump, HeatPumpOutside, Wall, Pipe, Pump } from '../../components'
 import { CWU, CO } from './parts'
 import PropTypes from 'prop-types'
+import OutsideTempLabel from '../split/labels/OutsideTempLabel'
 
 class Split extends Component {
   render() {
@@ -37,6 +38,9 @@ class Split extends Component {
 
         <HeatPump left={597} top={253.4} />
         <HeatPumpOutside left={747} top={327.2} />
+
+        <OutsideTempLabel left={764.5} param={'p156'} top={137} />
+        <ReadField left={759} param={'p156'} top={160} />
 
         <Wall left={597} top={168} />
         {(this.props.data.CWU.visible || this.props.data.CO.visible) && (

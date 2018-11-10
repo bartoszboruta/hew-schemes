@@ -3,6 +3,16 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 class Pipe extends Component {
+  state = {
+    hidden: true
+  }
+
+  componentDidMount() {
+    console.log(this.props.begin * 1000)
+    setTimeout(() => {
+      this.setState({ hidden: false });
+    }, this.props.begin * 1000);
+  }
 
   getColor() {
     switch (this.props.active && this.props.activeColor) {
@@ -22,6 +32,32 @@ class Pipe extends Component {
     }
   }
 
+  renderAnimation() {
+    return !this.props.data.animationsPaused &&
+      this.props.active &&
+      this.props.anime &&
+      this.props.duration &&
+      <circle
+        cx='0'
+        cy='0'
+        fill={this.getColor()}
+        r='4'
+      >
+        <animateMotion
+          begin={this.props.begin}
+          calcMode='linear'
+          dur={this.props.duration}
+          repeatCount='indefinite'
+          rotate='auto'
+          {
+          ...this.getDirection()
+          }
+        >
+          <mpath xlinkHref={'#' + this.props.id} />
+        </animateMotion>
+      </circle>
+  }
+
   render() {
     return (
       <g className='Pipe' transform={'translate(' + this.props.left + ' ' + this.props.top + ')'}>
@@ -35,29 +71,7 @@ class Pipe extends Component {
           }}
         />
         {
-          !this.props.data.animationsPaused && 
-          this.props.active && 
-          this.props.anime && 
-          this.props.duration && 
-            <circle
-              cx='0'
-              cy='0'
-              fill={this.getColor()}
-              r='4'
-            >
-              <animateMotion
-                begin={this.props.begin}
-                calcMode='linear'
-                dur={this.props.duration}
-                repeatCount='indefinite'
-                rotate='auto'
-                {
-                ...this.getDirection()
-                }
-              >
-                <mpath xlinkHref={'#' + this.props.id} />
-              </animateMotion>
-            </circle>
+          this.renderAnimation()
         }
       </g>
     )

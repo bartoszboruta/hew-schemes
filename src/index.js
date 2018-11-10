@@ -20,7 +20,7 @@ const config = {
       value: true, //z konfiguracji
     },
     additionalHeater: {
-      name: 'heater', //graałka i dodać dodatkowy kocioł(DOROBIĆ)
+      name: 'automatic_boiler', //heater /automatic_boiler
       unit: '',
       value: true, //p208_11
     },
@@ -37,7 +37,7 @@ const config = {
       value: false, //z konfiguracji
     },
     additionalHeater: {
-      name: 'heater', //heater /automatic_boiler
+      name: 'automatic_boiler', //heater /automatic_boiler
       unit: '',
       value: true, //p208_12
     },
@@ -72,15 +72,15 @@ const config = {
     value: 15,
     unit: '°C',
   },
-  p152: {
-    name: 'T12',
-    value: 15,
-    unit: '°C',
+  p152: { // temperatureSensor - z konfiguracji
+    name: 'T12', // temperatureSensor === "digital" ? "" : "T12"
+    value: 15, // temperatureSensor === "digital" ? (value > 0 ? "ON" : "OFF") : value
+    unit: '°C', // temperatureSensor === "digital" ? "" : "°C"
   },
-  p154: {
-    name: 'T13',
-    value: 15,
-    unit: '°C',
+  p154: { // temperatureSensor === "digital" - z konfiguracji
+    name: 'T13',  // temperatureSensor === "digital" ? "" : "T13"
+    value: 15, // temperatureSensor === "digital" ? (value > 0 ? "ON" : "OFF") : value
+    unit: '°C', // temperatureSensor === "digital" ? "" : "°C"
   },
   p156: {
     name: 'T14',

@@ -10,14 +10,33 @@ import {
   Coil,
   Pump,
   TriConnector,
+  AutomaticBoiler,
 } from '../../../components'
+import Label from '../../../components/Label'
 import PropTypes from 'prop-types'
+import CirculationLabel from '../labels/CirculationLabel';
+import AutomaticBoilerLabel from '../labels/AutomaticBoilerLabel';
+import CWULabel from '../labels/CWULabel';
+import HeaterLabel from '../labels/HeaterLabel';
 
 class CWU extends Component {
   getAdditionalHeaterSource() {
     switch (this.props.data.CWU.additionalHeater.name) {
       case 'heater':
-        return <Heater active={this.props.data.CWU.additionalHeater.value} left={298} top={150} />
+        return <g>
+          <Label left={367} top={163} sign="E" />
+          <HeaterLabel left={384} top={149} />
+          <Heater active={this.props.data.CWU.additionalHeater.value} left={298} top={150} />
+        </g>
+      case 'automatic_boiler':
+        return <g>
+          <AutomaticBoilerLabel left={480} top={34} />
+          <AutomaticBoiler
+            active={this.props.data.CO.additionalHeater.value}
+            left={410}
+            top={0}
+          />
+        </g>
       default:
         return null
     }
@@ -115,6 +134,7 @@ class CWU extends Component {
 
         {this.props.data.CWU.circulation.visible && (
           <g>
+            <CirculationLabel left={162.5} top={40} />
             <Pipe
               active={this.props.data.CWU.circulation.value}
               activeColor={'hot'}
@@ -126,12 +146,13 @@ class CWU extends Component {
               top={5}
             />
             <TriConnector direction={'reversedVertical'} left={117.2} top={5.5} />
-            <Pump active={this.props.data.CWU.circulation.value} left={112.5} top={40} />
+            <Pump label={{ position: 'right', sign: 'P' }} active={this.props.data.CWU.circulation.value} left={112.5} top={40} />
             <ReadField left={135} param={'p146'} top={80} />
           </g>
         )}
 
         <Boiler left={255.7} top={30.5} />
+        <CWULabel left={266.5} top={256} />
 
         {this.getType()}
 
@@ -141,7 +162,7 @@ class CWU extends Component {
         <Connector left={341} top={201} />
         <Connector left={255.7} top={201} />
 
-        <ReadField left={360} param={'p128'} top={120} />
+        <ReadField left={360} param={'p128'} top={130} />
       </g>
     )
   }
