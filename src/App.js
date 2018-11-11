@@ -33,7 +33,6 @@ class App extends Component {
       <div>
         <div>Scheme: <input value={this.props.data.p170.value} onChange={({ target: { value } }) => this.props.updateData({ ...this.props.data, p170: { ...this.props.data.p170, value } })} /></div>
         <div>p152: <input value={this.props.data.p152.value} onChange={({ target: { value } }) => this.props.updateData({ ...this.props.data, p152: { ...this.props.data.p152, value } })} /></div>
-        <div>p154: <input type="checkbox" checked={this.props.data.p154.value} onChange={({ target: { checked } }) => this.props.updateData({ ...this.props.data, p154: { value: checked } })} /></div>
         <div>p154_0: <input type="checkbox" checked={this.props.data.p154_0} onChange={({ target: { checked } }) => this.props.updateData({ ...this.props.data, p154_0: checked })} /></div>
         <div>p154_1: <input type="checkbox" checked={this.props.data.p154_1} onChange={({ target: { checked } }) => this.props.updateData({ ...this.props.data, p154_1: checked })} /></div>
         <div>p154_2: <input type="checkbox" checked={this.props.data.p154_2} onChange={({ target: { checked } }) => this.props.updateData({ ...this.props.data, p154_2: checked })} /></div>
