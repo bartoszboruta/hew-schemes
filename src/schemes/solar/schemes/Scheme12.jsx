@@ -14,7 +14,6 @@ import {
   Shower,
   TriConnector,
   Overlay,
-  Pause,
 } from '../../../components'
 import PropTypes from 'prop-types'
 
@@ -75,6 +74,8 @@ class Scheme12 extends Component {
           left={3}
           top={-5}
         />
+        <Overlay width={60} height={20} left={430} top={395} />
+
         <Pipe
           active={true}
           activeColor={'hot'}
@@ -216,7 +217,6 @@ class Scheme12 extends Component {
       <SvgContainer height={558.1} width={650}>
         {this.renderPipes()}
         <Shower left={614.25} top={165} />
-        <Pause />
         <SolarPanel left={50} />
         <Clock left={615} />
         {this.renderCirculation()}

@@ -13,6 +13,8 @@ import {
   FlowMeter,
   ReadField,
   TriValve,
+  TriConnector,
+  Overlay,
 } from '../../../components'
 import PropTypes from 'prop-types'
 
@@ -106,6 +108,7 @@ class Scheme13 extends Component {
           begin={3}
           d={'M 5 5 L 5 120'}
           direction={'reversed'}
+          id={'furnace_hot_1'}
           duration={7}
           left={250}
           top={-60}
@@ -115,7 +118,7 @@ class Scheme13 extends Component {
           activeColor={'cold'}
           begin={0}
           d={'M 5 5 L 60 5 '}
-          duration={7}
+          duration={4}
           id={'furnace_cold_1'}
           left={68}
           top={163}
@@ -125,7 +128,7 @@ class Scheme13 extends Component {
           activeColor={'cold'}
           begin={0}
           d={'M 5 5 L 30 5 '}
-          duration={7}
+          duration={2}
           id={'furnace_cold_2'}
           left={135}
           top={163}
@@ -133,9 +136,9 @@ class Scheme13 extends Component {
         <Pipe
           active={active} // p154_1 == 0 && niebieski kiedy p154_1=0; p154_1 > 0 to czerwony
           activeColor={'cold'} //czerwony albo niebieski
-          begin={0}
+          begin={3}
           d={'M 5 5 L 30 5 '}
-          duration={7}
+          duration={2}
           id={'furnace_cold_2_1'}
           left={165}
           top={163}
@@ -147,10 +150,11 @@ class Scheme13 extends Component {
           d={'M 5 220 L 5 35.8 S 5 30 10.8 30 L 94.2 30 S 100 30 100 24.2 L 100 5'}
           duration={7}
           id={'furnace_cold_3'}
+
           left={128}
           top={-60}
         />
-
+        <Overlay width={20} height={20} left={125} top={-7} />
         <Pipe
           active={active}
           activeColor={'hot'}
@@ -162,10 +166,9 @@ class Scheme13 extends Component {
           top={-2.5}
         />
 
+        <TriConnector left={161} top={161} />
         <TriValve direction="bottom" left={120} top={161} />
-
         <Furnace left={190} top={59} />
-
         <Connector left={65.5} top={144} />
         <Connector left={65.5} top={-22.5} />
       </g>
@@ -196,7 +199,7 @@ class Scheme13 extends Component {
       <SvgContainer height={558.1} width={650}>
         {this.renderPipes()}
         <SolarPanel left={50} />
-        <Clock left={559} />
+        <Clock left={549} />
         {this.renderBoiler()}
         {this.renderFurnace()}
         {this.renderPumpP()}

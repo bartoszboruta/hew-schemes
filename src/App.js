@@ -29,7 +29,10 @@ class App extends Component {
 
   render() {
     const Scheme = this.schemes[this.props.data.type] || null
-    return Scheme && <Scheme />
+    return Scheme && <div>
+      <input value={this.props.data.p170.value} onChange={({ target: { value } }) => this.props.updateData({ ...this.props.data, p170: { value } })} />
+      <Scheme />
+    </div>
   }
 }
 

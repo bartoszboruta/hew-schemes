@@ -150,7 +150,10 @@ class Scheme16 extends Component {
   renderConnectors() {
     return (
       <g>
-        <Connector left={270} top={193.5} />
+        <Connector left={255.5} top={318} />
+        <Connector left={372} top={318} />
+        <Connector left={255.5} top={359} />
+        <Connector left={372} top={359} />
         <TriConnector left={312.25} top={334} />
         <TriConnector left={312.25} top={445} />
         <TriConnector direction={'reversedVertical'} left={312.25} top={95} />
@@ -177,9 +180,9 @@ class Scheme16 extends Component {
   renderReadFields() {
     return (
       <g>
-        {this.props.data.p128.visible && <ReadField left={254} param={'p128'} />}
+        {this.props.data.p128.visible && <ReadField left={250} param={'p128'} />}
         {this.props.data.p130.visible && <ReadField left={96} param={'p130'} top={352.5} />}
-        {this.props.data.p132.visible && <ReadField left={324} param={'p132'} />}
+        {this.props.data.p132.visible && <ReadField left={323} param={'p132'} />}
       </g>
     )
   }

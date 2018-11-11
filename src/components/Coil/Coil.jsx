@@ -85,7 +85,7 @@ class Coil extends Component {
         }
       >
         {Coil.getPaths().map((i, k) => {
-          return <path d={i} key={k} /> //style={{ fill: Coil.getColors(this.props.active)[k] }}
+          return <path d={i} key={k} style={{ fill: Coil.getColors(this.props.active)[k] }} />
         })}
       </g>
     )

@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import {
-  AutomaticBoiler,
   Furnace,
   Clock,
   SvgContainer,
@@ -14,10 +13,11 @@ import {
   FlowMeter,
   ReadField,
   Shower,
+  TriConnector,
 } from '../../../components'
 import PropTypes from 'prop-types'
 
-class Scheme14 extends Component {
+class Scheme18 extends Component {
   renderPipes() {
     return (
       <g>
@@ -54,6 +54,35 @@ class Scheme14 extends Component {
           left={120}
           top={399}
         />
+        <Pipe
+          active={true}
+          activeColor={'hot'}
+          d={
+            'M 26 78 L 10.8 78 S 5 78 5 72.2 L 5 10.8 S 5 5 10.8 5 L 144.2 5 S 150 5 150 10.8 L 150 30'
+          }
+          duration={7}
+          id={'right_boiler_output_hot'}
+          left={475}
+          top={139.5}
+        />
+        <Pipe
+          active={true}
+          activeColor={'hot'}
+          d={'M 275 5 L 10.8 5 S 5 5 5 10.8 L 5 164.2 S 5 170 10.8 170 L 64 170'}
+          duration={11}
+          id={'left_boiler_output_hot_left'}
+          left={206}
+          top={139.7}
+        />
+        <Pipe
+          active={true}
+          activeColor={'hot'}
+          d={'M 0 5 L 24.2 5 S 30 5 30 10.8 L 30 185.2 S 30 191 35.8 191 L 135 191'}
+          duration={11}
+          id={'left_boiler_to_right_boiler'}
+          left={365}
+          top={212.5}
+        />
       </g>
     )
   }
@@ -61,9 +90,14 @@ class Scheme14 extends Component {
   static renderConnectors() {
     return (
       <g>
+        <Connector left={500} top={193.5} />
+        <Connector left={355.5} top={193.5} />
+        <Connector left={270} top={285.5} />
         <Connector left={270} top={317} />
         <Connector left={270} top={359} />
         <Connector left={270} top={379.5} />
+        <Connector left={500} top={379.5} />
+        <TriConnector direction={'reversedVertical'} left={472.25} top={140} />
       </g>
     )
   }
@@ -73,7 +107,17 @@ class Scheme14 extends Component {
       <g>
         <Boiler left={270} top={200} />
         <Coil active={this.props.data.p154.value} direction={'right'} left={270} top={340} />
-        {Scheme14.renderConnectors()}
+        {Scheme18.renderConnectors()}
+      </g>
+    )
+  }
+
+  renderBoilerRight() {
+    return (
+      <g>
+        <Boiler left={500} top={200} />
+        <Coil active={this.props.data.p154.value} direction={'right'} left={270} top={340} />
+        {Scheme18.renderConnectors()}
       </g>
     )
   }
@@ -84,11 +128,13 @@ class Scheme14 extends Component {
         {this.props.data.p128.visible && <ReadField left={256} param={'p128'} />}
         {this.props.data.p130.visible && <ReadField left={196} param={'p130'} top={352.5} />}
         {this.props.data.p132.visible && <ReadField left={62} param={'p132'} top={236.5} />}
+        {this.props.data.p134.visible && <ReadField left={602} param={'p134'} top={249} />}
       </g>
     )
   }
 
   renderPumpP() {
+    //p154_2 > 0
     return (
       <g transform={'translate(' + 32 + ' ' + 300 + ')'}>
         <Pump active={this.props.data.p156.value} />
@@ -97,62 +143,11 @@ class Scheme14 extends Component {
     )
   }
 
-  renderCirculation() {
+  renderPumpK() {
+    // active  154_1 > 0
     return (
-      <g>
-        <Pipe
-          active={true}
-          activeColor={'hot'}
-          d={
-            'M 26 78 L 10.8 78 S 5 78 5 72.2 L 5 10.8 S 5 5 10.8 5 L 144.2 5 S 150 5 150 10.8 L 150 30'
-          }
-          duration={7}
-          id={'left_boiler_output_hot'}
-          left={245}
-          top={139.5}
-        />
-      </g>
-    )
-  }
-
-  renderFurnace() {
-    const active = true
-    return (
-      <g transform={'translate(' + 290 + ' ' + 236 + ')'}>
-        <Pipe
-          active={true}
-          activeColor={'cold'}
-          begin={4}
-          d={'M 5 5 L 130 5'}
-          duration={7}
-          id={'furnace_cold'}
-          left={62}
-          top={163}
-        />
-
-        <Pipe
-          active={true}
-          activeColor={'hot'}
-          d={'M 5 5 L 130 5'}
-          direction={'reversed'}
-          duration={7}
-          id={'furnace_hot'}
-          left={62}
-          top={101}
-        />
-        <Furnace left={190} top={59} />
-        <Pump active={active} left={120} top={155} />
-
-        <Connector left={65.5} top={82} />
-        <Connector left={65.5} top={144} />
-      </g>
-    )
-  }
-
-  RenderAutomaticBoiler() {
-    return (
-      <g transform={'translate(' + 424.5 + ' ' + 106 + ')'}>
-        <AutomaticBoiler />
+      <g transform={'translate(' + 198 + ' ' + 216 + ')'}>
+        <Pump active={this.props.data.p156.value} />
       </g>
     )
   }
@@ -176,20 +171,56 @@ class Scheme14 extends Component {
     )
   }
 
+  renderFurnace() {
+    const active = true //p154_1 > 0
+    return (
+      <g transform={'translate(' + 520 + ' ' + 236 + ')'}>
+        <Coil active={active} />
+        <Pipe
+          active={active}
+          activeColor={'hot'}
+          begin={3}
+          d={'M 0 5 L 174.2 5 S 180 5 180 10.8 L 180 63'}
+          id={'furnace_hot'}
+          direction={'reversed'}
+          duration={7}
+          left={76}
+          top={-3.5}
+        />
+        <Pipe
+          active={active}
+          activeColor={'cold'}
+          begin={0}
+          d={'M 0 5 L 24.2 5 S 30 5 30 10.8 L 30 119.2 S 30 125 35.8 125 L 120 125'}
+          duration={7}
+          id={'furnace_cold'}
+          left={76}
+          top={38}
+        />
+
+        <Furnace left={190} top={59} />
+        <Pump active={active} left={153} top={-10} />
+
+        <Connector left={65.5} top={18.5} />
+        <Connector left={65.5} top={-22.5} />
+      </g>
+    )
+  }
+
   render() {
     return (
       <SvgContainer height={558.1} width={650}>
         {this.renderPipes()}
+        <Shower left={614.25} top={165} />
         <SolarPanel left={50} />
-        <Clock left={559} />
+        <Clock left={751} />
         {this.renderBoiler()}
-        {this.renderFurnace()}
-        {this.renderCirculation()}
-        {this.RenderAutomaticBoiler()}
+        {this.renderBoilerRight()}
         {this.renderPumpP()}
+        {this.renderPumpK()}
         {this.renderReadFields()}
         {this.renderFlowMeters()}
-        <Shower left={384.25} top={165} />
+        {this.renderFurnace()}
       </SvgContainer>
     )
   }
@@ -201,14 +232,16 @@ const mapStateToProps = ({ data }) => {
   }
 }
 
-const ConnectedScheme14 = connect(mapStateToProps)(Scheme14)
-export { ConnectedScheme14 as Scheme14 }
+const ConnectedScheme18 = connect(mapStateToProps)(Scheme18)
+export { ConnectedScheme18 as Scheme18 }
 
-Scheme14.propTypes = {
+Scheme18.propTypes = {
   data: PropTypes.object,
+  height: PropTypes.number,
+  width: PropTypes.number,
 }
 
-Scheme14.defaultProps = {
+Scheme18.defaultProps = {
   data: {},
   height: 0,
   width: 0,

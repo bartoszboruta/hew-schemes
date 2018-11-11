@@ -143,6 +143,7 @@ class Scheme6 extends Component {
           activeColor={'hot'}
           begin={3}
           d={'M 0 5 L 174.2 5 S 180 5 180 10.8 L 180 63'}
+          id={'furnace_hot'}
           direction={'reversed'}
           duration={7}
           left={76}

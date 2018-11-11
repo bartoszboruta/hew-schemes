@@ -19,6 +19,8 @@ import {
   Scheme15,
   Scheme16,
   Scheme17,
+  Scheme18,
+  Scheme19,
 } from './schemes'
 class Solar extends Component {
   schemes = {
@@ -38,6 +40,8 @@ class Solar extends Component {
     scheme15: Scheme15,
     scheme16: Scheme16,
     scheme17: Scheme17,
+    scheme18: Scheme18,
+    scheme19: Scheme19,
   }
 
   render() {

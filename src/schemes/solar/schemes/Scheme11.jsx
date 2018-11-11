@@ -67,6 +67,7 @@ class Scheme11 extends Component {
           left={3}
           top={-5}
         />
+        <Overlay width={60} height={20} left={430} top={395} />
         <Pipe
           active={true}
           activeColor={'hot'}

@@ -85,17 +85,17 @@ class Scheme4 extends Component {
 
   renderReadFields() {
     return <g>
-      {this.props.data.p128.visible && <ReadField param={'p128'} left={265} />}
-      {this.props.data.p130.visible && <ReadField param={'p130'} left={190} top={352.5} />}
-      {this.props.data.p132.visible && <ReadField param={'p132'} left={67} top={236.5} />}
-      {this.props.data.p134.visible && <ReadField param={'p134'} left={378} top={249} />}
+      {this.props.data.p128.visible && <ReadField param={'p128'} left={256} />}
+      {this.props.data.p130.visible && <ReadField param={'p130'} left={196} top={352.5} />}
+      {this.props.data.p132.visible && <ReadField param={'p132'} left={62} top={236.5} />}
+      {this.props.data.p134.visible && <ReadField param={'p134'} left={372} top={249} />}
     </g>
   }
 
   renderPumpP() {
     return <g transform={'translate(' + 32 + ' ' + 300 + ')'}>
       <Pump active={this.props.data.p156.value} />
-      <ReadField param={'p156'} left={35} top={3} />
+      <ReadField param={'p156'} left={30} top={3} />
     </g>
   }
 
@@ -107,11 +107,11 @@ class Scheme4 extends Component {
     return <g>
       {this.props.data.p152.visible && <g transform={'translate(' + 34 + ' ' + 270 + ')'}>
         <FlowMeter />
-        <ReadField param={'p152'} left={33} />
+        <ReadField param={'p152'} left={28} />
       </g>}
       {this.props.data.p292.visible && <g transform={'translate(' + 190 + ' ' + 393.5 + ')'}>
         <FlowMeter direction={'horizontal'} />
-        <ReadField param={'p292'} left={-25} top={30} />
+        <ReadField param={'p292'} left={-25} top={26} />
       </g>}
     </g>
   }

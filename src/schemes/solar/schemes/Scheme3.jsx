@@ -113,10 +113,10 @@ class Scheme3 extends Component {
   renderReadFields() {
     return (
       <g>
-        {this.props.data.p128.visible && <ReadField left={265} param={'p128'} />}
-        {this.props.data.p130.visible && <ReadField left={190} param={'p130'} top={352.5} />}
-        {this.props.data.p132.visible && <ReadField left={67} param={'p132'} top={236.5} />}
-        {this.props.data.p134.visible && <ReadField left={378} param={'p134'} top={249} />}
+        {this.props.data.p128.visible && <ReadField left={256} param={'p128'} />}
+        {this.props.data.p130.visible && <ReadField left={196} param={'p130'} top={352.5} />}
+        {this.props.data.p132.visible && <ReadField left={62} param={'p132'} top={236.5} />}
+        {this.props.data.p134.visible && <ReadField left={372} param={'p134'} top={249} />}
       </g>
     )
   }
@@ -125,7 +125,7 @@ class Scheme3 extends Component {
     return (
       <g transform={'translate(' + 32 + ' ' + 300 + ')'}>
         <Pump active={this.props.data.p156.value} />
-        <ReadField left={35} param={'p156'} top={3} />
+        <ReadField left={30} param={'p156'} top={3} />
       </g>
     )
   }
@@ -133,8 +133,8 @@ class Scheme3 extends Component {
   renderAutomaticBoiler() {
     const active = true //p154_1 > 0
     return (
-      <g transform={'translate(' + 424.5 + ' ' + 98 + ')'}>
-        <Coil active={active} left={-134} top={138.5} />
+      <g transform={'translate(' + 424.5 + ' ' + 118 + ')'}>
+        <Coil active={active} left={-134} top={118.5} />
         <AutomaticBoiler active={active} />
       </g>
     )
@@ -146,13 +146,13 @@ class Scheme3 extends Component {
         {this.props.data.p152.visible && (
           <g transform={'translate(' + 34 + ' ' + 270 + ')'}>
             <FlowMeter />
-            <ReadField left={33} param={'p152'} />
+            <ReadField left={28} param={'p152'} />
           </g>
         )}
         {this.props.data.p292.visible && (
           <g transform={'translate(' + 190 + ' ' + 393.5 + ')'}>
             <FlowMeter direction={'horizontal'} />
-            <ReadField left={-25} param={'p292'} top={30} />
+            <ReadField left={-25} param={'p292'} top={26} />
           </g>
         )}
       </g>

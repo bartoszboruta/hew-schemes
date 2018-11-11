@@ -3,16 +3,6 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 class Pipe extends Component {
-  state = {
-    hidden: true
-  }
-
-  componentDidMount() {
-    console.log(this.props.begin * 1000)
-    setTimeout(() => {
-      this.setState({ hidden: false });
-    }, this.props.begin * 1000);
-  }
 
   getColor() {
     switch (this.props.active && this.props.activeColor) {
