@@ -137,7 +137,7 @@ class Scheme18 extends Component {
     //p154_2 > 0
     return (
       <g transform={'translate(' + 32 + ' ' + 300 + ')'}>
-        <Pump active={this.props.data.p156.value} />
+        <Pump label={{ position: 'left', sign: 'P' }} active={this.props.data.p156.value} />
         <ReadField left={30} param={'p156'} top={3} />
       </g>
     )
@@ -147,7 +147,7 @@ class Scheme18 extends Component {
     // active  154_1 > 0
     return (
       <g transform={'translate(' + 198 + ' ' + 216 + ')'}>
-        <Pump active={this.props.data.p156.value} />
+        <Pump label={{ position: 'left', sign: 'K' }} active={this.props.data.p156.value} />
       </g>
     )
   }
@@ -199,7 +199,7 @@ class Scheme18 extends Component {
         />
 
         <Furnace left={190} top={59} />
-        <Pump active={active} left={153} top={-10} />
+        <Pump label={{ position: 'bottom', sign: 'C' }} active={active} left={153} top={-10} />
 
         <Connector left={65.5} top={18.5} />
         <Connector left={65.5} top={-22.5} />

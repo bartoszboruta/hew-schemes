@@ -60,7 +60,7 @@ class Scheme4 extends Component {
         left={206}
         top={139.7}
       />
-      <Pump left={199} top={216} active={this.props.data.p156.value} />
+      <Pump label={{ position: 'left', sign: 'C' }} left={199} top={216} active={this.props.data.p156.value} />
     </g>
   }
 
@@ -94,7 +94,7 @@ class Scheme4 extends Component {
 
   renderPumpP() {
     return <g transform={'translate(' + 32 + ' ' + 300 + ')'}>
-      <Pump active={this.props.data.p156.value} />
+      <Pump label={{ position: 'left', sign: 'P' }} active={this.props.data.p156.value} />
       <ReadField param={'p156'} left={30} top={3} />
     </g>
   }

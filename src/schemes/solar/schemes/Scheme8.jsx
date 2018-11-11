@@ -14,6 +14,7 @@ import {
   Shower,
   TriConnector,
   TriValve,
+  Overlay
 } from '../../../components'
 import PropTypes from 'prop-types'
 
@@ -76,6 +77,7 @@ class Scheme8 extends Component {
           left={245}
           top={139.5}
         />
+        <Overlay width={20} height={20} left={385} top={300} />
         <Pipe
           active={true}
           activeColor={'hot'}
@@ -114,7 +116,7 @@ class Scheme8 extends Component {
           left={436}
           top={139.7}
         />
-        <Pump active={this.props.data.p156.value} left={429} top={216} />
+        <Pump label={{ position: 'left', sign: 'C' }} active={this.props.data.p156.value} left={429} top={216} />
       </g>
     )
   }
@@ -169,7 +171,7 @@ class Scheme8 extends Component {
   renderPumpP() {
     return (
       <g transform={'translate(' + 32 + ' ' + 300 + ')'}>
-        <Pump active={this.props.data.p156.value} />
+        <Pump label={{ position: 'left', sign: 'P' }} active={this.props.data.p156.value} />
         <ReadField left={30} param={'p156'} top={3} />
       </g>
     )

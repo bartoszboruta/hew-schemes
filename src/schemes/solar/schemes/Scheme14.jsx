@@ -91,7 +91,7 @@ class Scheme14 extends Component {
   renderPumpP() {
     return (
       <g transform={'translate(' + 32 + ' ' + 300 + ')'}>
-        <Pump active={this.props.data.p156.value} />
+        <Pump label={{ position: 'left', sign: 'P' }} active={this.props.data.p156.value} />
         <ReadField left={30} param={'p156'} top={3} />
       </g>
     )
@@ -141,7 +141,7 @@ class Scheme14 extends Component {
           top={101}
         />
         <Furnace left={190} top={59} />
-        <Pump active={active} left={120} top={155} />
+        <Pump label={{ position: 'top', sign: 'K' }} active={active} left={120} top={155} />
 
         <Connector left={65.5} top={82} />
         <Connector left={65.5} top={144} />

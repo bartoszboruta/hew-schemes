@@ -148,7 +148,7 @@ class Scheme9 extends Component {
   renderPumpP() {
     return (
       <g transform={'translate(' + 32 + ' ' + 300 + ')'}>
-        <Pump active={this.props.data.p156.value} />
+        <Pump label={{ position: 'left', sign: 'P' }} active={this.props.data.p156.value} />
         <ReadField left={30} param={'p156'} top={3} />
       </g>
     )
@@ -179,7 +179,7 @@ class Scheme9 extends Component {
       <g transform={'translate(' + 415 + ' ' + 270 + ')'}>
         <PoolPump />
         <PoolTank left={90} top={12} />
-        <Pump active={active} left={44} top={70} />
+        <Pump label={{ position: 'bottom', sign: 'C' }} active={active} left={44} top={70} />
       </g>
     )
   }

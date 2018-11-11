@@ -171,20 +171,10 @@ const config = {
     visible: true,
     position: 'default',
   },
-  p170: {
-    name: 'Schemat',
-    value: 12,
-  },
+
   p154: {
     name: 'F2',
     value: false,
-    unit: 'l/min',
-    visible: true,
-    position: 'default',
-  },
-  p292: {
-    name: 'F2',
-    value: 12,
     unit: 'l/min',
     visible: true,
     position: 'default',
@@ -193,6 +183,17 @@ const config = {
     name: 'E1',
     value: 100,
     unit: '%',
+    visible: true,
+    position: 'default',
+  },
+  p170: {
+    name: 'Schemat',
+    value: 16,
+  },
+  p292: {
+    name: 'F2',
+    value: 12,
+    unit: 'l/min',
     visible: true,
     position: 'default',
   },

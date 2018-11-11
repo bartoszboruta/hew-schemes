@@ -93,7 +93,7 @@ class Scheme17 extends Component {
           left={206}
           top={139.7}
         />
-        <Pump active={this.props.data.p156.value} left={199} top={216} />
+        <Pump label={{ position: 'left', sign: 'C' }} active={this.props.data.p156.value} left={199} top={216} />
       </g>
     )
   }
@@ -128,7 +128,7 @@ class Scheme17 extends Component {
       <g>
         {this.props.data.p128.visible && <ReadField left={256} param={'p128'} />}
         {this.props.data.p130.visible && <ReadField left={196} param={'p130'} top={352.5} />}
-        {this.props.data.p132.visible && <ReadField param={'p132'} />}
+        {this.props.data.p132.visible && <ReadField left={62} param={'p132'} top={236.5} />}
       </g>
     )
   }
@@ -136,7 +136,7 @@ class Scheme17 extends Component {
   renderPumpP() {
     return (
       <g transform={'translate(' + 32 + ' ' + 300 + ')'}>
-        <Pump active={this.props.data.p156.value} />
+        <Pump label={{ position: 'left', sign: 'P' }} active={this.props.data.p156.value} />
         <ReadField left={30} param={'p156'} top={3} />
       </g>
     )
@@ -168,7 +168,6 @@ class Scheme17 extends Component {
         {this.renderCirculation()}
         <Shower left={384.25} top={165} />
         <SolarPanel left={50} />
-        <DateRead />
         <Clock left={448} />
         {this.renderBoiler()}
         {this.renderPumpP()}

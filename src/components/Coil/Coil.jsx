@@ -58,7 +58,7 @@ class Coil extends Component {
           '#898989',
         ]
       default:
-        return null
+        return []
     }
   }
 

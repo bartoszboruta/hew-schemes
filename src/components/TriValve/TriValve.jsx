@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
+import Label from '../Label'
+
 class TriValve extends Component {
   static getGradients() {
     return (
@@ -64,6 +66,46 @@ class TriValve extends Component {
     )
   }
 
+  getLabelPosition = () => {
+    const { direction, left, top } = this.props
+    switch (direction) {
+      case 'left':
+        return {
+          left: left - 16,
+          top: top + 15
+        }
+      case 'right':
+        return {
+          left: left + 31,
+          top: top + 18
+        }
+      case 'bottom':
+        return {
+          left: left + 8,
+          top: top + 38
+        }
+      case 'top':
+        return {
+          left: left + 8,
+          top: top - 6
+        }
+      default:
+        return {
+          left: 0,
+          top: 0
+        }
+    }
+  }
+
+  getLabelValues = () => {
+    const { sign } = this.props
+
+    return {
+      sign,
+      ...this.getLabelPosition()
+    }
+  }
+
   getDirection() {
     switch (this.props.direction) {
       case 'right':
@@ -77,61 +119,68 @@ class TriValve extends Component {
     }
   }
 
+  renderLabel() {
+    return <Label {...this.getLabelValues()} />
+  }
+
   render() {
     return (
-      <g
-        className="TriValve"
-        transform={
-          'translate(' + this.props.left + ' ' + this.props.top + ') ' + this.getDirection()
-        }
-      >
-        {TriValve.getGradients()}
-        <path
-          d="m 25.707517,8.8973305 v 2.8954205 c 0,1.13103 -0.92389,2.05492 -2.053388,2.05492 H 10.630119 V 6.8427905 h 13.02401 c 1.129498,0 2.053388,0.92389 2.053388,2.05454"
-          style={{
-            fill: 'url(#linearGradient4533)',
-            fillRule: 'evenodd',
-            stroke: 'none',
-            strokeWidth: 1.2100445,
-          }}
-        />
-        <path
-          d="m 17.022794,20.690001 h -2.670212 c -1.042259,0 -1.894282,-0.85203 -1.894282,-1.89429 v -5.37962 h 6.459161 v 5.37962 c 0,1.04226 -0.852023,1.89429 -1.894667,1.89429"
-          style={{
-            fill: 'url(#linearGradient4553)',
-            fillRule: 'evenodd',
-            stroke: 'none',
-            strokeWidth: 1.2100445,
-          }}
-        />
-        <path
-          d="M 17.022794,8.0534058e-5 H 14.352582 C 13.310323,8.0534058e-5 12.4583,0.85210053 12.4583,1.8947505 v 5.37924 h 6.459161 v -5.37924 c 0,-1.04264997 -0.852023,-1.894669965942 -1.894667,-1.894669965942"
-          style={{
-            fill: 'url(#linearGradient4573)',
-            fillRule: 'evenodd',
-            stroke: 'none',
-            strokeWidth: 1.2100445,
-          }}
-        />
-        <path
-          d="M 10.720806,1.0973005 V 19.593921 H 8.978709 V 1.0973005 Z"
-          style={{
-            fill: '#191919',
-            fillOpacity: 1,
-            fillRule: 'evenodd',
-            stroke: 'none',
-            strokeWidth: 1.21004462,
-          }}
-        />
-        <path
-          d="M 0,1.0973005 V 19.593931 H 8.978723 V 1.0973005 Z"
-          style={{
-            fill: 'url(#linearGradient4595)',
-            fillRule: 'evenodd',
-            stroke: 'none',
-            strokeWidth: 1.2100445,
-          }}
-        />
+      <g>
+        {this.renderLabel()}
+        <g
+          className="TriValve"
+          transform={
+            'translate(' + this.props.left + ' ' + this.props.top + ') ' + this.getDirection()
+          }
+        >
+          {TriValve.getGradients()}
+          <path
+            d="m 25.707517,8.8973305 v 2.8954205 c 0,1.13103 -0.92389,2.05492 -2.053388,2.05492 H 10.630119 V 6.8427905 h 13.02401 c 1.129498,0 2.053388,0.92389 2.053388,2.05454"
+            style={{
+              fill: 'url(#linearGradient4533)',
+              fillRule: 'evenodd',
+              stroke: 'none',
+              strokeWidth: 1.2100445,
+            }}
+          />
+          <path
+            d="m 17.022794,20.690001 h -2.670212 c -1.042259,0 -1.894282,-0.85203 -1.894282,-1.89429 v -5.37962 h 6.459161 v 5.37962 c 0,1.04226 -0.852023,1.89429 -1.894667,1.89429"
+            style={{
+              fill: 'url(#linearGradient4553)',
+              fillRule: 'evenodd',
+              stroke: 'none',
+              strokeWidth: 1.2100445,
+            }}
+          />
+          <path
+            d="M 17.022794,8.0534058e-5 H 14.352582 C 13.310323,8.0534058e-5 12.4583,0.85210053 12.4583,1.8947505 v 5.37924 h 6.459161 v -5.37924 c 0,-1.04264997 -0.852023,-1.894669965942 -1.894667,-1.894669965942"
+            style={{
+              fill: 'url(#linearGradient4573)',
+              fillRule: 'evenodd',
+              stroke: 'none',
+              strokeWidth: 1.2100445,
+            }}
+          />
+          <path
+            d="M 10.720806,1.0973005 V 19.593921 H 8.978709 V 1.0973005 Z"
+            style={{
+              fill: '#191919',
+              fillOpacity: 1,
+              fillRule: 'evenodd',
+              stroke: 'none',
+              strokeWidth: 1.21004462,
+            }}
+          />
+          <path
+            d="M 0,1.0973005 V 19.593931 H 8.978723 V 1.0973005 Z"
+            style={{
+              fill: 'url(#linearGradient4595)',
+              fillRule: 'evenodd',
+              stroke: 'none',
+              strokeWidth: 1.2100445,
+            }}
+          />
+        </g>
       </g>
     )
   }
@@ -143,10 +192,12 @@ TriValve.propTypes = {
   direction: PropTypes.oneOf(['right', 'top', 'bottom', 'left']),
   left: PropTypes.number,
   top: PropTypes.number,
+  sign: PropTypes.string
 }
 
 TriValve.defaultProps = {
   direction: 'left',
   left: 0,
+  sign: 'U',
   top: 0,
 }

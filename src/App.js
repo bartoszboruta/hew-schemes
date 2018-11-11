@@ -30,7 +30,14 @@ class App extends Component {
   render() {
     const Scheme = this.schemes[this.props.data.type] || null
     return Scheme && <div>
-      <input value={this.props.data.p170.value} onChange={({ target: { value } }) => this.props.updateData({ ...this.props.data, p170: { value } })} />
+      <div>
+
+        <div>Scheme: <input value={this.props.data.p170.value} onChange={({ target: { value } }) => this.props.updateData({ ...this.props.data, p170: { value } })} /></div>
+        <div>p152: <input value={this.props.data.p152.value} onChange={({ target: { value } }) => this.props.updateData({ ...this.props.data, p152: { value } })} /></div>
+        <div>p154: <input value={this.props.data.p154.value} onChange={({ target: { value } }) => this.props.updateData({ ...this.props.data, p154: { value } })} /></div>
+        <div>p156: <input value={this.props.data.p156.value} onChange={({ target: { value } }) => this.props.updateData({ ...this.props.data, p156: { value } })} /></div>
+        <div>p292: <input value={this.props.data.p292.value} onChange={({ target: { value } }) => this.props.updateData({ ...this.props.data, p292: { value } })} /></div>
+      </div>
       <Scheme />
     </div>
   }

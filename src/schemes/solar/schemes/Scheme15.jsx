@@ -82,6 +82,7 @@ class Scheme15 extends Component {
             'm 5,50 h 214.2 c 0,0 5.8,0 5.8,-5.8 V 5.9961305 -13.27441 -40.165882 c 0,-2.866517 1.6049,-7.079113 7.61144,-7.079113 0,0 3.80668,-0.132408 7.3857,4.580482'
           }
           duration={10}
+          direction={'reversed'}
           id={'right_boiler_output_hot'}
           left={170}
           top={50}
@@ -118,7 +119,7 @@ class Scheme15 extends Component {
           left={206}
           top={139.7}
         />
-        <Pump active={this.props.data.p156.value} left={199} top={216} />
+        <Pump label={{ position: 'left', sign: 'C' }} active={this.props.data.p156.value} left={199} top={216} />
       </g>
     )
   }
@@ -146,7 +147,7 @@ class Scheme15 extends Component {
   renderPumpP() {
     return (
       <g transform={'translate(' + 32 + ' ' + 300 + ')'}>
-        <Pump active={this.props.data.p156.value} />
+        <Pump label={{ position: 'left', sign: 'P' }} active={this.props.data.p156.value} />
         <ReadField left={30} param={'p156'} top={3} />
       </g>
     )
@@ -155,7 +156,7 @@ class Scheme15 extends Component {
   renderPumpK() {
     return (
       <g transform={'translate(' + 581 + ' ' + 300 + ')'}>
-        <Pump active={this.props.data.p156.value} />
+        <Pump label={{ position: 'left', sign: 'K' }} active={this.props.data.p156.value} />
       </g>
     )
   }

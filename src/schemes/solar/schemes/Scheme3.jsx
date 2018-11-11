@@ -82,7 +82,7 @@ class Scheme3 extends Component {
           left={206}
           top={139.7}
         />
-        <Pump active={this.props.data.p156.value} left={199} top={216} />
+        <Pump label={{ position: 'left', sign: 'C' }} active={this.props.data.p156.value} left={199} top={216} />
       </g>
     )
   }
@@ -124,7 +124,7 @@ class Scheme3 extends Component {
   renderPumpP() {
     return (
       <g transform={'translate(' + 32 + ' ' + 300 + ')'}>
-        <Pump active={this.props.data.p156.value} />
+        <Pump label={{ position: 'left', sign: 'P' }} active={this.props.data.p156.value} />
         <ReadField left={30} param={'p156'} top={3} />
       </g>
     )

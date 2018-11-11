@@ -14,6 +14,7 @@ import {
   Shower,
   TriConnector,
   TriValve,
+  Overlay,
 } from '../../../components'
 import PropTypes from 'prop-types'
 
@@ -129,6 +130,30 @@ class Scheme16 extends Component {
           left={260}
           top={377.5}
         />
+        <Pipe
+          active={true}
+          activeColor={'cold'}
+          d={'M 5 5 L 100 5'}
+          duration={7}
+          direction="reversed"
+          id={'right_boiler_output_cold'}
+          left={450}
+          top={399}
+        />
+        <Overlay height={20} width={20} left={310} top={208} />
+        <Overlay height={70} width={20} left={282} top={325} />
+
+        <Pipe //ask Daniel
+          active={true}
+          activeColor={'hot'}
+          d={'M 5 191 L 34.2 191 S 40 191 40 185.2 L 40 10.8 S 40 5 45.8 5 L 120 5 '}
+          duration={12}
+          direction="reversed"
+          id={'right_boiler_to_left'}
+          left={252}
+          top={213}
+        />
+
         <g transform={'scale(-1,1)'}>
           <Pipe
             active={true}
@@ -150,10 +175,14 @@ class Scheme16 extends Component {
   renderConnectors() {
     return (
       <g>
+        <Connector left={170} top={193.5} />
+        <Connector left={372} top={193.5} />
         <Connector left={255.5} top={318} />
         <Connector left={372} top={318} />
         <Connector left={255.5} top={359} />
         <Connector left={372} top={359} />
+        <Connector left={255.5} top={379.5} />
+        <Connector left={457.5} top={379.5} />
         <TriConnector left={312.25} top={334} />
         <TriConnector left={312.25} top={445} />
         <TriConnector direction={'reversedVertical'} left={312.25} top={95} />
@@ -182,6 +211,7 @@ class Scheme16 extends Component {
       <g>
         {this.props.data.p128.visible && <ReadField left={250} param={'p128'} />}
         {this.props.data.p130.visible && <ReadField left={96} param={'p130'} top={352.5} />}
+        {this.props.data.p130.visible && <ReadField left={475} param={'p134'} top={352.5} />}
         {this.props.data.p132.visible && <ReadField left={323} param={'p132'} />}
       </g>
     )
@@ -190,8 +220,16 @@ class Scheme16 extends Component {
   renderPumpP() {
     return (
       <g transform={'translate(' + 32 + ' ' + 300 + ')'}>
-        <Pump active={this.props.data.p156.value} />
+        <Pump label={{ position: 'left', sign: 'P' }} active={this.props.data.p156.value} />
         <ReadField left={30} param={'p156'} top={3} />
+      </g>
+    )
+  }
+
+  renderPumpK() {
+    return (
+      <g transform={'translate(' + 581 + ' ' + 300 + ')'}>
+        <Pump label={{ position: 'left', sign: 'K' }} active={this.props.data.p156.value} />
       </g>
     )
   }
@@ -222,6 +260,7 @@ class Scheme16 extends Component {
         {this.renderBoilers()}
         {this.renderConnectors()}
         {this.renderPumpP()}
+        {this.renderPumpK()}
         {this.renderReadFields()}
         {this.renderFlowMeters()}
       </SvgContainer>

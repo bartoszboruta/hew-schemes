@@ -83,7 +83,7 @@ class Scheme6 extends Component {
           left={206}
           top={139.7}
         />
-        <Pump active={this.props.data.p156.value} left={199} top={216} />
+        <Pump label={{ position: 'left', sign: 'C' }} active={this.props.data.p156.value} left={199} top={216} />
       </g>
     )
   }
@@ -126,7 +126,7 @@ class Scheme6 extends Component {
   renderPumpP() {
     return (
       <g transform={'translate(' + 32 + ' ' + 300 + ')'}>
-        <Pump active={this.props.data.p156.value} />
+        <Pump label={{ position: 'left', sign: 'P' }} active={this.props.data.p156.value} />
         <ReadField left={30} param={'p156'} top={3} />
       </g>
     )
@@ -161,7 +161,7 @@ class Scheme6 extends Component {
         />
 
         <Furnace left={190} top={59} />
-        <Pump active={active} left={93} top={91.5} />
+        <Pump label={{ position: 'right', sign: 'K' }} active={active} left={93} top={91.5} />
 
         <Connector left={65.5} top={18.5} />
         <Connector left={65.5} top={-22.5} />
