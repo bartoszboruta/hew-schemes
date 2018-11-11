@@ -19,35 +19,39 @@ import PropTypes from 'prop-types'
 
 class Scheme12 extends Component {
   renderPipes() {
+    const { data: { p154_0, p154_1, p156 } } = this.props
+
     return (
       <g>
         <Pipe
-          active={true}
+          active={p154_0 && p156.value > 0}
           activeColor={'cold'}
           d={'M 5 5 L 19.2 5 S 25 5 25 10.8 L 25 207.2 S 25 213 30.8 213 L 230 213'}
           direction={'reversed'}
-          duration={9}
+          duration={11}
           id={'left_boiler_to_panel_output_cold'}
           left={40}
           top={170}
         />
 
         <Pipe
-          active={this.props.data.p154.value}
+          active={p154_0 || p154_1}
           activeColor={'cold'}
           d={'M 15 5 L 9.751545139010435 8.673918402692696 S 5 12 5 17.8 L 5 40'}
-          duration={10}
+          direction='reversed'
+          duration={2}
           id={'panel_left_cold'}
           left={40}
           top={130}
         />
         <Pipe
-          active={this.props.data.p154.value}
+          active={p154_1}
           activeColor={'cold'}
           d={
             'M 25 5 L 10.8 5 S 5 5 5 10.8 L 5 290.2 S 5 296 10.8 296 L 454.2 296 S 460 296 460 290.2 L 460 219.8 S 460 214 465.8 214 L 480 214 '
           }
-          duration={10}
+          duration={22}
+          direction='reversed'
           id={'panel_left_cold_1'}
           left={20}
           top={170}
@@ -63,20 +67,32 @@ class Scheme12 extends Component {
         />
         <Overlay height={34} left={163} top={377.5} width={20} />
         <Pipe
-          active={this.props.data.p154.value}
+          active={p154_0 || p154_1}
           activeColor={'hot'}
-          begin={5}
+          begin={1}
           d={
-            'M 210 23 L 230.29310081958133 8.38896740990144 S 235 5 240.3974958658397 7.122978657039074 L 239.4925041341603 6.767021342960927 S 244.89 8.89 245.46712157032178 14.661215703217938 L 245.3128784296782 13.118784296782064 S 245.89 18.89 241.205355212781 22.30966419661081 L 239.464644787219 23.58033580338919 S 234.78 27 230.11987807370778 30.453007910806225 L 174.66012192629222 71.54699208919378 S 170 75 170 80.8 L 170 440.2 S 170 446 175.8 446 L 432.2 446 S 438 446 438 440.2 L 438 351.8 S 438 346 443.8 346 L 498 346'
+            'M 210,23 230.2931,8.3889674 c 0,0 4.7069,-3.3889674 10.1044,-1.2659887 l -0.905,-0.3559574 c 0,0 5.3975,2.1229787 5.97462,7.8941947 l -0.15424,-1.542432 c 0,0 0.57712,5.771216 -4.10752,9.19088 l -1.74072,1.270672 c 0,0 -4.68464,3.419664 -9.34476,6.872672 L 174.66012,71.546992 C 174.66012,71.546992 170,75 170,80.8 v 266.71421'
           }
           duration={11}
-          id={'panel_left_hot'}
+          id={'panel_left_hot_top'}
+          left={3}
+          top={-5}
+        />
+        <Pipe
+          active={p154_1}
+          activeColor={'hot'}
+          begin={2}
+          d={
+            'M 170,347.51421 V 440.2 c 0,0 0,5.8 5.8,5.8 h 256.4 c 0,0 5.8,0 5.8,-5.8 v -88.4 c 0,0 0,-5.8 5.8,-5.8 H 498'
+          }
+          duration={11}
+          id={'panel_left_hot_bot'}
           left={3}
           top={-5}
         />
         <Overlay width={60} height={20} left={430} top={395} />
         <Pipe
-          active={true}
+          active={p154_0 && p156.value > 0}
           activeColor={'hot'}
           d={'M 5 5 L 100 5'}
           duration={4}
@@ -128,10 +144,12 @@ class Scheme12 extends Component {
   }
 
   renderBoiler() {
+    const { data: { p154_0, p156 } } = this.props
+
     return (
       <g>
         <Boiler left={270} top={200} />
-        <Coil active={this.props.data.p154.value} direction={'right'} left={270} top={340} />
+        <Coil active={p154_0 && p156.value > 0} direction={'right'} left={270} top={340} />
       </g>
     )
   }
@@ -148,19 +166,22 @@ class Scheme12 extends Component {
   }
 
   renderPumpP() {
+    const { data: { p154_0, p156 } } = this.props
+
     return (
       <g transform={'translate(' + 52 + ' ' + 300 + ')'}>
-        <Pump label={{ position: 'left', sign: 'P' }} active={this.props.data.p156.value} />
+        <Pump label={{ position: 'left', sign: 'P' }} active={p154_0 && p156.value > 0} />
         <ReadField left={30} param={'p156'} top={3} />
       </g>
     )
   }
 
   renderPumpK() {
+    const { data: { p154_1 } } = this.props
+
     return (
       <g transform={'translate(' + 13 + ' ' + 416.5 + ')'}>
-        <Pump label={{ position: 'left', sign: 'K' }} active={this.props.data.p156.value} />
-        <ReadField left={30} param={'p156'} top={3} />
+        <Pump label={{ position: 'left', sign: 'K' }} active={p154_1} />
       </g>
     )
   }
@@ -185,19 +206,23 @@ class Scheme12 extends Component {
   }
 
   renderBoilerRight() {
+    const { data: { p154_1 } } = this.props
+
     return (
       <g>
         <Boiler left={500} top={200} />
-        <Coil active={this.props.data.p154.value} direction={'right'} left={500} top={340} />
+        <Coil active={p154_1} direction={'right'} left={500} top={340} />
       </g>
     )
   }
 
   renderCirculation() {
+    const { data: { p154_2 } } = this.props
+
     return (
       <g>
         <Pipe
-          active={true}
+          active={p154_2}
           activeColor={'hot'}
           begin={3}
           d={'M 44 5 L 10.8 5 S 5 5 5 10.8 L 5 164.2 S 5 170 10.8 170 L 64 170'}
@@ -206,7 +231,7 @@ class Scheme12 extends Component {
           left={436}
           top={139.7}
         />
-        <Pump label={{ position: 'left', sign: 'C' }} active={this.props.data.p156.value} left={429} top={216} />
+        <Pump label={{ position: 'left', sign: 'C' }} active={p154_2} left={429} top={216} />
       </g>
     )
   }

@@ -16,9 +16,9 @@ import {
 } from '../../../components'
 import PropTypes from 'prop-types'
 
-class Scheme15 extends Component {
+class Scheme5 extends Component {
   renderPipes() {
-    const { data: { p154_0, p154_1, p156 } } = this.props
+    const { data: { p154_0, p156 } } = this.props
 
     return (
       <g>
@@ -26,23 +26,11 @@ class Scheme15 extends Component {
           active={p154_0 && p156.value > 0}
           activeColor={'cold'}
           d={
-            'M 15,5 9.7515451,8.6739184 C 9.7515451,8.6739184 5,12 5,17.8 v 229.4 c 0,0 0,5.8 5.8,5.8 h 54.93265'
+            'M 15 5 L 9.751545139010435 8.673918402692696 S 5 12 5 17.8 L 5 247.2 S 5 253 10.8 253 L 235 253'
           }
           direction={'reversed'}
           duration={10}
-          id={'panel_left_cold_left'}
-          left={40}
-          top={130}
-        />
-        <Pipe
-          active={p154_0 || p154_1}
-          activeColor={'cold'}
-          d={
-            'M 65.73265,253 H 235'
-          }
-          direction={'reversed'}
-          duration={10}
-          id={'panel_left_cold_right'}
+          id={'panel_left_cold'}
           left={40}
           top={130}
         />
@@ -51,22 +39,10 @@ class Scheme15 extends Component {
           activeColor={'hot'}
           begin={5}
           d={
-            'M 210,23 230.2931,8.3889674 c 0,0 4.7069,-3.3889674 10.1044,-1.2659887 l -0.905,-0.3559574 c 0,0 5.3975,2.1229787 5.97462,7.8941947 l -0.15424,-1.542432 c 0,0 0.57712,5.771216 -4.10752,9.19088 l -1.74072,1.270672 c 0,0 -4.68464,3.419664 -9.34476,6.872672 L 174.66012,71.546992 C 174.66012,71.546992 170,75 170,80.8 v 24.94088'
+            'M 210 23 L 230.29310081958133 8.38896740990144 S 235 5 240.3974958658397 7.122978657039074 L 239.4925041341603 6.767021342960927 S 244.89 8.89 245.46712157032178 14.661215703217938 L 245.3128784296782 13.118784296782064 S 245.89 18.89 241.205355212781 22.30966419661081 L 239.464644787219 23.58033580338919 S 234.78 27 230.11987807370778 30.453007910806225 L 174.66012192629222 71.54699208919378 S 170 75 170 80.8 L 170 340.2 S 170 346 175.8 346 L 272 346 '
           }
           duration={11}
-          id={'panel_left_hot_top'}
-          left={3}
-          top={-5}
-        />
-        <Pipe
-          active={p154_0 || p154_1}
-          activeColor={'hot'}
-          begin={5}
-          d={
-            'M 170,105.74088 V 340.2 c 0,0 0,5.8 5.8,5.8 H 272'
-          }
-          duration={11}
-          id={'panel_left_hot_bot'}
+          id={'panel_left_hot'}
           left={3}
           top={-5}
         />
@@ -90,30 +66,6 @@ class Scheme15 extends Component {
           left={245}
           top={139.5}
         />
-        <Pipe
-          active={p154_1}
-          activeColor={'cold'}
-          d={
-            'M 5 5 L 5 64.2 S 5 70 10.8 70 L 487.2 70 S 493 70 493 64.2 L 493 -233.2 S 493 -239 488.24845486098957 -242.3260815973073 L 483 -246'
-          }
-          direction='reversed'
-          duration={22}
-          id={'right_boiler_output_cold'}
-          left={100}
-          top={380}
-        />
-        <Pipe
-          active={p154_1}
-          activeColor={'hot'}
-          d={
-            'm 5,50 h 214.2 c 0,0 5.8,0 5.8,-5.8 V 5.9961305 -13.27441 -40.165882 c 0,-2.866517 1.6049,-7.079113 7.61144,-7.079113 0,0 3.80668,-0.132408 7.3857,4.580482'
-          }
-          duration={10}
-          direction={'reversed'}
-          id={'right_boiler_output_hot'}
-          left={170}
-          top={50}
-        />
       </g>
     )
   }
@@ -126,8 +78,6 @@ class Scheme15 extends Component {
         <Connector left={270} top={359} />
         <Connector left={270} top={379.5} />
         <TriConnector direction={'reversedVertical'} left={242.25} top={140} />
-        <TriConnector direction={'reversedVertical'} left={97.25} top={378.5} />
-        <TriConnector direction={'rotatedRight'} left={166.5} top={94} />
       </g>
     )
   }
@@ -154,13 +104,13 @@ class Scheme15 extends Component {
   }
 
   renderBoiler() {
-    const { data: { p154_0, p154_1 } } = this.props
+    const { data: { p154_0, p156 } } = this.props
 
     return (
       <g>
         <Boiler left={270} top={200} />
-        <Coil active={p154_0 || p154_1} direction={'right'} left={270} top={340} />
-        {Scheme15.renderConnectors()}
+        <Coil active={p154_0 && p156.value > 0} direction={'right'} left={270} top={340} />
+        {Scheme5.renderConnectors()}
       </g>
     )
   }
@@ -168,9 +118,9 @@ class Scheme15 extends Component {
   renderReadFields() {
     return (
       <g>
-        {this.props.data.p128.visible && <ReadField left={254} param={'p128'} />}
+        {this.props.data.p128.visible && <ReadField left={256} param={'p128'} />}
         {this.props.data.p130.visible && <ReadField left={196} param={'p130'} top={352.5} />}
-        {this.props.data.p132.visible && <ReadField left={324} param={'p132'} />}
+        {this.props.data.p132.visible && <ReadField left={62} param={'p132'} top={236.5} />}
       </g>
     )
   }
@@ -182,16 +132,6 @@ class Scheme15 extends Component {
       <g transform={'translate(' + 32 + ' ' + 300 + ')'}>
         <Pump label={{ position: 'left', sign: 'P' }} active={p154_0 && p156.value > 0} />
         <ReadField left={30} param={'p156'} top={3} />
-      </g>
-    )
-  }
-
-  renderPumpK() {
-    const { data: { p154_1 } } = this.props
-
-    return (
-      <g transform={'translate(' + 581 + ' ' + 300 + ')'}>
-        <Pump label={{ position: 'left', sign: 'K' }} active={p154_1} />
       </g>
     )
   }
@@ -221,14 +161,10 @@ class Scheme15 extends Component {
         {this.renderPipes()}
         <Shower left={384.25} top={165} />
         <SolarPanel left={50} />
-        <g transform={'scale(-1,1)'}>
-          <SolarPanel left={-588} />
-        </g>
-        <Clock left={600} />
+        <Clock left={400} />
         {this.renderCirculation()}
         {this.renderBoiler()}
         {this.renderPumpP()}
-        {this.renderPumpK()}
         {this.renderReadFields()}
         {this.renderFlowMeters()}
       </SvgContainer>
@@ -242,14 +178,16 @@ const mapStateToProps = ({ data }) => {
   }
 }
 
-const ConnectedScheme15 = connect(mapStateToProps)(Scheme15)
-export { ConnectedScheme15 as Scheme15 }
+const ConnectedScheme5 = connect(mapStateToProps)(Scheme5)
+export { ConnectedScheme5 as Scheme5 }
 
-Scheme15.propTypes = {
+Scheme5.propTypes = {
   data: PropTypes.object,
+  height: PropTypes.number,
+  width: PropTypes.number,
 }
 
-Scheme15.defaultProps = {
+Scheme5.defaultProps = {
   data: {},
   height: 0,
   width: 0,

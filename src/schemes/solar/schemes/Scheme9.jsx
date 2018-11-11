@@ -27,7 +27,7 @@ class Scheme9 extends Component {
     return (
       <g>
         <Pipe
-          active={true}
+          active={p154_0 && !p154_1}
           activeColor={'cold'}
           d={'M 5 5 L 240 5'}
           direction={'reversed'}
@@ -50,7 +50,7 @@ class Scheme9 extends Component {
           active={p154_0 && p156.value > 0}
           activeColor={'cold'}
           d={
-            'M 15 5 L 9.751545139010435 8.673918402692696 S 5 12 5 17.8 L 5 330.2 S 5 336 10.8 336 L 379.2 336 S 385 336 385 330.2 L 385 244'
+            'M 15,5 9.7515451,8.6739184 C 9.7515451,8.6739184 5,12 5,17.8 v 233.92119'
           }
           direction={'reversed'}
           duration={10}
@@ -59,14 +59,38 @@ class Scheme9 extends Component {
           top={130}
         />
         <Pipe
+          active={p154_0 && p154_1 && p156.value > 0}
+          activeColor={'cold'}
+          d={
+            'M 5,251.72119 V 330.2 c 0,0 0,5.8 5.8,5.8 h 368.4 c 0,0 5.8,0 5.8,-5.8 V 244'
+          }
+          direction={'reversed'}
+          duration={14}
+          id={'panel_left_cold_bot'}
+          left={40}
+          top={130}
+        />
+        <Pipe
+          active={p154_0 && p154_1 && p156.value > 0}
+          activeColor={'hot'}
+          begin={5}
+          d={
+            'M 170,341.83166 V 440.2 c 0,0 0,5.8 5.8,5.8 h 206.4 c 0,0 5.8,0 5.8,-5.8 V 255.8 c 0,0 0,-5.8 5.8,-5.8 h 22.9 c 0,0 5.8,0 5.8,5.8 V 280'
+          }
+          duration={11}
+          id={'panel_left_hot_top'}
+          left={3}
+          top={-5}
+        />
+        <Pipe
           active={p154_0 && p156.value > 0}
           activeColor={'hot'}
           begin={5}
           d={
-            'M 210 23 L 230.29310081958133 8.38896740990144 S 235 5 240.3974958658397 7.122978657039074 L 239.4925041341603 6.767021342960927 S 244.89 8.89 245.46712157032178 14.661215703217938 L 245.3128784296782 13.118784296782064 S 245.89 18.89 241.205355212781 22.30966419661081 L 239.464644787219 23.58033580338919 S 234.78 27 230.11987807370778 30.453007910806225 L 174.66012192629222 71.54699208919378 S 170 75 170 80.8 L 170 440.2 S 170 446 175.8 446 L 382.2 446 S 388 446 388 440.2 L 388 255.8 S 388 250 393.8 250 L 416.7 250 S 422.5 250 422.5 255.8 L 422.5 280'
+            'M 210,23 230.2931,8.3889674 c 0,0 4.7069,-3.3889674 10.1044,-1.2659887 l -0.905,-0.3559574 c 0,0 5.3975,2.1229787 5.97462,7.8941947 l -0.15424,-1.542432 c 0,0 0.57712,5.771216 -4.10752,9.19088 l -1.74072,1.270672 c 0,0 -4.68464,3.419664 -9.34476,6.872672 L 174.66012,71.546992 C 174.66012,71.546992 170,75 170,80.8 v 261.03166'
           }
           duration={11}
-          id={'panel_left_hot'}
+          id={'panel_left_hot_bot'}
           left={3}
           top={-5}
         />
@@ -82,7 +106,7 @@ class Scheme9 extends Component {
           top={139.5}
         />
         <Pipe
-          active={true}
+          active={p154_0 && !p154_1}
           activeColor={'hot'}
           d={'M 5 5 L 100 5'}
           duration={4}
@@ -91,7 +115,7 @@ class Scheme9 extends Component {
           top={336}
         />
         <Pipe
-          active={true}
+          active={p154_2}
           activeColor={'cold'}
           d={'M 5 5 L 75 5'}
           direction={'reversed'}
@@ -101,7 +125,7 @@ class Scheme9 extends Component {
           top={346}
         />
         <Pipe
-          active={true}
+          active={p154_2}
           activeColor={'hot'}
           d={'M 5 5 L 75 5'}
           duration={4}
@@ -150,9 +174,11 @@ class Scheme9 extends Component {
   }
 
   renderPumpP() {
+    const { data: { p154_0, p156 } } = this.props
+
     return (
       <g transform={'translate(' + 32 + ' ' + 300 + ')'}>
-        <Pump label={{ position: 'left', sign: 'P' }} active={this.props.data.p156.value} />
+        <Pump label={{ position: 'left', sign: 'P' }} active={p154_0 && p156.value > 0} />
         <ReadField left={30} param={'p156'} top={3} />
       </g>
     )
@@ -178,12 +204,13 @@ class Scheme9 extends Component {
   }
 
   renderPool() {
-    const active = true
+    const { data: { p154_2 } } = this.props
+
     return (
       <g transform={'translate(' + 415 + ' ' + 270 + ')'}>
         <PoolPump />
         <PoolTank left={90} top={12} />
-        <Pump label={{ position: 'bottom', sign: 'C' }} active={active} left={44} top={70} />
+        <Pump label={{ position: 'bottom', sign: 'C' }} active={p154_2} left={44} top={70} />
       </g>
     )
   }
