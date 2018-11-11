@@ -17,10 +17,12 @@ import PropTypes from 'prop-types'
 
 class Scheme1 extends Component {
   renderPipes() {
+    const { data: { p154_0, p156 } } = this.props
+
     return (
       <g>
         <Pipe
-          active={this.props.data.p154.value} //p154_0 && p156 > 0
+          active={p154_0 && p156.value > 0} //p154_0 && p156 > 0
           activeColor={'cold'}
           d={
             'M 15 5 L 9.751545139010435 8.673918402692696 S 5 12 5 17.8 L 5 247.2 S 5 253 10.8 253 L 235 253'
@@ -32,7 +34,7 @@ class Scheme1 extends Component {
           top={130}
         />
         <Pipe
-          active={this.props.data.p154.value} //p154_0 && p156 > 0
+          active={p154_0 && p156.value > 0} //p154_0 && p156 > 0
           activeColor={'hot'}
           begin={5}
           d={
@@ -79,10 +81,12 @@ class Scheme1 extends Component {
   }
 
   renderBoiler() {
+    const { data: { p154_0, p156 } } = this.props
+
     return (
       <g>
         <Boiler left={270} top={200} />
-        <Coil active={this.props.data.p154.value} direction={'right'} left={270} top={340} />
+        <Coil active={p154_0 && p156.value > 0} direction={'right'} left={270} top={340} />
         {Scheme1.renderConnectors()}
       </g>
     )
@@ -99,9 +103,11 @@ class Scheme1 extends Component {
   }
 
   renderPumpP() {
+    const { data: { p154_0, p156 } } = this.props
+
     return (
       <g transform={'translate(' + 32 + ' ' + 300 + ')'}>
-        <Pump label={{ position: 'left', sign: 'P' }} active={this.props.data.p156.value} />
+        <Pump label={{ position: 'left', sign: 'P' }} active={p154_0 && p156.value > 0} />
         <ReadField left={30} param={'p156'} top={3} />
       </g>
     )

@@ -174,11 +174,14 @@ const config = {
 
   p154: {
     name: 'F2',
-    value: false,
+    value: true,
     unit: 'l/min',
     visible: true,
     position: 'default',
   },
+  p154_0: true,
+  p154_1: true,
+  p154_2: true,
   p156: {
     name: 'E1',
     value: 100,
@@ -188,7 +191,7 @@ const config = {
   },
   p170: {
     name: 'Schemat',
-    value: 16,
+    value: 9,
   },
   p292: {
     name: 'F2',

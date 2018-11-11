@@ -20,10 +20,12 @@ import PropTypes from 'prop-types'
 
 class Scheme8 extends Component {
   renderPipes() {
+    const { data: { p154_0, p154_1, p154_2, p156 } } = this.props
+
     return (
       <g>
         <Pipe
-          active={this.props.data.p154.value}
+          active={p154_0 && p156.value > 0}
           activeColor={'cold'}
           d={
             'M 15 5 L 9.751545139010435 8.673918402692696 S 5 12 5 17.8 L 5 247.2 S 5 253 10.8 253 L 235 253'
@@ -35,7 +37,7 @@ class Scheme8 extends Component {
           top={130}
         />
         <Pipe
-          active={this.props.data.p154.value}
+          active={p154_0 && p156.value > 0}
           activeColor={'hot'}
           begin={5}
           d={
@@ -79,7 +81,7 @@ class Scheme8 extends Component {
         />
         <Overlay width={20} height={20} left={385} top={300} />
         <Pipe
-          active={true}
+          active={p154_2 && p154_1}
           activeColor={'hot'}
           anime={true}
           d={'M 5 5 L 75 5'}
@@ -90,7 +92,7 @@ class Scheme8 extends Component {
           top={305}
         />
         <Pipe
-          active={false}
+          active={p154_2 && !p154_1}
           activeColor={'hot'}
           anime={false}
           d={'M 5 5 L 60 5'}
@@ -104,10 +106,12 @@ class Scheme8 extends Component {
   }
 
   renderCirculation() {
+    const { data: { p154_2 } } = this.props
+
     return (
       <g>
         <Pipe
-          active={true}
+          active={p154_2}
           activeColor={'hot'}
           begin={3}
           d={'M 44 5 L 10.8 5 S 5 5 5 10.8 L 5 170'}
@@ -116,7 +120,7 @@ class Scheme8 extends Component {
           left={436}
           top={139.7}
         />
-        <Pump label={{ position: 'left', sign: 'C' }} active={this.props.data.p156.value} left={429} top={216} />
+        <Pump label={{ position: 'left', sign: 'C' }} active={p154_2} left={429} top={216} />
       </g>
     )
   }
@@ -139,10 +143,12 @@ class Scheme8 extends Component {
   }
 
   renderBoiler() {
+    const { data: { p154_0, p156 } } = this.props
+
     return (
       <g>
         <Boiler left={270} top={200} />
-        <Coil active={this.props.data.p154.value} direction={'right'} left={270} top={340} />
+        <Coil active={p154_0 && p156.value > 0} direction={'right'} left={270} top={340} />
         {Scheme8.renderConnectors()}
       </g>
     )
@@ -169,9 +175,11 @@ class Scheme8 extends Component {
   }
 
   renderPumpP() {
+    const { data: { p154_0, p156 } } = this.props
+
     return (
       <g transform={'translate(' + 32 + ' ' + 300 + ')'}>
-        <Pump label={{ position: 'left', sign: 'P' }} active={this.props.data.p156.value} />
+        <Pump label={{ position: 'left', sign: 'P' }} active={p154_0 && p156.value > 0} />
         <ReadField left={30} param={'p156'} top={3} />
       </g>
     )

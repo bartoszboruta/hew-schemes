@@ -20,10 +20,12 @@ import PropTypes from 'prop-types'
 
 class Scheme19 extends Component {
   renderPipes() {
+    const { data: { p154_0, p154_2, p156 } } = this.props
+
     return (
       <g>
         <Pipe
-          active={this.props.data.p154.value}
+          active={p154_0 && p156.value > 0}
           activeColor={'cold'}
           d={
             'M 15 5 L 9.751545139010435 8.673918402692696 S 5 12 5 17.8 L 5 247.2 S 5 253 10.8 253 L 235 253'
@@ -35,7 +37,7 @@ class Scheme19 extends Component {
           top={130}
         />
         <Pipe
-          active={this.props.data.p154.value}
+          active={p154_0 && p156.value > 0}
           activeColor={'hot'}
           begin={5}
           d={
@@ -67,7 +69,7 @@ class Scheme19 extends Component {
           top={139.5}
         />
         <Pipe
-          active={true}
+          active={p154_2}
           activeColor={'hot'}
           d={'M 270 5 L 10.8 5 S 5 5 5 10.8 L 5 164.2 S 5 170 10.8 170 L 64 170'}
           duration={11}
@@ -76,7 +78,7 @@ class Scheme19 extends Component {
           top={139.7}
         />
         <Pipe
-          active={true}
+          active={p154_2}
           activeColor={'hot'}
           d={'M 0 5 L 24.2 5 S 30 5 30 10.8 L 30 185.2 S 30 191 35.8 191 L 135 191'}
           duration={11}
@@ -106,20 +108,24 @@ class Scheme19 extends Component {
   }
 
   renderBoiler() {
+    const { data: { p154_0, p156 } } = this.props
+
     return (
       <g>
         <Boiler left={270} top={200} />
-        <Coil active={this.props.data.p154.value} direction={'right'} left={270} top={340} />
+        <Coil active={p154_0 && p156.value > 0} direction={'right'} left={270} top={340} />
         {Scheme19.renderConnectors()}
       </g>
     )
   }
 
   renderBoilerRight() {
+    const { data: { p154_0, p156 } } = this.props
+
     return (
       <g>
         <Boiler left={500} top={200} />
-        <Coil active={this.props.data.p154.value} direction={'right'} left={270} top={340} />
+        <Coil active={p154_0 && p156.value > 0} direction={'right'} left={270} top={340} />
         {Scheme19.renderConnectors()}
       </g>
     )
@@ -137,20 +143,22 @@ class Scheme19 extends Component {
   }
 
   renderPumpP() {
-    //p154_2 > 0
+    const { data: { p154_0, p156 } } = this.props
+
     return (
       <g transform={'translate(' + 32 + ' ' + 300 + ')'}>
-        <Pump label={{ position: 'left', sign: 'P' }} active={this.props.data.p156.value} />
+        <Pump label={{ position: 'left', sign: 'P' }} active={p154_0 && p156.value > 0} />
         <ReadField left={30} param={'p156'} top={3} />
       </g>
     )
   }
 
   renderPumpK() {
-    // active  154_1 > 0
+    const { data: { p154_2, p156 } } = this.props
+
     return (
       <g transform={'translate(' + 198 + ' ' + 216 + ')'}>
-        <Pump label={{ position: 'left', sign: 'K' }} active={this.props.data.p156.value} />
+        <Pump label={{ position: 'left', sign: 'K' }} active={p154_2 && p156.value > 0} />
       </g>
     )
   }
@@ -175,6 +183,8 @@ class Scheme19 extends Component {
   }
 
   renderTriValve() {
+    const { data: { p154_1 } } = this.props
+
     return <g>
       <Pipe
         active={true}
@@ -182,17 +192,15 @@ class Scheme19 extends Component {
         begin={3}
         d={'M 5 5 L 5 120'}
         direction={'reversed'}
-        id={'furnace_hot_1'}
+        id={'valve_hot_out'}
         duration={7}
         left={436}
         top={185}
       />
       <Pipe
-        active={true}
+        active={p154_1}
         activeColor={'hot'}
-        anime={true}
         d={'M 5 5 L 75 5'}
-        direction={'reversed'}
         duration={3}
         id={'left_boiler_to_valve'}
         left={361}
@@ -200,10 +208,10 @@ class Scheme19 extends Component {
       />
       <Overlay height={16} width={16} left={386} top={300} />
       <Pipe
-        active={false}
+        active={!p154_1}
         activeColor={'hot'}
-        anime={false}
         d={'M 5 5 L 60 5'}
+        direction={'reversed'}
         duration={3}
         id={'right_boiler_to_valve'}
         left={446}

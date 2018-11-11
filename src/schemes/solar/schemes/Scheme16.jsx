@@ -20,10 +20,12 @@ import PropTypes from 'prop-types'
 
 class Scheme16 extends Component {
   renderPipes() {
+    const { data: { p154_0, p154_1, p154_2 } } = this.props
+
     return (
       <g>
         <Pipe
-          active={true}
+          active={p154_0}
           activeColor={'cold'}
           d={
             'M 15 5 L 9.751545139010435 8.673918402692696 S 5 12 5 17.8 L 5 317.2 S 5 323 10.8 323 L 280 323'
@@ -36,7 +38,7 @@ class Scheme16 extends Component {
         />
         <g transform={'scale(-1,1)'}>
           <Pipe
-            active={true}
+            active={p154_2}
             activeColor={'cold'}
             d={
               'M 15 5 L 9.751545139010435 8.673918402692696 S 5 12 5 17.8 L 5 317.2 S 5 323 10.8 323 L 280 323'
@@ -55,12 +57,12 @@ class Scheme16 extends Component {
             'M 26 78 L 10.8 78 S 5 78 5 72.2 L 5 10.8 S 5 5 10.8 5 L 144.2 5 S 150 5 150 10.8 L 150 30'
           }
           duration={7}
-          id={'left_boiler_output_hot'}
+          id={'right_boiler_output_hot'}
           left={145}
           top={139.5}
         />
         <Pipe
-          active={true}
+          active={p154_2}
           activeColor={'hot'}
           begin={2}
           d={
@@ -68,12 +70,12 @@ class Scheme16 extends Component {
           }
           direction={'reversed'}
           duration={10}
-          id={'right_boiler_output_hot'}
+          id={'right_solar_output_hot'}
           left={170}
           top={50}
         />
         <Pipe
-          active={true}
+          active={p154_0 || p154_2}
           activeColor={'hot'}
           d={'M 5 5 L 5 245'}
           duration={10}
@@ -82,7 +84,7 @@ class Scheme16 extends Component {
           top={95}
         />
         <Pipe
-          active={true}
+          active={p154_0 || p154_2}
           activeColor={'cold'}
           d={'M 5 5 L 5 69'}
           duration={3}
@@ -91,7 +93,7 @@ class Scheme16 extends Component {
           top={385}
         />
         <Pipe
-          active={true}
+          active={p154_0 && p154_1}
           activeColor={'hot'}
           begin={2}
           d={'M 5 5 L 60 5'}
@@ -101,7 +103,7 @@ class Scheme16 extends Component {
           top={336.5}
         />
         <Pipe
-          active={true}
+          active={p154_0 && !p154_1}
           activeColor={'hot'}
           d={'M 5 5 L 60 5'}
           direction={'reversed'}
@@ -111,7 +113,7 @@ class Scheme16 extends Component {
           top={336.5}
         />
         <Pipe
-          active={true}
+          active={p154_0 && p154_1}
           activeColor={'cold'}
           begin={1}
           d={'M 5 5 L 60 5'}
@@ -122,7 +124,7 @@ class Scheme16 extends Component {
           top={377.5}
         />
         <Pipe
-          active={true}
+          active={p154_0 && !p154_1}
           activeColor={'cold'}
           d={'M 5 5 L 60 5'}
           duration={3}
@@ -156,14 +158,14 @@ class Scheme16 extends Component {
 
         <g transform={'scale(-1,1)'}>
           <Pipe
-            active={true}
+            active={p154_0}
             activeColor={'hot'}
             d={
               'M 149.57589,50 219.2,50 c 0,0 5.8,0 5.8,-5.8 V 5.9961305 -13.27441 -40.165882 c 0,-2.866517 1.6049,-7.079113 7.61144,-7.079113 0,0 3.80668,-0.132408 7.3857,4.580482'
             }
             direction={'reversed'}
             duration={10}
-            id={'right_boiler_output_hot'}
+            id={'left_solar_output_hot'}
             left={-469}
             top={50}
           />
@@ -192,15 +194,17 @@ class Scheme16 extends Component {
   }
 
   renderBoilers() {
+    const { data: { p154_0, p154_1 } } = this.props
+
     return (
       <g>
         <g transform={'translate(' + 170 + ' ' + 200 + ')'}>
           <Boiler />
-          <Coil active={this.props.data.p154.value} direction={'left'} left={20} top={140} />
+          <Coil active={p154_0 && !p154_1} direction={'left'} left={20} top={140} />
         </g>
         <g transform={'translate(' + 372 + ' ' + 200 + ')'}>
           <Boiler />
-          <Coil active={this.props.data.p154.value} direction={'right'} top={140} />
+          <Coil active={p154_0 && p154_1} direction={'right'} top={140} />
         </g>
       </g>
     )
@@ -218,18 +222,22 @@ class Scheme16 extends Component {
   }
 
   renderPumpP() {
+    const { data: { p154_0 } } = this.props
+
     return (
       <g transform={'translate(' + 32 + ' ' + 300 + ')'}>
-        <Pump label={{ position: 'left', sign: 'P' }} active={this.props.data.p156.value} />
+        <Pump label={{ position: 'left', sign: 'P' }} active={p154_0} />
         <ReadField left={30} param={'p156'} top={3} />
       </g>
     )
   }
 
   renderPumpK() {
+    const { data: { p154_2 } } = this.props
+
     return (
       <g transform={'translate(' + 581 + ' ' + 300 + ')'}>
-        <Pump label={{ position: 'left', sign: 'K' }} active={this.props.data.p156.value} />
+        <Pump label={{ position: 'left', sign: 'K' }} active={p154_2} />
       </g>
     )
   }

@@ -19,11 +19,14 @@ import {
 import PropTypes from 'prop-types'
 
 class Scheme13 extends Component {
+
   renderPipes() {
+    const { data: { p154_0, p156 } } = this.props
+
     return (
       <g>
         <Pipe
-          active={this.props.data.p154.value}
+          active={p154_0 && p156.value > 0}
           activeColor={'cold'}
           d={
             'M 15 5 L 9.751545139010435 8.673918402692696 S 5 12 5 17.8 L 5 247.2 S 5 253 10.8 253 L 235 253'
@@ -35,7 +38,7 @@ class Scheme13 extends Component {
           top={130}
         />
         <Pipe
-          active={this.props.data.p154.value}
+          active={p154_0 && p156.value > 0}
           activeColor={'hot'}
           begin={5}
           d={
@@ -70,10 +73,12 @@ class Scheme13 extends Component {
   }
 
   renderBoiler() {
+    const { data: { p154_0, p156 } } = this.props
+
     return (
       <g>
         <Boiler left={270} top={200} />
-        <Coil active={this.props.data.p154.value} direction={'right'} left={270} top={340} />
+        <Coil active={p154_0 && p156.value > 0} direction={'right'} left={270} top={340} />
         {Scheme13.renderConnectors()}
       </g>
     )
@@ -90,15 +95,19 @@ class Scheme13 extends Component {
   }
 
   renderPumpP() {
+    const { data: { p154_0, p156 } } = this.props
+
     return (
       <g transform={'translate(' + 32 + ' ' + 300 + ')'}>
-        <Pump label={{ position: 'left', sign: 'P' }} active={this.props.data.p156.value} />
+        <Pump label={{ position: 'left', sign: 'P' }} active={p154_0 && p156.value > 0} />
         <ReadField left={30} param={'p156'} top={3} />
       </g>
     )
   }
 
   renderFurnace() {
+    const { data: { p154_1 } } = this.props
+
     const active = true
     return (
       <g transform={'translate(' + 290 + ' ' + 236 + ')'}>
@@ -114,7 +123,7 @@ class Scheme13 extends Component {
           top={-60}
         />
         <Pipe
-          active={active}
+          active={p154_1}
           activeColor={'cold'}
           begin={0}
           d={'M 5 5 L 60 5 '}
@@ -124,7 +133,7 @@ class Scheme13 extends Component {
           top={163}
         />
         <Pipe
-          active={active} // p154_1 > 0 = szary ; p154_1=0 = niebieski;
+          active={p154_1} // p154_1 > 0 = szary ; p154_1=0 = niebieski;
           activeColor={'cold'}
           begin={0}
           d={'M 5 5 L 30 5 '}
@@ -134,8 +143,8 @@ class Scheme13 extends Component {
           top={163}
         />
         <Pipe
-          active={active} // p154_1 == 0 && niebieski kiedy p154_1=0; p154_1 > 0 to czerwony
-          activeColor={'cold'} //czerwony albo niebieski
+          active={true} // p154_1 == 0 && niebieski kiedy p154_1=0; p154_1 > 0 to czerwony
+          activeColor={p154_1 ? 'hot' : 'cold'} //czerwony albo niebieski
           begin={3}
           d={'M 5 5 L 30 5 '}
           duration={2}
@@ -146,17 +155,17 @@ class Scheme13 extends Component {
         <Pipe
           active={active}
           activeColor={'cold'}
-          begin={0}
+          begin={1}
           d={'M 5 220 L 5 35.8 S 5 30 10.8 30 L 94.2 30 S 100 30 100 24.2 L 100 5'}
-          duration={7}
+          direction="reversed"
+          duration={8}
           id={'furnace_cold_3'}
-
           left={128}
           top={-60}
         />
         <Overlay width={20} height={20} left={125} top={-7} />
         <Pipe
-          active={active}
+          active={p154_1}
           activeColor={'hot'}
           begin={0}
           d={'M 5 5 L 94.2 5 S 100 5 100 10.8 L 100 170'}

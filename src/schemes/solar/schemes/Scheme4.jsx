@@ -4,11 +4,14 @@ import { Heater, Clock, SvgContainer, SolarPanel, Boiler, Coil, Connector, Pipe,
 import PropTypes from 'prop-types';
 
 class Scheme4 extends Component {
+
   renderPipes() {
+    const { data: { p154_0, p156 } } = this.props
+
     return <g>
       <Pipe
         id={'panel_left_cold'}
-        active={this.props.data.p154.value}
+        active={p154_0 && p156.value > 0}
         activeColor={'cold'}
         d={'M 15 5 L 9.751545139010435 8.673918402692696 S 5 12 5 17.8 L 5 247.2 S 5 253 10.8 253 L 235 253'}
         direction={'reversed'}
@@ -18,7 +21,7 @@ class Scheme4 extends Component {
       />
       <Pipe
         id={'panel_left_hot'}
-        active={this.props.data.p154.value}
+        active={p154_0 && p156.value > 0}
         activeColor={'hot'}
         d={'M 210 23 L 230.29310081958133 8.38896740990144 S 235 5 240.3974958658397 7.122978657039074 L 239.4925041341603 6.767021342960927 S 244.89 8.89 245.46712157032178 14.661215703217938 L 245.3128784296782 13.118784296782064 S 245.89 18.89 241.205355212781 22.30966419661081 L 239.464644787219 23.58033580338919 S 234.78 27 230.11987807370778 30.453007910806225 L 174.66012192629222 71.54699208919378 S 170 75 170 80.8 L 170 340.2 S 170 346 175.8 346 L 272 346 '}
         begin={5}
@@ -48,10 +51,12 @@ class Scheme4 extends Component {
   }
 
   renderCirculation() {
+    const { data: { p154_2 } } = this.props
+
     return <g>
       <Pipe
         id={'left_boiler_circulation_1'}
-        active={true}
+        active={p154_2}
         activeColor={'hot'}
         begin={3}
         d={'M 44 5 L 10.8 5 S 5 5 5 10.8 L 5 164.2 S 5 170 10.8 170 L 64 170'}
@@ -60,7 +65,7 @@ class Scheme4 extends Component {
         left={206}
         top={139.7}
       />
-      <Pump label={{ position: 'left', sign: 'C' }} left={199} top={216} active={this.props.data.p156.value} />
+      <Pump label={{ position: 'left', sign: 'C' }} left={199} top={216} active={p154_2} />
     </g>
   }
 
@@ -76,9 +81,11 @@ class Scheme4 extends Component {
   }
 
   renderBoiler() {
+    const { data: { p154_0, p156 } } = this.props
+
     return <g>
       <Boiler left={270} top={200} />
-      <Coil active={this.props.data.p154.value} direction={'right'} left={270} top={340} />
+      <Coil active={p154_0 && p156.value > 0} direction={'right'} left={270} top={340} />
       {Scheme4.renderConnectors()}
     </g>
   }
@@ -93,14 +100,18 @@ class Scheme4 extends Component {
   }
 
   renderPumpP() {
+    const { data: { p154_0, p156 } } = this.props
+
     return <g transform={'translate(' + 32 + ' ' + 300 + ')'}>
-      <Pump label={{ position: 'left', sign: 'P' }} active={this.props.data.p156.value} />
+      <Pump label={{ position: 'left', sign: 'P' }} active={p154_0 && p156.value > 0} />
       <ReadField param={'p156'} left={30} top={3} />
     </g>
   }
 
   renderHeater() {
-    return <Heater left={312} top={302} active={true} />
+    const { data: { p154_1 } } = this.props
+
+    return <Heater left={312} top={302} active={p154_1} />
   }
 
   renderFlowMeters() {

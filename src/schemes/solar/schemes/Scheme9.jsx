@@ -22,6 +22,8 @@ import PropTypes from 'prop-types'
 
 class Scheme9 extends Component {
   renderPipes() {
+    const { data: { p154_0, p154_1, p154_2, p156 } } = this.props
+
     return (
       <g>
         <Pipe
@@ -45,7 +47,7 @@ class Scheme9 extends Component {
         />
         <Overlay height={34} left={163} top={377.5} width={20} />
         <Pipe
-          active={this.props.data.p154.value}
+          active={p154_0 && p156.value > 0}
           activeColor={'cold'}
           d={
             'M 15 5 L 9.751545139010435 8.673918402692696 S 5 12 5 17.8 L 5 330.2 S 5 336 10.8 336 L 379.2 336 S 385 336 385 330.2 L 385 244'
@@ -57,7 +59,7 @@ class Scheme9 extends Component {
           top={130}
         />
         <Pipe
-          active={this.props.data.p154.value}
+          active={p154_0 && p156.value > 0}
           activeColor={'hot'}
           begin={5}
           d={
@@ -125,10 +127,12 @@ class Scheme9 extends Component {
   }
 
   renderBoiler() {
+    const { data: { p154_0, p156 } } = this.props
+
     return (
       <g>
         <Boiler left={270} top={200} />
-        <Coil active={this.props.data.p154.value} direction={'right'} left={270} top={340} />
+        <Coil active={p154_0 && p156.value > 0} direction={'right'} left={270} top={340} />
         {Scheme9.renderConnectors()}
       </g>
     )
