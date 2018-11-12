@@ -220,10 +220,8 @@ const run = (config, selector) => {
   return handler
 }
 
-if (process.env.NODE_ENV !== 'production') {
-  run(config, '#root')
-  registerServiceWorker()
-}
+run(config, '#root')
+registerServiceWorker()
 
 export const scheme = (config, selector) => {
   let handler = run(config, selector)
