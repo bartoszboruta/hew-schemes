@@ -114,17 +114,36 @@ class Scheme4 extends Component {
     return <Heater left={312} top={302} active={p154_1} />
   }
 
+  getFlowMeterPosition = ({ position }) => {
+    switch (position) {
+      case 0:
+        return 'translate(' + 190 + ' ' + 393.5 + ')'
+      case 1:
+        return 'translate(' + 397 + ' ' + 17 + ')'
+      default:
+        return ''
+    }
+  }
+
   renderFlowMeters() {
-    return <g>
-      {this.props.data.p152.visible && <g transform={'translate(' + 34 + ' ' + 270 + ')'}>
-        <FlowMeter />
-        <ReadField param={'p152'} left={28} />
-      </g>}
-      {this.props.data.p292.visible && <g transform={'translate(' + 190 + ' ' + 393.5 + ')'}>
-        <FlowMeter direction={'horizontal'} />
-        <ReadField param={'p292'} left={-25} top={26} />
-      </g>}
-    </g>
+    const { data: { p152, p292 } } = this.props
+
+    return (
+      <g>
+        {p152.visible && (
+          <g transform={'translate(' + 34 + ' ' + 270 + ')'}>
+            <FlowMeter />
+            <ReadField left={28} param={'p152'} />
+          </g>
+        )}
+        {p292.visible && (
+          <g transform={this.getFlowMeterPosition(p292)}>
+            {p292.position === 0 && <FlowMeter direction={'horizontal'} />}
+            <ReadField left={-25} param={'p292'} top={26} />
+          </g>
+        )}
+      </g>
+    )
   }
 
   render() {
@@ -133,7 +152,7 @@ class Scheme4 extends Component {
       {this.renderCirculation()}
       <Shower left={384.25} top={165} />
       <SolarPanel left={50} />
-      <Clock left={459} />
+      <Clock left={416} />
       {this.renderBoiler()}
       {this.renderHeater()}
       {this.renderPumpP()}

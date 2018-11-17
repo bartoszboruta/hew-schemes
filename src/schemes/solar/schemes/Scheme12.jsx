@@ -180,25 +180,42 @@ class Scheme12 extends Component {
     const { data: { p154_1 } } = this.props
 
     return (
-      <g transform={'translate(' + 13 + ' ' + 416.5 + ')'}>
+      <g transform={'translate(' + 13 + ' ' + 426.5 + ')'}>
         <Pump label={{ position: 'left', sign: 'K' }} active={p154_1} />
       </g>
     )
   }
 
   renderFlowMeters() {
+    const { data: { p152, p292 } } = this.props
+
     return (
       <g>
-        {this.props.data.p152.visible && (
+        {p152.visible && (
           <g transform={'translate(' + 54 + ' ' + 270 + ')'}>
             <FlowMeter />
             <ReadField left={28} param={'p152'} />
           </g>
         )}
-        {this.props.data.p292.visible && (
-          <g transform={'translate(' + 220.5 + ' ' + 393.5 + ')'}>
-            <FlowMeter direction={'horizontal'} />
-            <ReadField left={-25} param={'p292'} top={26} />
+        {p292.visible && (
+          <g>
+            {
+              p292.position === 0 && <g transform={'translate(' + 220.5 + ' ' + 393.5 + ')'}>
+                <FlowMeter direction={'horizontal'} />
+                <ReadField left={-25} param={'p292'} top={26} />
+              </g>
+            }
+            {
+              p292.position === 1 && <g transform={'translate(' + 594.32 + ' ' + 17 + ')'}>
+                <ReadField left={-25} param={'p292'} top={26} />
+              </g>
+            }
+            {
+              p292.position === 2 && <g transform={'translate(' + 14 + ' ' + 397 + ')'}>
+                <FlowMeter direction={'vertical'} />
+                <ReadField left={28} param={'p292'} />
+              </g>
+            }
           </g>
         )}
       </g>

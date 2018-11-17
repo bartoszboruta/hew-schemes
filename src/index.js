@@ -115,6 +115,7 @@ import registerServiceWorker from './registerServiceWorker'
 //   },
 // }
 
+// POSITION: 0 - woda użytkowa // 1 - inne zastosowanie // 2, 3 - niestandardowe np sch3 na kotle
 const config = {
   type: 'solar',
   date: {
@@ -127,49 +128,49 @@ const config = {
     value: 123,
     unit: '°C',
     visible: true,
-    position: 'default',
+    position: 0,
   },
   p130: {
     name: 'T2',
     value: 11,
     unit: '°C',
     visible: true,
-    position: 'default',
+    position: 0,
   },
   p132: {
     name: 'T3',
     value: 33,
     unit: '°C',
     visible: true,
-    position: 'default',
+    position: 0,
   },
   p134: {
     name: 'T4',
     value: 34,
     unit: '°C',
     visible: true,
-    position: 'default',
+    position: 0,
   },
   p136: {
     name: 'T5',
     value: 34,
     unit: '°C',
     visible: true,
-    position: 'default',
+    position: 0,
   },
   p138: {
     name: 'T6',
     value: 34,
     unit: '°C',
     visible: true,
-    position: 'default',
+    position: 0,
   },
   p152: {
     name: 'F1',
     value: 33,
     unit: 'l/min',
     visible: true,
-    position: 'default',
+    position: 0,
   },
 
   p154: {
@@ -177,7 +178,7 @@ const config = {
     value: true,
     unit: 'l/min',
     visible: true,
-    position: 'default',
+    position: 0,
   },
   p154_0: true,
   p154_1: true,
@@ -187,18 +188,18 @@ const config = {
     value: 100,
     unit: '%',
     visible: true,
-    position: 'default',
+    position: 0,
   },
   p170: {
     name: 'Schemat',
-    value: 5,
+    value: 18,
   },
   p292: {
     name: 'F2',
-    value: 12,
+    value: 15,
     unit: 'l/min',
     visible: true,
-    position: 'default',
+    position: 2,
   },
 }
 

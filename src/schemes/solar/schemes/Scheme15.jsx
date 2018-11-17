@@ -171,6 +171,7 @@ class Scheme15 extends Component {
         {this.props.data.p128.visible && <ReadField left={254} param={'p128'} />}
         {this.props.data.p130.visible && <ReadField left={196} param={'p130'} top={352.5} />}
         {this.props.data.p132.visible && <ReadField left={324} param={'p132'} />}
+        {this.props.data.p134.visible && <ReadField left={372} param={'p134'} top={249} />}
       </g>
     )
   }
@@ -211,6 +212,43 @@ class Scheme15 extends Component {
             <ReadField left={-25} param={'p292'} top={26} />
           </g>
         )}
+      </g>
+    )
+  }
+
+  renderFlowMeters() {
+    const { data: { p152, p292 } } = this.props
+
+    return (
+      <g>
+        {p152.visible && (
+          <g transform={'translate(' + 34 + ' ' + 270 + ')'}>
+            <FlowMeter />
+            <ReadField left={28} param={'p152'} />
+          </g>
+        )}
+        {p292.visible && (
+          <g>
+            {
+              p292.position === 0 && <g transform={'translate(' + 190 + ' ' + 393.5 + ')'}>
+                <FlowMeter direction={'horizontal'} />
+                <ReadField left={-25} param={'p292'} top={26} />
+              </g>
+            }
+            {
+              p292.position === 1 && <g transform={'translate(' + 580.32 + ' ' + 17 + ')'}>
+                <ReadField left={-25} param={'p292'} top={26} />
+              </g>
+            }
+            {
+              p292.position === 2 && <g transform={'translate(' + 581.5 + ' ' + 270 + ')'}>
+                <FlowMeter direction={'vertical'} />
+                <ReadField param={'p292'} left={-75} />
+              </g>
+            }
+          </g>
+        )
+        }
       </g>
     )
   }

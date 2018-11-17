@@ -122,6 +122,7 @@ class Scheme5 extends Component {
         {this.props.data.p128.visible && <ReadField left={256} param={'p128'} />}
         {this.props.data.p130.visible && <ReadField left={196} param={'p130'} top={352.5} />}
         {this.props.data.p132.visible && <ReadField left={62} param={'p132'} top={236.5} />}
+        {this.props.data.p134.visible && <ReadField left={372} param={'p134'} top={249} />}
       </g>
     )
   }
@@ -137,18 +138,31 @@ class Scheme5 extends Component {
     )
   }
 
+  getFlowMeterPosition = ({ position }) => {
+    switch (position) {
+      case 0:
+        return 'translate(' + 190 + ' ' + 393.5 + ')'
+      case 1:
+        return 'translate(' + 397 + ' ' + 17 + ')'
+      default:
+        return ''
+    }
+  }
+
   renderFlowMeters() {
+    const { data: { p152, p292 } } = this.props
+
     return (
       <g>
-        {this.props.data.p152.visible && (
+        {p152.visible && (
           <g transform={'translate(' + 34 + ' ' + 270 + ')'}>
             <FlowMeter />
             <ReadField left={28} param={'p152'} />
           </g>
         )}
-        {this.props.data.p292.visible && (
-          <g transform={'translate(' + 190 + ' ' + 393.5 + ')'}>
-            <FlowMeter direction={'horizontal'} />
+        {p292.visible && (
+          <g transform={this.getFlowMeterPosition(p292)}>
+            {p292.position === 0 && <FlowMeter direction={'horizontal'} />}
             <ReadField left={-25} param={'p292'} top={26} />
           </g>
         )}
@@ -168,7 +182,7 @@ class Scheme5 extends Component {
         {this.renderPipes()}
         <Shower left={384.25} top={165} />
         <SolarPanel left={50} />
-        <Clock left={400} />
+        <Clock left={416} />
         {this.renderCirculation()}
         {this.renderBoiler()}
         {this.renderPumpSolar()}

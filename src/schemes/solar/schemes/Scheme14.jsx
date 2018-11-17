@@ -99,6 +99,7 @@ class Scheme14 extends Component {
         {this.props.data.p128.visible && <ReadField left={256} param={'p128'} />}
         {this.props.data.p130.visible && <ReadField left={196} param={'p130'} top={352.5} />}
         {this.props.data.p132.visible && <ReadField left={62} param={'p132'} top={236.5} />}
+        {this.props.data.p134.visible && <ReadField left={372} param={'p134'} top={249} />}
       </g>
     )
   }
@@ -140,7 +141,7 @@ class Scheme14 extends Component {
           top={101}
         />
         <Furnace left={190} top={59} />
-        <Pump label={{ position: 'top', sign: 'K' }} active={p154_2} left={120} top={155} />
+        <Pump label={{ position: 'top', sign: 'K' }} active={p154_2} left={140} top={155} />
 
         <Connector left={65.5} top={82} />
         <Connector left={65.5} top={144} />
@@ -152,25 +153,50 @@ class Scheme14 extends Component {
     const { data: { p154_1 } } = this.props
 
     return (
-      <g transform={'translate(' + 424.5 + ' ' + 106 + ')'}>
+      <g transform={'translate(' + 424.5 + ' ' + 118 + ')'}>
         <AutomaticBoiler active={p154_1} />
       </g>
     )
   }
 
   renderFlowMeters() {
+    const { data: { p152, p292 } } = this.props
+
     return (
       <g>
-        {this.props.data.p152.visible && (
+        {p152.visible && (
           <g transform={'translate(' + 34 + ' ' + 270 + ')'}>
             <FlowMeter />
             <ReadField left={28} param={'p152'} />
           </g>
         )}
-        {this.props.data.p292.visible && (
-          <g transform={'translate(' + 190 + ' ' + 393.5 + ')'}>
-            <FlowMeter direction={'horizontal'} />
-            <ReadField left={-25} param={'p292'} top={26} />
+        {p292.visible && (
+          <g>
+            {
+              p292.position === 0 && <g transform={'translate(' + 220.5 + ' ' + 393.5 + ')'}>
+                <FlowMeter direction={'horizontal'} />
+                <ReadField left={-25} param={'p292'} top={26} />
+              </g>
+            }
+            {
+              p292.position === 1 && <g transform={'translate(' + 508.32 + ' ' + 17 + ')'}>
+                <ReadField left={-25} param={'p292'} top={26} />
+              </g>
+            }
+            {
+              //furnace
+              p292.position === 2 && <g transform={'translate(' + 397 + ' ' + 393.5 + ')'}>
+                <FlowMeter direction={'horizontal'} />
+                <ReadField left={-25} param={'p292'} top={26} />
+              </g>
+            }
+            {
+              //automatic boiler
+              p292.position === 3 && <g transform={'translate(' + 397 + ' ' + 268.5 + ')'}>
+                <FlowMeter direction={'horizontal'} />
+                <ReadField left={-25} param={'p292'} top={26} />
+              </g>
+            }
           </g>
         )}
       </g>

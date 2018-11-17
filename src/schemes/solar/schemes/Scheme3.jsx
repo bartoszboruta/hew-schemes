@@ -150,18 +150,33 @@ class Scheme3 extends Component {
     )
   }
 
+  getFlowMeterPosition = ({ position }) => {
+    switch (position) {
+      case 0:
+        return 'translate(' + 190 + ' ' + 393.5 + ')'
+      case 1:
+        return 'translate(' + 443 + ' ' + 17 + ')'
+      case 2:
+        return 'translate(' + 397 + ' ' + 268.5 + ')'
+      default:
+        return ''
+    }
+  }
+
   renderFlowMeters() {
+    const { data: { p152, p292 } } = this.props
+
     return (
       <g>
-        {this.props.data.p152.visible && (
+        {p152.visible && (
           <g transform={'translate(' + 34 + ' ' + 270 + ')'}>
             <FlowMeter />
             <ReadField left={28} param={'p152'} />
           </g>
         )}
-        {this.props.data.p292.visible && (
-          <g transform={'translate(' + 190 + ' ' + 393.5 + ')'}>
-            <FlowMeter direction={'horizontal'} />
+        {p292.visible && (
+          <g transform={this.getFlowMeterPosition(p292)}>
+            {(p292.position === 0 || p292.position === 2) && <FlowMeter direction={'horizontal'} />}
             <ReadField left={-25} param={'p292'} top={26} />
           </g>
         )}
@@ -176,7 +191,7 @@ class Scheme3 extends Component {
         {this.renderCirculation()}
         <Shower left={384.25} top={165} />
         <SolarPanel left={50} />
-        <Clock left={459} />
+        <Clock left={461} />
         {this.renderBoiler()}
         {this.renderAutomaticBoiler()}
         {this.renderPumpP()}

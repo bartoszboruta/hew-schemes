@@ -161,20 +161,38 @@ class Scheme18 extends Component {
   }
 
   renderFlowMeters() {
+    const { data: { p152, p292 } } = this.props
+
     return (
       <g>
-        {this.props.data.p152.visible && (
+        {p152.visible && (
           <g transform={'translate(' + 34 + ' ' + 270 + ')'}>
             <FlowMeter />
             <ReadField left={28} param={'p152'} />
           </g>
         )}
-        {this.props.data.p292.visible && (
-          <g transform={'translate(' + 190 + ' ' + 393.5 + ')'}>
-            <FlowMeter direction={'horizontal'} />
-            <ReadField left={-25} param={'p292'} top={26} />
+        {p292.visible && (
+          <g>
+            {
+              p292.position === 0 && <g transform={'translate(' + 190 + ' ' + 393.5 + ')'}>
+                <FlowMeter direction={'horizontal'} />
+                <ReadField left={-25} param={'p292'} top={26} />
+              </g>
+            }
+            {
+              p292.position === 1 && <g transform={'translate(' + 730.32 + ' ' + 17 + ')'}>
+                <ReadField left={-25} param={'p292'} top={26} />
+              </g>
+            }
+            {
+              p292.position === 2 && <g transform={'translate(' + 660 + ' ' + 389.5 + ')'}>
+                <FlowMeter direction={'horizontal'} />
+                <ReadField left={-25} param={'p292'} top={26} />
+              </g>
+            }
           </g>
-        )}
+        )
+        }
       </g>
     )
   }
@@ -199,7 +217,6 @@ class Scheme18 extends Component {
         <Pipe
           active={p154_2}
           activeColor={'cold'}
-          begin={0}
           d={'M 0 5 L 24.2 5 S 30 5 30 10.8 L 30 119.2 S 30 125 35.8 125 L 120 125'}
           duration={7}
           id={'furnace_cold'}
@@ -225,11 +242,11 @@ class Scheme18 extends Component {
         <Clock left={751} />
         {this.renderBoiler()}
         {this.renderBoilerRight()}
+        {this.renderFurnace()}
         {this.renderPumpP()}
         {this.renderPumpK()}
         {this.renderReadFields()}
         {this.renderFlowMeters()}
-        {this.renderFurnace()}
       </SvgContainer>
     )
   }

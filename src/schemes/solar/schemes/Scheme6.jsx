@@ -161,7 +161,6 @@ class Scheme6 extends Component {
         <Pipe
           active={p154_1}
           activeColor={'cold'}
-          begin={0}
           d={'M 0 5 L 24.2 5 S 30 5 30 10.8 L 30 119.2 S 30 125 35.8 125 L 120 125'}
           duration={7}
           id={'furnace_cold'}
@@ -178,18 +177,33 @@ class Scheme6 extends Component {
     )
   }
 
+  getFlowMeterPosition = ({ position }) => {
+    switch (position) {
+      case 0:
+        return 'translate(' + 190 + ' ' + 393.5 + ')'
+      case 1:
+        return 'translate(' + 510 + ' ' + 17 + ')'
+      case 2:
+        return 'translate(' + 430 + ' ' + 388 + ')'
+      default:
+        return ''
+    }
+  }
+
   renderFlowMeters() {
+    const { data: { p152, p292 } } = this.props
+
     return (
       <g>
-        {this.props.data.p152.visible && (
+        {p152.visible && (
           <g transform={'translate(' + 34 + ' ' + 270 + ')'}>
             <FlowMeter />
             <ReadField left={28} param={'p152'} />
           </g>
         )}
-        {this.props.data.p292.visible && (
-          <g transform={'translate(' + 190 + ' ' + 393.5 + ')'}>
-            <FlowMeter direction={'horizontal'} />
+        {p292.visible && (
+          <g transform={this.getFlowMeterPosition(p292)}>
+            {(p292.position === 0 || p292.position === 2) && <FlowMeter direction={'horizontal'} />}
             <ReadField left={-25} param={'p292'} top={26} />
           </g>
         )}

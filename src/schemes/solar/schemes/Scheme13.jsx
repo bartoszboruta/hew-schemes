@@ -90,6 +90,7 @@ class Scheme13 extends Component {
         {this.props.data.p128.visible && <ReadField left={256} param={'p128'} />}
         {this.props.data.p130.visible && <ReadField left={196} param={'p130'} top={352.5} />}
         {this.props.data.p132.visible && <ReadField left={62} param={'p132'} top={236.5} />}
+        {this.props.data.p134.visible && <ReadField left={196} param={'p134'} top={249} />}
       </g>
     )
   }
@@ -125,7 +126,6 @@ class Scheme13 extends Component {
         <Pipe
           active={p154_1}
           activeColor={'cold'}
-          begin={0}
           d={'M 5 5 L 60 5 '}
           duration={4}
           id={'furnace_cold_1'}
@@ -135,7 +135,6 @@ class Scheme13 extends Component {
         <Pipe
           active={p154_1} // p154_1 > 0 = szary ; p154_1=0 = niebieski;
           activeColor={'cold'}
-          begin={0}
           d={'M 5 5 L 30 5 '}
           duration={2}
           id={'furnace_cold_2'}
@@ -167,10 +166,9 @@ class Scheme13 extends Component {
         <Pipe
           active={p154_1}
           activeColor={'hot'}
-          begin={0}
           d={'M 5 5 L 94.2 5 S 100 5 100 10.8 L 100 170'}
           duration={7}
-          id={'furnace_hot'}
+          id={'furnace_hot_0'}
           left={68}
           top={-2.5}
         />
@@ -185,18 +183,35 @@ class Scheme13 extends Component {
   }
 
   renderFlowMeters() {
+    const { data: { p152, p292 } } = this.props
+
     return (
       <g>
-        {this.props.data.p152.visible && (
+        {p152.visible && (
           <g transform={'translate(' + 34 + ' ' + 270 + ')'}>
             <FlowMeter />
             <ReadField left={28} param={'p152'} />
           </g>
         )}
-        {this.props.data.p292.visible && (
-          <g transform={'translate(' + 190 + ' ' + 393.5 + ')'}>
-            <FlowMeter direction={'horizontal'} />
-            <ReadField left={-25} param={'p292'} top={26} />
+        {p292.visible && (
+          <g>
+            {
+              p292.position === 0 && <g transform={'translate(' + 220.5 + ' ' + 393.5 + ')'}>
+                <FlowMeter direction={'horizontal'} />
+                <ReadField left={-25} param={'p292'} top={26} />
+              </g>
+            }
+            {
+              p292.position === 1 && <g transform={'translate(' + 514.32 + ' ' + 17 + ')'}>
+                <ReadField left={-25} param={'p292'} top={26} />
+              </g>
+            }
+            {
+              p292.position === 2 && <g transform={'translate(' + 380 + ' ' + 394 + ')'}>
+                <FlowMeter direction={'horizontal'} />
+                <ReadField left={-35} param={'p292'} top={29} />
+              </g>
+            }
           </g>
         )}
       </g>
@@ -208,7 +223,7 @@ class Scheme13 extends Component {
       <SvgContainer height={558.1} width={650}>
         {this.renderPipes()}
         <SolarPanel left={50} />
-        <Clock left={549} />
+        <Clock left={535} />
         {this.renderBoiler()}
         {this.renderFurnace()}
         {this.renderPumpP()}
