@@ -13,6 +13,7 @@ import {
   ReadField,
   Shower,
   TriConnector,
+  PumpSolar,
 } from '../../../components'
 import PropTypes from 'prop-types'
 
@@ -155,6 +156,12 @@ class Scheme5 extends Component {
     )
   }
 
+  renderPumpSolar() {
+    const { data: { p154_1 } } = this.props
+
+    return (<PumpSolar active={p154_1} left={270} top={159} />)
+  }
+
   render() {
     return (
       <SvgContainer height={458.1} width={438.3}>
@@ -164,6 +171,7 @@ class Scheme5 extends Component {
         <Clock left={400} />
         {this.renderCirculation()}
         {this.renderBoiler()}
+        {this.renderPumpSolar()}
         {this.renderPumpP()}
         {this.renderReadFields()}
         {this.renderFlowMeters()}
