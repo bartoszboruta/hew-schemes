@@ -33,6 +33,8 @@ class Pipe extends Component {
         fill={this.getColor()}
         r='4'
       >
+        <animate attributeType="CSS" attributeName="opacity"
+          from="0" to="0" dur={this.props.begin} repeatCount="0" />
         <animateMotion
           begin={this.props.begin}
           calcMode='linear'
@@ -96,7 +98,7 @@ Pipe.defaultProps = {
   active: false,
   anime: true,
   activeColor: '',
-  begin: 0,
+  begin: 0.1,
   d: '',
   data: {},
   direction: 'normal',
