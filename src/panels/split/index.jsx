@@ -1,1 +1,1 @@
-export * from './SplitPanel';
+export * from "./SplitPanel";
