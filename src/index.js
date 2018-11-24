@@ -1,11 +1,10 @@
-/* eslint-disable prettier/prettier */
-import React from "react";
-import { render } from "react-dom";
-import { Provider } from "react-redux";
-import { store } from "./store";
-import { App } from "./App";
-import { updateData } from "./actions";
-import registerServiceWorker from "./registerServiceWorker";
+import React from 'react'
+import { render } from 'react-dom'
+import { Provider } from 'react-redux'
+import { store } from './store'
+import { App } from './App'
+import { updateData } from './actions'
+import registerServiceWorker from './registerServiceWorker'
 
 // const config = {
 //   type: "split",
@@ -200,130 +199,130 @@ import registerServiceWorker from "./registerServiceWorker";
 // }
 
 const config = {
-  type: "pv",
+  type: 'pv',
   p128: {
     value: 15,
-    unit: "W"
+    unit: 'W',
   },
   p132: {
     value: -262,
-    unit: "W"
+    unit: 'W',
   },
   p136: {
     value: -120,
-    unit: "W"
+    unit: 'W',
   },
   p140: {
     value: 0,
-    unit: "W"
+    unit: 'W',
   },
   p144: {
     value: -384,
-    unit: "W"
+    unit: 'W',
   },
   p268: {
     value: 0,
-    unit: "W"
+    unit: 'W',
   },
   p282: {
-    value: "51.8",
-    unit: "°C"
+    value: '51.8',
+    unit: '°C',
   },
   p288: 1,
   p1140: 1,
   p1202: 0,
   powerHomeInstallation: {
     value: 399,
-    unit: "W"
+    unit: 'W',
   },
   powerPanel1: {
-    visible: false
+    visible: false,
   },
   powerPanel2: {
-    visible: false
+    visible: false,
   },
   date: {
-    fill: "#00b100",
-    value: "2018-11-24 13:52:49"
+    fill: '#00b100',
+    value: '2018-11-24 13:52:49',
   },
   optiPv: {
     count: 4,
-    manualRegistry: "reg_2107",
-    manualRegistryValue: "p290",
-    manualRegistries: ["reg_2332", "reg_2333", "reg_2334", "reg_2335"],
+    manualRegistry: 'reg_2107',
+    manualRegistryValue: 'p290',
+    manualRegistries: ['reg_2332', 'reg_2333', 'reg_2334', 'reg_2335'],
     relays: [
       {
         manual: 0,
-        name: "lampa kuch.",
-        value: 0
+        name: 'lampa kuch.',
+        value: 0,
       },
       {
         manual: 0,
-        name: "lampa biurko",
-        value: 0
+        name: 'lampa biurko',
+        value: 0,
       },
       {
         manual: 0,
-        name: "lampy ogród",
-        value: 0
+        name: 'lampy ogród',
+        value: 0,
       },
       {
         manual: 0,
-        name: "lampa tele",
-        value: 0
-      }
-    ]
+        name: 'lampa tele',
+        value: 0,
+      },
+    ],
   },
   optiTemp: {
     count: 2,
-    manualRegistry: "reg_2124",
-    manualRegistryValue: "p1700",
-    manualRegistries: ["reg_2336", "reg_2337"],
+    manualRegistry: 'reg_2124',
+    manualRegistryValue: 'p1700',
+    manualRegistries: ['reg_2336', 'reg_2337'],
     relays: [
       {
         manual: 0,
-        name: "PCWU",
-        value: 0
+        name: 'PCWU',
+        value: 0,
       },
       {
         manual: 0,
-        name: "obwód 2T",
-        value: 0
-      }
-    ]
+        name: 'obwód 2T',
+        value: 0,
+      },
+    ],
   },
-  callbacks: {}
+  callbacks: {},
 }
 
 const run = (config, selector) => {
-  const target = document.querySelector(selector);
+  const target = document.querySelector(selector)
   if (!target) {
-    return;
+    return
   }
 
   const handler = render(
     <Provider store={store}>
       <App parent={target} />
     </Provider>,
-    target
-  );
+    target,
+  )
 
-  handler.props.store.dispatch(updateData(config));
+  handler.props.store.dispatch(updateData(config))
 
-  return handler;
-};
+  return handler
+}
 
-if (process.env.NODE_ENV !== "production") {
-  run(config, "#root");
-  registerServiceWorker();
+if (process.env.NODE_ENV !== 'production') {
+  run(config, '#root')
+  registerServiceWorker()
 }
 
 export const scheme = (config, selector) => {
-  let handler = run(config, selector);
+  let handler = run(config, selector)
 
   return {
     updateConfig: config => {
-      handler.props.store.dispatch(updateData(config));
-    }
-  };
-};
+      handler.props.store.dispatch(updateData(config))
+    },
+  }
+}
