@@ -1,8 +1,8 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
-import { SvgContainer } from "../../components/SvgContainer";
-import { Clock } from "../../components";
-import PropTypes from "prop-types";
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { SvgContainer } from '../../components/SvgContainer';
+import { Clock } from '../../components';
+import PropTypes from 'prop-types';
 
 class PV extends Component {
   render() {
@@ -10,24 +10,24 @@ class PV extends Component {
       <SvgContainer height={this.props.height} width={this.props.width}>
         <Clock left={799} />
       </SvgContainer>
-    );
+    )
   }
 }
 
 const mapStateToProps = state => {
-  const { data } = state;
+  const { data } = state
   return {
-    data
-  };
-};
+    data,
+  }
+}
 
-const ConnectedPV = connect(mapStateToProps)(PV);
-export { ConnectedPV as PV };
+const ConnectedPV = connect(mapStateToProps)(PV)
+export { ConnectedPV as PV }
 
 PV.propTypes = {
-  data: PropTypes.object
-};
+  data: PropTypes.object,
+}
 
 PV.defaultProps = {
-  data: {}
-};
+  data: {},
+}

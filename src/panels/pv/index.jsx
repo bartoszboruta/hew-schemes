@@ -1,1 +1,1 @@
-export * from "./PvPanel";
+export * from './PvPanel'
