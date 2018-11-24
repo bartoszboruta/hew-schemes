@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { SvgContainer } from '../../components/SvgContainer';
-import { Clock } from '../../components';
-import PropTypes from 'prop-types';
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import { SvgContainer } from '../../components/SvgContainer'
+import { Clock } from '../../components'
+import PropTypes from 'prop-types'
 
 class PV extends Component {
   render() {
