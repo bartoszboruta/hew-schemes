@@ -111,6 +111,45 @@ class App extends Component {
                 value={this.props.data.p292.value}
               />
             </div>
+            <div>
+              p292 position (0 - 3):{' '}
+              <input
+                type="number"
+                onChange={({ target: { value } }) =>
+                  this.props.updateData({
+                    ...this.props.data,
+                    p292: { ...this.props.data.p292, position: +value },
+                  })
+                }
+                value={this.props.data.p292.position}
+              />
+            </div>
+            <div>
+              p136 T5 position (0 - 3):{' '}
+              <input
+                type="number"
+                onChange={({ target: { value } }) =>
+                  this.props.updateData({
+                    ...this.props.data,
+                    p136: { ...this.props.data.p136, position: +value },
+                  })
+                }
+                value={this.props.data.p136.position}
+              />
+            </div>
+            <div>
+              p138 T6 position (0 - 3):{' '}
+              <input
+                type="number"
+                onChange={({ target: { value } }) =>
+                  this.props.updateData({
+                    ...this.props.data,
+                    p138: { ...this.props.data.p138, position: +value },
+                  })
+                }
+                value={this.props.data.p138.position}
+              />
+            </div>
           </div>
           <Scheme />
         </div>

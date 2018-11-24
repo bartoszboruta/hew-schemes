@@ -92,13 +92,39 @@ class Scheme1 extends Component {
     )
   }
 
+  getT5Position = ({ position }) => {
+    switch (position) {
+      case 0:
+        return { left: 85, top: 410 }
+      case 1:
+        return { left: 372, top: 67 }
+      default:
+        return {}
+    }
+  }
+
+  getT6Position = ({ position }) => {
+    switch (position) {
+      case 0:
+        return { left: 285.5, top: 120 }
+      case 1:
+        return { left: 372, top: 91 }
+      default:
+        return {}
+    }
+  }
+
   renderReadFields() {
+    const { data: { p128, p130, p132, p134, p136, p138 } } = this.props
+
     return (
       <g>
-        {this.props.data.p128.visible && <ReadField left={256} param={'p128'} />}
-        {this.props.data.p130.visible && <ReadField left={196} param={'p130'} top={352.5} />}
-        {this.props.data.p132.visible && <ReadField left={62} param={'p132'} top={236.5} />}
-        {this.props.data.p134.visible && <ReadField left={372} param={'p134'} top={249} />}
+        {p128.visible && <ReadField left={256} param={'p128'} />}
+        {p130.visible && <ReadField left={196} param={'p130'} top={352.5} />}
+        {p132.visible && <ReadField left={62} param={'p132'} top={236.5} />}
+        {p134.visible && <ReadField left={372} param={'p134'} top={249} />}
+        {p136.visible && <ReadField param={'p136'} {...this.getT5Position(p136)} />}
+        {p138.visible && <ReadField param={'p138'} {...this.getT6Position(p138)} />}
       </g>
     )
   }
@@ -176,7 +202,9 @@ Scheme1.propTypes = {
 }
 
 Scheme1.defaultProps = {
-  data: {},
+  data: {
+    p128: { visible: false }, p130: { visible: false }, p132: { visible: false }, p134: { visible: false }, p136: { visible: false }, p138: { visible: false }
+  },
   height: 0,
   width: 0,
 }

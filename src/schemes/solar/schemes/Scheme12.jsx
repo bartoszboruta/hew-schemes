@@ -154,13 +154,39 @@ class Scheme12 extends Component {
     )
   }
 
+  getT5Position = ({ position }) => {
+    switch (position) {
+      case 0:
+        return { left: 85, top: 410 }
+      case 1:
+        return { left: 569.32, top: 67 }
+      default:
+        return {}
+    }
+  }
+
+  getT6Position = ({ position }) => {
+    switch (position) {
+      case 0:
+        return { left: 515, top: 120 }
+      case 1:
+        return { left: 569.32, top: 91 }
+      default:
+        return {}
+    }
+  }
+
   renderReadFields() {
+    const { data: { p128, p130, p132, p134, p136, p138 } } = this.props
+
     return (
       <g>
-        {this.props.data.p128.visible && <ReadField left={256} param={'p128'} />}
-        {this.props.data.p130.visible && <ReadField left={196} param={'p130'} top={352.5} />}
-        {this.props.data.p132.visible && <ReadField left={82} param={'p132'} top={236.5} />}
-        {this.props.data.p134.visible && <ReadField left={426} param={'p134'} top={316} />}
+        {p128.visible && <ReadField left={256} param={'p128'} />}
+        {p130.visible && <ReadField left={196} param={'p130'} top={352.5} />}
+        {p132.visible && <ReadField left={82} param={'p132'} top={236.5} />}
+        {p134.visible && <ReadField left={426} param={'p134'} top={316} />}
+        {p136.visible && <ReadField param={'p136'} {...this.getT5Position(p136)} />}
+        {p138.visible && <ReadField param={'p138'} {...this.getT6Position(p138)} />}
       </g>
     )
   }
@@ -180,7 +206,7 @@ class Scheme12 extends Component {
     const { data: { p154_1 } } = this.props
 
     return (
-      <g transform={'translate(' + 13 + ' ' + 426.5 + ')'}>
+      <g transform={'translate(' + 13 + ' ' + 417.5 + ')'}>
         <Pump label={{ position: 'left', sign: 'K' }} active={p154_1} />
       </g>
     )
@@ -211,7 +237,7 @@ class Scheme12 extends Component {
               </g>
             }
             {
-              p292.position === 2 && <g transform={'translate(' + 14 + ' ' + 397 + ')'}>
+              p292.position === 2 && <g transform={'translate(' + 14 + ' ' + 388 + ')'}>
                 <FlowMeter direction={'vertical'} />
                 <ReadField left={28} param={'p292'} />
               </g>
@@ -227,7 +253,7 @@ class Scheme12 extends Component {
 
     return (
       <g>
-        <Boiler left={500} top={200} />
+        <Boiler left={500} sign="A" top={200} />
         <Coil active={p154_1} direction={'right'} left={500} top={340} />
       </g>
     )

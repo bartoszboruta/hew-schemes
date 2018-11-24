@@ -60,7 +60,6 @@ class Scheme4 extends Component {
         activeColor={'hot'}
         begin={3}
         d={'M 44 5 L 10.8 5 S 5 5 5 10.8 L 5 164.2 S 5 170 10.8 170 L 64 170'}
-        direction={'reversed'}
         duration={7}
         left={206}
         top={139.7}
@@ -90,13 +89,41 @@ class Scheme4 extends Component {
     </g>
   }
 
+  getT5Position = ({ position }) => {
+    switch (position) {
+      case 0:
+        return { left: 85, top: 410 }
+      case 1:
+        return { left: 372, top: 67 }
+      default:
+        return {}
+    }
+  }
+
+  getT6Position = ({ position }) => {
+    switch (position) {
+      case 0:
+        return { left: 285.5, top: 120 }
+      case 1:
+        return { left: 372, top: 91 }
+      default:
+        return {}
+    }
+  }
+
   renderReadFields() {
-    return <g>
-      {this.props.data.p128.visible && <ReadField param={'p128'} left={256} />}
-      {this.props.data.p130.visible && <ReadField param={'p130'} left={196} top={352.5} />}
-      {this.props.data.p132.visible && <ReadField param={'p132'} left={62} top={236.5} />}
-      {this.props.data.p134.visible && <ReadField param={'p134'} left={372} top={249} />}
-    </g>
+    const { data: { p128, p130, p132, p134, p136, p138 } } = this.props
+
+    return (
+      <g>
+        {p128.visible && <ReadField param={'p128'} left={256} />}
+        {p130.visible && <ReadField param={'p130'} left={196} top={352.5} />}
+        {p132.visible && <ReadField param={'p132'} left={62} top={236.5} />}
+        {p134.visible && <ReadField param={'p134'} left={372} top={249} />}
+        {p136.visible && <ReadField param={'p136'} {...this.getT5Position(p136)} />}
+        {p138.visible && <ReadField param={'p138'} {...this.getT6Position(p138)} />}
+      </g>
+    )
   }
 
   renderPumpP() {

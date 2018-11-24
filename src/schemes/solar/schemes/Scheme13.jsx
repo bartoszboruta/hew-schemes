@@ -84,13 +84,41 @@ class Scheme13 extends Component {
     )
   }
 
+  getT5Position = ({ position }) => {
+    switch (position) {
+      case 0:
+        return { left: 85, top: 410 }
+      case 1:
+        return { left: 509, top: 67 }
+      case 2:
+        return { left: 370, top: 373 }
+      default:
+        return {}
+    }
+  }
+
+  getT6Position = ({ position }) => {
+    switch (position) {
+      case 0:
+        return { left: 370, top: 214 }
+      case 1:
+        return { left: 509, top: 91 }
+      default:
+        return {}
+    }
+  }
+
   renderReadFields() {
+    const { data: { p128, p130, p132, p134, p136, p138 } } = this.props
+
     return (
       <g>
-        {this.props.data.p128.visible && <ReadField left={256} param={'p128'} />}
-        {this.props.data.p130.visible && <ReadField left={196} param={'p130'} top={352.5} />}
-        {this.props.data.p132.visible && <ReadField left={62} param={'p132'} top={236.5} />}
-        {this.props.data.p134.visible && <ReadField left={196} param={'p134'} top={249} />}
+        {p128.visible && <ReadField left={256} param={'p128'} />}
+        {p130.visible && <ReadField left={196} param={'p130'} top={352.5} />}
+        {p132.visible && <ReadField left={62} param={'p132'} top={236.5} />}
+        {p134.visible && <ReadField left={464} param={'p134'} top={181} />}
+        {p136.visible && <ReadField param={'p136'} {...this.getT5Position(p136)} />}
+        {p138.visible && <ReadField param={'p138'} {...this.getT6Position(p138)} />}
       </g>
     )
   }
@@ -111,7 +139,7 @@ class Scheme13 extends Component {
 
     const active = true
     return (
-      <g transform={'translate(' + 290 + ' ' + 236 + ')'}>
+      <g transform={'translate(' + 310 + ' ' + 236 + ')'}>
         <Pipe
           active={active}
           activeColor={'hot'}
@@ -126,14 +154,14 @@ class Scheme13 extends Component {
         <Pipe
           active={p154_1}
           activeColor={'cold'}
-          d={'M 5 5 L 60 5 '}
+          d={'M 5 5 L 80 5 '}
           duration={4}
           id={'furnace_cold_1'}
-          left={68}
+          left={48}
           top={163}
         />
         <Pipe
-          active={p154_1} // p154_1 > 0 = szary ; p154_1=0 = niebieski;
+          active={!p154_1} // p154_1 > 0 = szary ; p154_1=0 = niebieski;
           activeColor={'cold'}
           d={'M 5 5 L 30 5 '}
           duration={2}
@@ -166,18 +194,18 @@ class Scheme13 extends Component {
         <Pipe
           active={p154_1}
           activeColor={'hot'}
-          d={'M 5 5 L 94.2 5 S 100 5 100 10.8 L 100 170'}
+          d={'M 5 5 L 112.2 5 S 120 5 120 13.8 L 120 170'}
           duration={7}
           id={'furnace_hot_0'}
-          left={68}
+          left={48}
           top={-2.5}
         />
 
         <TriConnector left={161} top={161} />
         <TriValve direction="bottom" left={120} top={161} />
         <Furnace left={190} top={59} />
-        <Connector left={65.5} top={144} />
-        <Connector left={65.5} top={-22.5} />
+        <Connector left={45.5} top={144} />
+        <Connector left={45.5} top={-22.5} />
       </g>
     )
   }
@@ -202,14 +230,14 @@ class Scheme13 extends Component {
               </g>
             }
             {
-              p292.position === 1 && <g transform={'translate(' + 514.32 + ' ' + 17 + ')'}>
+              p292.position === 1 && <g transform={'translate(' + 534.32 + ' ' + 17 + ')'}>
                 <ReadField left={-25} param={'p292'} top={26} />
               </g>
             }
             {
-              p292.position === 2 && <g transform={'translate(' + 380 + ' ' + 394 + ')'}>
+              p292.position === 2 && <g transform={'translate(' + 370 + ' ' + 394 + ')'}>
                 <FlowMeter direction={'horizontal'} />
-                <ReadField left={-35} param={'p292'} top={29} />
+                <ReadField left={-25} param={'p292'} top={29} />
               </g>
             }
           </g>
@@ -223,7 +251,7 @@ class Scheme13 extends Component {
       <SvgContainer height={558.1} width={650}>
         {this.renderPipes()}
         <SolarPanel left={50} />
-        <Clock left={535} />
+        <Clock left={555} />
         {this.renderBoiler()}
         {this.renderFurnace()}
         {this.renderPumpP()}

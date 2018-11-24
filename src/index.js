@@ -151,20 +151,7 @@ const config = {
     visible: true,
     position: 0,
   },
-  p136: {
-    name: 'T5',
-    value: 34,
-    unit: '°C',
-    visible: true,
-    position: 0,
-  },
-  p138: {
-    name: 'T6',
-    value: 34,
-    unit: '°C',
-    visible: true,
-    position: 0,
-  },
+
   p152: {
     name: 'F1',
     value: 33,
@@ -192,14 +179,28 @@ const config = {
   },
   p170: {
     name: 'Schemat',
-    value: 18,
+    value: 19,
+  },
+  p136: {
+    name: 'T5',
+    value: 34,
+    unit: '°C',
+    visible: true,
+    position: 0, // 0 - woda użytkowa / 1 - inne zastosowanie(pod zegarem)  / 2 - inne
+  },
+  p138: {
+    name: 'T6',
+    value: 34,
+    unit: '°C',
+    visible: true,
+    position: 1, // 0 - woda użytkowa / 1 - inne zastosowanie(pod zegarem)  / 2 - inne
   },
   p292: {
     name: 'F2',
-    value: 15,
+    value: 14,
     unit: 'l/min',
     visible: true,
-    position: 2,
+    position: 0,
   },
 }
 
