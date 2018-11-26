@@ -58,7 +58,7 @@ class PV extends Component {
         <Pipe active={false} d={'M 0 0 L 0 70 L 295 70 '} id={'inverter1'} left={300} top={340} />
         <PvPanelsRow left={270} top={0} />
         <PvPanelsRow left={270} top={100} />
-        <Inverter left={240} top={230} />
+        <Inverter left={243} top={230} />
       </g>
     )
   }
