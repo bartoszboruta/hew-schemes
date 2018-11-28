@@ -11,7 +11,7 @@ class SvgContainer extends Component {
 
   render() {
     return (
-      <svg height={this.getHeight()} viewBox={'-5 0 ' + 1000 + ' ' + 700} width={'100%'}>
+      <svg height={this.getHeight()} viewBox={'-5 0 ' + 750 + ' ' + 700} width={'100%'}>
         {this.props.children}
       </svg>
     )

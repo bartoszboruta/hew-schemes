@@ -15,6 +15,10 @@ class Pipe extends Component {
     }
   }
 
+  getCircleColor() {
+    return this.props.animationColor || this.getColor()
+  }
+
   getDirection() {
     return this.props.direction === 'reversed' && {
       keyPoints: '1;0',
@@ -42,7 +46,7 @@ class Pipe extends Component {
             <circle
               cx='0'
               cy='0'
-              fill={this.getColor()}
+              fill={this.getCircleColor()}
               r='4'
             >
               <animateMotion
@@ -78,6 +82,7 @@ Pipe.propTypes = {
   active: PropTypes.oneOfType([PropTypes.bool, PropTypes.number]),
   anime: PropTypes.bool,
   activeColor: PropTypes.string,
+  animationColor: PropTypes.string,
   begin: PropTypes.number,
   d: PropTypes.string,
   data: PropTypes.object,
@@ -92,6 +97,7 @@ Pipe.defaultProps = {
   active: false,
   anime: true,
   activeColor: '',
+  animationColor: '',
   begin: 0,
   d: '',
   data: {},

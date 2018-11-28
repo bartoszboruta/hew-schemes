@@ -115,184 +115,184 @@ import registerServiceWorker from './registerServiceWorker'
 //   },
 // }
 
-// const config = {
-//   type: 'solar',
-//   date: {
-//     fill: '#00b100',
-//     value: '15-12-2017 14:01:50',
-//   },
-//   p128: {
-//     //visible, position
-//     name: 'T1',
-//     value: 123,
-//     unit: '°C',
-//     visible: true,
-//     position: 'default',
-//   },
-//   p130: {
-//     name: 'T2',
-//     value: 11,
-//     unit: '°C',
-//     visible: true,
-//     position: 'default',
-//   },
-//   p132: {
-//     name: 'T3',
-//     value: 33,
-//     unit: '°C',
-//     visible: true,
-//     position: 'default',
-//   },
-//   p134: {
-//     name: 'T4',
-//     value: 34,
-//     unit: '°C',
-//     visible: true,
-//     position: 'default',
-//   },
-//   p136: {
-//     name: 'T5',
-//     value: 34,
-//     unit: '°C',
-//     visible: true,
-//     position: 'default',
-//   },
-//   p138: {
-//     name: 'T6',
-//     value: 34,
-//     unit: '°C',
-//     visible: true,
-//     position: 'default',
-//   },
-//   p152: {
-//     name: 'F1',
-//     value: 33,
-//     unit: 'l/min',
-//     visible: true,
-//     position: 'default',
-//   },
-//   p170: {
-//     name: 'Schemat',
-//     value: 17,
-//   },
-//   p154: {
-//     name: 'F2',
-//     value: 0,
-//     unit: 'l/min',
-//     visible: true,
-//     position: 'default',
-//   },
-//   p292: {
-//     name: 'F2',
-//     value: 12,
-//     unit: 'l/min',
-//     visible: true,
-//     position: 'default',
-//   },
-//   p156: {
-//     name: 'E1',
-//     value: 100,
-//     unit: '%',
-//     visible: true,
-//     position: 'default',
-//   },
-// }
-
 const config = {
-  type: 'pv',
-  p128: {
-    value: 15,
-    unit: 'W',
-  },
-  p132: {
-    value: -262,
-    unit: 'W',
-  },
-  p136: {
-    value: -120,
-    unit: 'W',
-  },
-  p140: {
-    value: 0,
-    unit: 'W',
-  },
-  p144: {
-    value: -384,
-    unit: 'W',
-  },
-  p268: {
-    value: 0,
-    unit: 'W',
-  },
-  p282: {
-    value: '51.8',
-    unit: '°C',
-  },
-  p288: 1,
-  p1140: 1,
-  p1202: 0,
-  powerHomeInstallation: {
-    value: 399,
-    unit: 'W',
-  },
-  powerPanel1: {
-    visible: false,
-  },
-  powerPanel2: {
-    visible: false,
-  },
+  type: 'solar',
   date: {
     fill: '#00b100',
-    value: '2018-11-24 13:52:49',
+    value: '15-12-2017 14:01:50',
   },
-  optiPv: {
-    count: 4,
-    manualRegistry: 'reg_2107',
-    manualRegistryValue: 'p290',
-    manualRegistries: ['reg_2332', 'reg_2333', 'reg_2334', 'reg_2335'],
-    relays: [
-      {
-        manual: 0,
-        name: 'lampa kuch.',
-        value: 0,
-      },
-      {
-        manual: 0,
-        name: 'lampa biurko',
-        value: 0,
-      },
-      {
-        manual: 0,
-        name: 'lampy ogród',
-        value: 0,
-      },
-      {
-        manual: 0,
-        name: 'lampa tele',
-        value: 0,
-      },
-    ],
+  p128: {
+    //visible, position
+    name: 'T1',
+    value: 123,
+    unit: '°C',
+    visible: true,
+    position: 'default',
   },
-  optiTemp: {
-    count: 2,
-    manualRegistry: 'reg_2124',
-    manualRegistryValue: 'p1700',
-    manualRegistries: ['reg_2336', 'reg_2337'],
-    relays: [
-      {
-        manual: 0,
-        name: 'PCWU',
-        value: 0,
-      },
-      {
-        manual: 0,
-        name: 'obwód 2T',
-        value: 0,
-      },
-    ],
+  p130: {
+    name: 'T2',
+    value: 11,
+    unit: '°C',
+    visible: true,
+    position: 'default',
   },
-  callbacks: {},
+  p132: {
+    name: 'T3',
+    value: 33,
+    unit: '°C',
+    visible: true,
+    position: 'default',
+  },
+  p134: {
+    name: 'T4',
+    value: 34,
+    unit: '°C',
+    visible: true,
+    position: 'default',
+  },
+  p136: {
+    name: 'T5',
+    value: 34,
+    unit: '°C',
+    visible: true,
+    position: 'default',
+  },
+  p138: {
+    name: 'T6',
+    value: 34,
+    unit: '°C',
+    visible: true,
+    position: 'default',
+  },
+  p152: {
+    name: 'F1',
+    value: 33,
+    unit: 'l/min',
+    visible: true,
+    position: 'default',
+  },
+  p170: {
+    name: 'Schemat',
+    value: 17,
+  },
+  p154: {
+    name: 'F2',
+    value: 0,
+    unit: 'l/min',
+    visible: true,
+    position: 'default',
+  },
+  p292: {
+    name: 'F2',
+    value: 12,
+    unit: 'l/min',
+    visible: true,
+    position: 'default',
+  },
+  p156: {
+    name: 'E1',
+    value: 100,
+    unit: '%',
+    visible: true,
+    position: 'default',
+  },
 }
+
+// const config = {
+//   type: 'pv',
+//   p128: {
+//     value: 15,
+//     unit: 'W',
+//   },
+//   p132: {
+//     value: -262,
+//     unit: 'W',
+//   },
+//   p136: {
+//     value: -120,
+//     unit: 'W',
+//   },
+//   p140: {
+//     value: 0,
+//     unit: 'W',
+//   },
+//   p144: {
+//     value: -384,
+//     unit: 'W',
+//   },
+//   p268: {
+//     value: 0,
+//     unit: 'W',
+//   },
+//   p282: {
+//     value: '51.8',
+//     unit: '°C',
+//   },
+//   p288: 1,
+//   p1140: 1,
+//   p1202: 0,
+//   powerHomeInstallation: {
+//     value: 399,
+//     unit: 'W',
+//   },
+//   powerPanel1: {
+//     visible: false,
+//   },
+//   powerPanel2: {
+//     visible: false,
+//   },
+//   date: {
+//     fill: '#00b100',
+//     value: '2018-11-24 13:52:49',
+//   },
+//   optiPv: {
+//     count: 4,
+//     manualRegistry: 'reg_2107',
+//     manualRegistryValue: 'p290',
+//     manualRegistries: ['reg_2332', 'reg_2333', 'reg_2334', 'reg_2335'],
+//     relays: [
+//       {
+//         manual: 0,
+//         name: 'lampa kuch.',
+//         value: 0,
+//       },
+//       {
+//         manual: 0,
+//         name: 'lampa biurko',
+//         value: 0,
+//       },
+//       {
+//         manual: 0,
+//         name: 'lampy ogród',
+//         value: 0,
+//       },
+//       {
+//         manual: 0,
+//         name: 'lampa tele',
+//         value: 0,
+//       },
+//     ],
+//   },
+//   optiTemp: {
+//     count: 2,
+//     manualRegistry: 'reg_2124',
+//     manualRegistryValue: 'p1700',
+//     manualRegistries: ['reg_2336', 'reg_2337'],
+//     relays: [
+//       {
+//         manual: 0,
+//         name: 'PCWU',
+//         value: 0,
+//       },
+//       {
+//         manual: 0,
+//         name: 'obwód 2T',
+//         value: 0,
+//       },
+//     ],
+//   },
+//   callbacks: {},
+// }
 
 const run = (config, selector) => {
   const target = document.querySelector(selector)
