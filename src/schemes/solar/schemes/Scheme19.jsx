@@ -102,7 +102,7 @@ class Scheme19 extends Component {
         <Connector left={270} top={359} />
         <Connector left={270} top={379.5} />
         <Connector left={500} top={379.5} />
-        <TriConnector direction={'reversedVertical'} left={472.25} top={140} />
+        <TriConnector direction={'reversedVertical'} left={470} top={142} />
       </g>
     )
   }
@@ -147,7 +147,7 @@ class Scheme19 extends Component {
   getT6Position = ({ position }) => {
     switch (position) {
       case 0:
-        return { left: 515, top: 120 }
+        return { left: 515, top: 150 }
       case 1:
         return { left: 563.32, top: 91 }
       default:

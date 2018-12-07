@@ -114,11 +114,11 @@ class Scheme8 extends Component {
           active={p154_2}
           activeColor={'hot'}
           begin={3}
-          d={'M 44 5 L 10.8 5 S 5 5 5 10.8 L 5 170'}
+          d={'M 160 20 L 160 10.8 S 160 5 154.2 5 L 10.8 5 S 5 5 5 10.8 L 5 170 '}
           duration={7}
           id={'right_boiler_circulation_1'}
           left={436}
-          top={139.7}
+          top={119.7}
         />
         <Pump label={{ position: 'left', sign: 'C' }} active={p154_2} left={429} top={216} />
       </g>
@@ -137,7 +137,7 @@ class Scheme8 extends Component {
         <Connector left={270} top={379.5} />
         <Connector left={500} top={379.5} />
         <TriValve direction={'bottom'} left={428.25} top={302.5} />
-        <TriConnector direction={'reversedVertical'} left={472.25} top={140} />
+        <TriConnector left={585.25} top={134} />
       </g>
     )
   }
@@ -177,7 +177,7 @@ class Scheme8 extends Component {
   getT6Position = ({ position }) => {
     switch (position) {
       case 0:
-        return { left: 515, top: 120 }
+        return { left: 515, top: 150 }
       case 1:
         return { left: 563.32, top: 91 }
       default:

@@ -54,7 +54,7 @@ class Pump extends Component {
       }
       return ["#9191f5", "#3434f7", "#2525f9", "#6e6eec", "#5050e4", "#4444ea"]
     }
-    return ["#ffffff", "#666666", "#999999", "#666666", "#cccccc", "#dddddd"]
+    return ["#ffffff", "#666666", "#999999", "#666666", "#cccccc", "#666666"]
   }
 
   render() {

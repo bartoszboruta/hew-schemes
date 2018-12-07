@@ -179,7 +179,7 @@ const config = {
   },
   p170: {
     name: 'Schemat',
-    value: 19,
+    value: 18,
   },
   p136: {
     name: 'T5',
@@ -193,7 +193,7 @@ const config = {
     value: 34,
     unit: '°C',
     visible: true,
-    position: 1, // 0 - woda użytkowa / 1 - inne zastosowanie(pod zegarem)  / 2 - inne
+    position: 0, // 0 - woda użytkowa / 1 - inne zastosowanie(pod zegarem)  / 2 - inne
   },
   p292: {
     name: 'F2',

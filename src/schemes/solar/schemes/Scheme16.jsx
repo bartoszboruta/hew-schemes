@@ -185,9 +185,9 @@ class Scheme16 extends Component {
         <Connector left={372} top={359} />
         <Connector left={255.5} top={379.5} />
         <Connector left={457.5} top={379.5} />
-        <TriConnector left={312.25} top={334} />
-        <TriConnector left={312.25} top={445} />
-        <TriConnector direction={'reversedVertical'} left={312.25} top={95} />
+        <TriConnector left={309.6} top={331.8} />
+        <TriConnector left={309.6} top={442.8} />
+        <TriConnector direction={'reversedVertical'} left={309.5} top={97.8} />
         <TriValve direction={'top'} left={307} top={369.5} />
       </g>
     )
@@ -226,7 +226,7 @@ class Scheme16 extends Component {
   getT6Position = ({ position }) => {
     switch (position) {
       case 0:
-        return { left: 185.5, top: 120 }
+        return { left: 185.5, top: 150 }
       case 1:
         return { left: 564, top: 91 }
       default:

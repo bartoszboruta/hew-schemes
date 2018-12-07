@@ -201,7 +201,7 @@ class Scheme13 extends Component {
           top={-2.5}
         />
 
-        <TriConnector left={161} top={161} />
+        <TriConnector left={158} top={158} />
         <TriValve direction="bottom" left={120} top={161} />
         <Furnace left={190} top={59} />
         <Connector left={45.5} top={144} />

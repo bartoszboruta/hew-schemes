@@ -109,7 +109,7 @@ class Scheme14 extends Component {
   getT6Position = ({ position }) => {
     switch (position) {
       case 0:
-        return { left: 285.5, top: 120 }
+        return { left: 285.5, top: 150 }
       case 1:
         return { left: 503, top: 91 }
       case 2:

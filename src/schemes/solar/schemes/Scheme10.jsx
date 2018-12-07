@@ -141,8 +141,8 @@ class Scheme10 extends Component {
         <Connector left={270} top={317} />
         <Connector left={270} top={359} />
         <Connector left={270} top={379.5} />
-        <TriConnector direction={'rotatedRight'} left={167} top={335} />
-        <TriConnector left={37} top={167.5} />
+        <TriConnector direction={'rotatedRight'} left={169} top={332.8} />
+        <TriConnector left={35} top={165} />
       </g>
     )
   }
@@ -173,7 +173,7 @@ class Scheme10 extends Component {
   getT6Position = ({ position }) => {
     switch (position) {
       case 0:
-        return { left: 285.5, top: 120 }
+        return { left: 285.5, top: 150 }
       case 1:
         return { left: 529.32, top: 91 }
       default:
