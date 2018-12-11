@@ -182,7 +182,7 @@ class Scheme18 extends Component {
 
     return (
       <g transform={'translate(' + 198 + ' ' + 216 + ')'}>
-        <Pump label={{ position: 'left', sign: 'K' }} active={p154_1} />
+        <Pump direction='left' label={{ position: 'left', sign: 'K' }} active={p154_1} />
       </g>
     )
   }

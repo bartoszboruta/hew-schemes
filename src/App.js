@@ -36,6 +36,9 @@ class App extends Component {
             <div>
               Scheme:{' '}
               <input
+                type='number'
+                max={19}
+                min={1}
                 onChange={({ target: { value } }) =>
                   this.props.updateData({
                     ...this.props.data,

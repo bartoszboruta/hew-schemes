@@ -57,8 +57,26 @@ class Pump extends Component {
     return ["#ffffff", "#666666", "#999999", "#666666", "#cccccc", "#666666"]
   }
 
+  _getDirection = () => {
+    const { direction } = this.props
+
+    if (direction === 'left') {
+      return {
+        from: '360 11.911 12',
+        to: '0 11.911 12'
+      }
+    }
+
+    return {
+      from: '0 11.911 12',
+      to: '360 11.911 12'
+    }
+
+  }
+
   render() {
     const colors = this._getColros()
+    const { from, to } = this._getDirection()
 
     return (
       <g className='Pump' transform={'translate(' + this.props.left + ' ' + this.props.top + ')'}>
@@ -100,8 +118,8 @@ class Pump extends Component {
               dur={this.props.activeDuration}
               repeatCount='indefinite'
               type='rotate'
-              from='0 11.911 12'
-              to='360 11.911 12'
+              from={from}
+              to={to}
             />
           }
         </g>
@@ -124,6 +142,7 @@ Pump.propTypes = {
   activeColor: PropTypes.string,
   activeDuration: PropTypes.number,
   data: PropTypes.object,
+  direction: PropTypes.string,
   left: PropTypes.number,
   top: PropTypes.number,
 };
@@ -132,6 +151,7 @@ Pump.defaultProps = {
   activeColor: '',
   activeDuration: 2,
   data: {},
+  direction: 'right',
   left: 0,
   top: 0,
 };

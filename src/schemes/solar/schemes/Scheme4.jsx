@@ -64,7 +64,7 @@ class Scheme4 extends Component {
         left={206}
         top={119.7}
       />
-      <Pump label={{ position: 'left', sign: 'C' }} left={199} top={216} active={p154_2} />
+      <Pump direction="left" label={{ position: 'left', sign: 'C' }} left={199} top={216} active={p154_2} />
     </g>
   }
 

@@ -186,7 +186,7 @@ class Scheme19 extends Component {
 
     return (
       <g transform={'translate(' + 198 + ' ' + 216 + ')'}>
-        <Pump label={{ position: 'left', sign: 'K' }} active={p154_2 && p156.value > 0} />
+        <Pump direction='left' label={{ position: 'left', sign: 'K' }} active={p154_2 && p156.value > 0} />
       </g>
     )
   }
@@ -231,7 +231,6 @@ class Scheme19 extends Component {
         activeColor={'hot'}
         begin={3}
         d={'M 5 5 L 5 140'}
-        direction={'reversed'}
         id={'valve_hot_out'}
         duration={7}
         left={436}
@@ -242,6 +241,7 @@ class Scheme19 extends Component {
         activeColor={'hot'}
         d={'M 5 5 L 75 5'}
         duration={3}
+        direction="reversed"
         id={'left_boiler_to_valve'}
         left={361}
         top={305}
@@ -251,7 +251,6 @@ class Scheme19 extends Component {
         active={!p154_1}
         activeColor={'hot'}
         d={'M 5 5 L 60 5'}
-        direction={'reversed'}
         duration={3}
         id={'right_boiler_to_valve'}
         left={446}

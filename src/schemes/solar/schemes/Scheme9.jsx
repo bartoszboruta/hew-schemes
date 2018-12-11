@@ -249,7 +249,7 @@ class Scheme9 extends Component {
       <g transform={'translate(' + 415 + ' ' + 270 + ')'}>
         <PoolPump />
         <PoolTank left={90} top={12} />
-        <Pump label={{ position: 'bottom', sign: 'C' }} active={p154_2} left={44} top={70} />
+        <Pump direction="left" label={{ position: 'bottom', sign: 'C' }} active={p154_2} left={44} top={70} />
       </g>
     )
   }

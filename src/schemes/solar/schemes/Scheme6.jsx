@@ -86,7 +86,7 @@ class Scheme6 extends Component {
           left={206}
           top={119.7}
         />
-        <Pump label={{ position: 'left', sign: 'C' }} active={p154_2} left={199} top={216} />
+        <Pump direction="left" label={{ position: 'left', sign: 'C' }} active={p154_2} left={199} top={216} />
       </g>
     )
   }
@@ -197,7 +197,7 @@ class Scheme6 extends Component {
         />
 
         <Furnace left={190} top={59} />
-        <Pump label={{ position: 'right', sign: 'K' }} active={p154_1} left={93} top={91.5} />
+        <Pump direction="left" label={{ position: 'right', sign: 'K' }} active={p154_1} left={93} top={91.5} />
 
         <Connector left={65.5} top={18.5} />
         <Connector left={65.5} top={-22.5} />

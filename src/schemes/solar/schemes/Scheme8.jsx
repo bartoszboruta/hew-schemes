@@ -114,13 +114,13 @@ class Scheme8 extends Component {
           active={p154_2}
           activeColor={'hot'}
           begin={3}
-          d={'M 160 20 L 160 10.8 S 160 5 154.2 5 L 10.8 5 S 5 5 5 10.8 L 5 170 '}
+          d={'M 160 20 L 160 10.8 S 160 5 154.2 5 L 10.8 5 S 5 5 5 10.8 L 5 185 '}
           duration={7}
           id={'right_boiler_circulation_1'}
           left={436}
           top={119.7}
         />
-        <Pump label={{ position: 'left', sign: 'C' }} active={p154_2} left={429} top={216} />
+        <Pump direction="left" label={{ position: 'left', sign: 'C' }} active={p154_2} left={429} top={216} />
       </g>
     )
   }

@@ -9,6 +9,7 @@ import {
   Connector,
   Pipe,
   Pump,
+  Overlay,
   FlowMeter,
   ReadField,
   Shower,
@@ -69,12 +70,13 @@ class Scheme7 extends Component {
         <Pipe
           active={p154_1}
           activeColor={'hot'}
-          d={'M 235 5 L 10.8 5 S 5 5 5 10.8 L 5 164.2 S 5 170 10.8 170 L 64 170'}
+          d={'M 280 5 L 10.8 5 S 5 5 5 10.8 L 5 164.2 S 5 170 10.8 170 L 64 170'}
           duration={11}
           id={'left_boiler_output_hot_left'}
           left={206}
           top={139.7}
         />
+        <Overlay height={34} left={431} top={132} width={20} />
         <Pipe
           active={true}
           activeColor={'hot'}
@@ -103,7 +105,7 @@ class Scheme7 extends Component {
           left={436}
           top={119.7}
         />
-        <Pump label={{ position: 'left', sign: 'C' }} active={p154_2} left={429} top={216} />
+        <Pump direction="left" label={{ position: 'left', sign: 'C' }} active={p154_2} left={429} top={216} />
       </g>
     )
   }
@@ -120,7 +122,7 @@ class Scheme7 extends Component {
         <Connector left={270} top={379.5} />
         <Connector left={500} top={379.5} />
         <TriConnector left={585.25} top={134} />
-        <TriConnector direction="rotatedLeft" left={430} top={140.25} />
+        <TriConnector direction="reversedVertical" left={470} top={142.25} />
       </g>
     )
   }
@@ -202,7 +204,7 @@ class Scheme7 extends Component {
 
     return (
       <g transform={'translate(' + 198 + ' ' + 216 + ')'}>
-        <Pump label={{ position: 'left', sign: 'K' }} active={p154_1} />
+        <Pump direction="left" label={{ position: 'left', sign: 'K' }} active={p154_1} />
       </g>
     )
   }

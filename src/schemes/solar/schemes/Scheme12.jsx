@@ -274,7 +274,7 @@ class Scheme12 extends Component {
           left={436}
           top={119.7}
         />
-        <Pump label={{ position: 'left', sign: 'C' }} active={p154_2} left={429} top={216} />
+        <Pump direction="left" label={{ position: 'left', sign: 'C' }} active={p154_2} left={429} top={216} />
       </g>
     )
   }

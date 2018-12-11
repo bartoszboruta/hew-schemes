@@ -95,7 +95,7 @@ class Scheme17 extends Component {
           left={206}
           top={119.7}
         />
-        <Pump label={{ position: 'left', sign: 'C' }} active={p154_2} left={199} top={216} />
+        <Pump direction="left" label={{ position: 'left', sign: 'C' }} active={p154_2} left={199} top={216} />
       </g>
     )
   }
@@ -169,7 +169,7 @@ class Scheme17 extends Component {
 
     return (
       <g transform={'translate(' + 32 + ' ' + 300 + ')'}>
-        <Pump label={{ position: 'left', sign: 'P' }} active={p154_0 && p156 > 0} />
+        <Pump label={{ position: 'left', sign: 'P' }} active={p154_0 && p156.value > 0} />
         <ReadField left={30} param={'p156'} top={3} />
       </g>
     )
