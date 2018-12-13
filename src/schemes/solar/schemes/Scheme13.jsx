@@ -155,6 +155,7 @@ class Scheme13 extends Component {
           active={p154_1}
           activeColor={'cold'}
           d={'M 5 5 L 80 5 '}
+          direction="reversed"
           duration={4}
           id={'furnace_cold_1'}
           left={48}
