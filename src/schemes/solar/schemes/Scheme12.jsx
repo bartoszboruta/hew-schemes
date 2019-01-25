@@ -59,6 +59,7 @@ class Scheme12 extends Component {
         <Pipe
           active={true}
           activeColor={'cold'}
+          anime={false}
           d={'M 5 5 L 150 5'}
           duration={4}
           id={'left_boiler_output_cold'}

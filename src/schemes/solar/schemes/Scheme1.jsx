@@ -46,6 +46,7 @@ class Scheme1 extends Component {
           top={-5}
         />
         <Pipe
+          anime={false}
           active={true}
           activeColor={'cold'}
           d={'M 5 5 L 150 5'}

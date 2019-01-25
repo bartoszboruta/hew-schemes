@@ -135,6 +135,7 @@ class Scheme16 extends Component {
         <Pipe
           active={true}
           activeColor={'cold'}
+          anime={false}
           d={'M 5 5 L 100 5'}
           duration={7}
           direction="reversed"
