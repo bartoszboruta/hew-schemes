@@ -1,81 +1,85 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
 
 class Pipe extends Component {
-
   getColor() {
     switch (this.props.active && this.props.activeColor) {
       case 'hot':
-        return '#fd5757';
+        return '#fd5757'
       case 'cold':
-        return '#4444ea';
+        return '#4444ea'
       default:
-        return '#666666';
+        return '#666666'
     }
   }
 
   getDirection() {
-    return this.props.direction === 'reversed' && {
-      keyPoints: '1;0',
-      keyTimes: '0;1'
-    }
+    return (
+      this.props.direction === 'reversed' && {
+        keyPoints: '1;0',
+        keyTimes: '0;1',
+      }
+    )
   }
 
   renderAnimation() {
-    return !this.props.data.animationsPaused &&
+    return (
+      !this.props.data.animationsPaused &&
       this.props.active &&
       this.props.anime &&
-      this.props.duration &&
-      <circle
-        cx='0'
-        cy='0'
-        fill={this.getColor()}
-        r='4'
-      >
-        <animateMotion
-          begin={this.props.begin}
-          calcMode='linear'
-          dur={this.props.duration}
-          repeatCount='indefinite'
-          rotate='auto'
-          {
-          ...this.getDirection()
-          }
-        >
-          <mpath xlinkHref={'#' + this.props.id} />
-        </animateMotion>
-      </circle>
+      this.props.duration && (
+        <circle cx="0" cy="0" fill={this.getColor()} r="4">
+          <animate
+            attributeName="opacity"
+            dur={this.props.begin || 1}
+            from="0"
+            id="waitForBegin"
+            to="0"
+          />
+
+          <animateMotion
+            begin="waitForBegin.end"
+            begin={this.props.begin}
+            calcMode="linear"
+            dur={this.props.duration}
+            repeatCount="indefinite"
+            rotate="auto"
+            {...this.getDirection()}
+          >
+            <mpath xlinkHref={'#' + this.props.id} />
+          </animateMotion>
+        </circle>
+      )
+    )
   }
 
   render() {
     return (
-      <g className='Pipe' transform={'translate(' + this.props.left + ' ' + this.props.top + ')'}>
+      <g className="Pipe" transform={'translate(' + this.props.left + ' ' + this.props.top + ')'}>
         <path
           d={this.props.d}
           id={this.props.id}
           style={{
             fill: 'none',
             stroke: this.getColor(),
-            strokeWidth: this.props.strokeWidth
+            strokeWidth: this.props.strokeWidth,
           }}
         />
-        {
-          this.renderAnimation()
-        }
+        {this.renderAnimation()}
       </g>
     )
   }
 }
 
-const mapStateToProps = (state) => {
-  const { data } = state;
+const mapStateToProps = state => {
+  const { data } = state
   return {
     data,
-  };
-};
+  }
+}
 
-const ConnectedPipe = connect(mapStateToProps)(Pipe);
+const ConnectedPipe = connect(mapStateToProps)(Pipe)
 export { ConnectedPipe as Pipe }
 
 Pipe.propTypes = {
@@ -90,7 +94,7 @@ Pipe.propTypes = {
   left: PropTypes.number,
   strokeWidth: PropTypes.number,
   top: PropTypes.number,
-};
+}
 
 Pipe.defaultProps = {
   active: false,
@@ -104,4 +108,4 @@ Pipe.defaultProps = {
   left: 0,
   strokeWidth: 3,
   top: 0,
-};
+}
