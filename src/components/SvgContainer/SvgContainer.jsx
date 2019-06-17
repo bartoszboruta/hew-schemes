@@ -3,16 +3,37 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 
 class SvgContainer extends Component {
+
+  constructor(props) {
+    super(props);
+
+    this.groupRef = React.createRef();
+  }
+
+  componentDidMount() {
+    this.groupRef.current.setAttribute('transform', this.getGroupScale());
+  }
+
+  getGroupScale() {
+    const width = this.groupRef.current ? this.groupRef.current.getBoundingClientRect().width : 2000;
+    const height = this.groupRef.current ? this.groupRef.current.getBoundingClientRect().height : 2000;
+    const proportion = width > height ? height / width : width / height;
+
+    return 'scale(' + proportion + ')';
+  }
+
   getHeight() {
     return this.props.dimensions.height > this.props.height
       ? this.props.dimensions.height
-      : this.props.dimensions.height
+      : this.props.height
   }
 
   render() {
     return (
-      <svg height={this.getHeight()} viewBox={'-5 0 ' + 1000 + ' ' + 700} width={'100%'}>
-        {this.props.children}
+      <svg height={this.getHeight()} viewBox={'-5 -5 ' + 480 + ' ' + 480} width={'100%'}>
+        <g ref={this.groupRef}>
+          {this.props.children}
+        </g>
       </svg>
     )
   }
