@@ -51,6 +51,7 @@ class Scheme19 extends Component {
         <Pipe
           active={true}
           activeColor={'cold'}
+          anime={false}
           d={'M 5 5 L 150 5'}
           duration={7}
           id={'left_boiler_output_cold'}
@@ -102,7 +103,7 @@ class Scheme19 extends Component {
         <Connector left={270} top={359} />
         <Connector left={270} top={379.5} />
         <Connector left={500} top={379.5} />
-        <TriConnector direction={'reversedVertical'} left={472.25} top={140} />
+        <TriConnector direction={'reversedVertical'} left={470} top={142} />
       </g>
     )
   }
@@ -124,20 +125,48 @@ class Scheme19 extends Component {
 
     return (
       <g>
-        <Boiler left={500} top={200} />
+        <Boiler left={500} sign="A" top={200} />
         <Coil active={p154_0 && p156.value > 0} direction={'right'} left={270} top={340} />
         {Scheme19.renderConnectors()}
       </g>
     )
   }
 
+  getT5Position = ({ position }) => {
+    switch (position) {
+      case 0:
+        return { left: 85, top: 410 }
+      case 1:
+        return { left: 563.32, top: 67 }
+      case 2:
+        return { left: 365, top: 177 }
+      default:
+        return {}
+    }
+  }
+
+  getT6Position = ({ position }) => {
+    switch (position) {
+      case 0:
+        return { left: 515, top: 150 }
+      case 1:
+        return { left: 563.32, top: 91 }
+      default:
+        return {}
+    }
+  }
+
   renderReadFields() {
+    const { data: { p128, p130, p132, p134, p136, p138 } } = this.props
+
     return (
       <g>
-        {this.props.data.p128.visible && <ReadField left={256} param={'p128'} />}
-        {this.props.data.p130.visible && <ReadField left={196} param={'p130'} top={352.5} />}
-        {this.props.data.p132.visible && <ReadField left={62} param={'p132'} top={236.5} />}
-        {this.props.data.p134.visible && <ReadField left={425.5} param={'p134'} top={352.5} />}
+        {p128.visible && <ReadField left={256} param={'p128'} />}
+        {p130.visible && <ReadField left={196} param={'p130'} top={352.5} />}
+        {p132.visible && <ReadField left={62} param={'p132'} top={236.5} />}
+        {p134.visible && <ReadField left={425.5} param={'p134'} top={352.5} />}
+        {p136.visible && <ReadField param={'p136'} {...this.getT5Position(p136)} />}
+        {p138.visible && <ReadField param={'p138'} {...this.getT6Position(p138)} />}
       </g>
     )
   }
@@ -158,30 +187,42 @@ class Scheme19 extends Component {
 
     return (
       <g transform={'translate(' + 198 + ' ' + 216 + ')'}>
-        <Pump label={{ position: 'left', sign: 'K' }} active={p154_2 && p156.value > 0} />
+        <Pump direction='left' label={{ position: 'left', sign: 'K' }} active={p154_2 && p156.value > 0} />
       </g>
     )
   }
 
+  getFlowMeterPosition = ({ position }) => {
+    switch (position) {
+      case 0:
+        return 'translate(' + 190 + ' ' + 393.5 + ')'
+      case 1:
+        return 'translate(' + 588.32 + ' ' + 17 + ')'
+      default:
+        return ''
+    }
+  }
+
   renderFlowMeters() {
+    const { data: { p152, p292 } } = this.props
+
     return (
       <g>
-        {this.props.data.p152.visible && (
+        {p152.visible && (
           <g transform={'translate(' + 34 + ' ' + 270 + ')'}>
             <FlowMeter />
             <ReadField left={28} param={'p152'} />
           </g>
         )}
-        {this.props.data.p292.visible && (
-          <g transform={'translate(' + 190 + ' ' + 393.5 + ')'}>
-            <FlowMeter direction={'horizontal'} />
+        {p292.visible && (
+          <g transform={this.getFlowMeterPosition(p292)}>
+            {p292.position === 0 && <FlowMeter direction={'horizontal'} />}
             <ReadField left={-25} param={'p292'} top={26} />
           </g>
         )}
       </g>
     )
   }
-
   renderTriValve() {
     const { data: { p154_1 } } = this.props
 
@@ -190,18 +231,18 @@ class Scheme19 extends Component {
         active={true}
         activeColor={'hot'}
         begin={3}
-        d={'M 5 5 L 5 120'}
-        direction={'reversed'}
+        d={'M 5 5 L 5 140'}
         id={'valve_hot_out'}
         duration={7}
         left={436}
-        top={185}
+        top={165}
       />
       <Pipe
         active={p154_1}
         activeColor={'hot'}
         d={'M 5 5 L 75 5'}
         duration={3}
+        direction="reversed"
         id={'left_boiler_to_valve'}
         left={361}
         top={305}
@@ -211,7 +252,6 @@ class Scheme19 extends Component {
         active={!p154_1}
         activeColor={'hot'}
         d={'M 5 5 L 60 5'}
-        direction={'reversed'}
         duration={3}
         id={'right_boiler_to_valve'}
         left={446}

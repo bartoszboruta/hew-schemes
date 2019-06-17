@@ -73,6 +73,7 @@ class Scheme15 extends Component {
         <Pipe
           active={true}
           activeColor={'cold'}
+          anime={false}
           d={'M 5 5 L 150 5'}
           duration={7}
           id={'left_boiler_output_cold'}
@@ -96,7 +97,6 @@ class Scheme15 extends Component {
           d={
             'M 5 5 L 5 64.2 S 5 70 10.8 70 L 487.2 70 S 493 70 493 64.2 L 493 -233.2 S 493 -239 488.24845486098957 -242.3260815973073 L 483 -246'
           }
-          direction='reversed'
           duration={22}
           id={'right_boiler_output_cold'}
           left={100}
@@ -125,9 +125,9 @@ class Scheme15 extends Component {
         <Connector left={270} top={317} />
         <Connector left={270} top={359} />
         <Connector left={270} top={379.5} />
-        <TriConnector direction={'reversedVertical'} left={242.25} top={140} />
-        <TriConnector direction={'reversedVertical'} left={97.25} top={378.5} />
-        <TriConnector direction={'rotatedRight'} left={166.5} top={94} />
+        <TriConnector left={355.25} top={134} />
+        <TriConnector direction={'reversedVertical'} left={94.25} top={380.5} />
+        <TriConnector direction={'rotatedRight'} left={169} top={91} />
       </g>
     )
   }
@@ -141,14 +141,13 @@ class Scheme15 extends Component {
           active={p154_2}
           activeColor={'hot'}
           begin={3}
-          d={'M 44 5 L 10.8 5 S 5 5 5 10.8 L 5 164.2 S 5 170 10.8 170 L 64 170 '}
-          direction={'reversed'}
+          d={'M 160 20 L 160 10.8 S 160 5 154.2 5 L 10.8 5 S 5 5 5 10.8 L 5 184.2 S 5 190 10.8 190 L 64 190 '}
           duration={7}
           id={'left_boiler_circulation_1'}
           left={206}
-          top={139.7}
+          top={119.7}
         />
-        <Pump label={{ position: 'left', sign: 'C' }} active={p154_2} left={199} top={216} />
+        <Pump direction="left" label={{ position: 'left', sign: 'C' }} active={p154_2} left={199} top={216} />
       </g>
     )
   }
@@ -165,12 +164,39 @@ class Scheme15 extends Component {
     )
   }
 
+  getT5Position = ({ position }) => {
+    switch (position) {
+      case 0:
+        return { left: 115, top: 410 }
+      case 1:
+        return { left: 564, top: 67 }
+      default:
+        return {}
+    }
+  }
+
+  getT6Position = ({ position }) => {
+    switch (position) {
+      case 0:
+        return { left: 285.5, top: 150 }
+      case 1:
+        return { left: 564, top: 91 }
+      default:
+        return {}
+    }
+  }
+
   renderReadFields() {
+    const { data: { p128, p130, p132, p134, p136, p138 } } = this.props
+
     return (
       <g>
-        {this.props.data.p128.visible && <ReadField left={254} param={'p128'} />}
-        {this.props.data.p130.visible && <ReadField left={196} param={'p130'} top={352.5} />}
-        {this.props.data.p132.visible && <ReadField left={324} param={'p132'} />}
+        {p128.visible && <ReadField left={254} param={'p128'} />}
+        {p130.visible && <ReadField left={196} param={'p130'} top={352.5} />}
+        {p132.visible && <ReadField left={324} param={'p132'} />}
+        {p134.visible && <ReadField left={372} param={'p134'} top={249} />}
+        {p136.visible && <ReadField param={'p136'} {...this.getT5Position(p136)} />}
+        {p138.visible && <ReadField param={'p138'} {...this.getT6Position(p138)} />}
       </g>
     )
   }
@@ -197,20 +223,38 @@ class Scheme15 extends Component {
   }
 
   renderFlowMeters() {
+    const { data: { p152, p292 } } = this.props
+
     return (
       <g>
-        {this.props.data.p152.visible && (
+        {p152.visible && (
           <g transform={'translate(' + 34 + ' ' + 270 + ')'}>
             <FlowMeter />
             <ReadField left={28} param={'p152'} />
           </g>
         )}
-        {this.props.data.p292.visible && (
-          <g transform={'translate(' + 190 + ' ' + 393.5 + ')'}>
-            <FlowMeter direction={'horizontal'} />
-            <ReadField left={-25} param={'p292'} top={26} />
+        {p292.visible && (
+          <g>
+            {
+              p292.position === 0 && <g transform={'translate(' + 220 + ' ' + 393.5 + ')'}>
+                <FlowMeter direction={'horizontal'} />
+                <ReadField left={-25} param={'p292'} top={26} />
+              </g>
+            }
+            {
+              p292.position === 1 && <g transform={'translate(' + 589.32 + ' ' + 17 + ')'}>
+                <ReadField left={-25} param={'p292'} top={26} />
+              </g>
+            }
+            {
+              p292.position === 2 && <g transform={'translate(' + 581.5 + ' ' + 270 + ')'}>
+                <FlowMeter direction={'vertical'} />
+                <ReadField param={'p292'} left={-75} />
+              </g>
+            }
           </g>
-        )}
+        )
+        }
       </g>
     )
   }
@@ -224,7 +268,7 @@ class Scheme15 extends Component {
         <g transform={'scale(-1,1)'}>
           <SolarPanel left={-588} />
         </g>
-        <Clock left={600} />
+        <Clock left={610} />
         {this.renderCirculation()}
         {this.renderBoiler()}
         {this.renderPumpP()}
