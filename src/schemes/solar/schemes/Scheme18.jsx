@@ -50,6 +50,7 @@ class Scheme18 extends Component {
         <Pipe
           active={true}
           activeColor={'cold'}
+          anime={false}
           d={'M 5 5 L 150 5'}
           duration={7}
           id={'left_boiler_output_cold'}
@@ -64,13 +65,13 @@ class Scheme18 extends Component {
           }
           duration={7}
           id={'right_boiler_output_hot'}
-          left={475}
+          left={425}
           top={139.5}
         />
         <Pipe
           active={p154_1}
           activeColor={'hot'}
-          d={'M 275 5 L 10.8 5 S 5 5 5 10.8 L 5 164.2 S 5 170 10.8 170 L 64 170'}
+          d={'M 220 5 L 10.8 5 S 5 5 5 10.8 L 5 164.2 S 5 170 10.8 170 L 64 170'}
           duration={11}
           id={'left_boiler_output_hot_left'}
           left={206}
@@ -79,7 +80,7 @@ class Scheme18 extends Component {
         <Pipe
           active={p154_1}
           activeColor={'hot'}
-          d={'M 0 5 L 24.2 5 S 30 5 30 10.8 L 30 185.2 S 30 191 35.8 191 L 135 191'}
+          d={'M 0 5 L 24.2 5 S 30 5 30 10.8 L 30 185.2 S 30 191 35.8 191 L 85 191'}
           duration={11}
           id={'left_boiler_to_right_boiler'}
           left={365}
@@ -92,14 +93,14 @@ class Scheme18 extends Component {
   static renderConnectors() {
     return (
       <g>
-        <Connector left={500} top={193.5} />
+        <Connector left={450} top={193.5} />
         <Connector left={355.5} top={193.5} />
         <Connector left={270} top={285.5} />
         <Connector left={270} top={317} />
         <Connector left={270} top={359} />
         <Connector left={270} top={379.5} />
-        <Connector left={500} top={379.5} />
-        <TriConnector direction={'reversedVertical'} left={472.25} top={140} />
+        <Connector left={450} top={379.5} />
+        <TriConnector direction={'reversedVertical'} left={420} top={142} />
       </g>
     )
   }
@@ -117,24 +118,51 @@ class Scheme18 extends Component {
   }
 
   renderBoilerRight() {
-    const { data: { p154_0, p156 } } = this.props
-
     return (
       <g>
-        <Boiler left={500} top={200} />
-        <Coil active={p154_0 && p156.value > 0} direction={'right'} left={270} top={340} />
+        <Boiler left={450} sign="A" top={200} />
         {Scheme18.renderConnectors()}
       </g>
     )
   }
 
+  getT5Position = ({ position }) => {
+    switch (position) {
+      case 0:
+        return { left: 85, top: 410 }
+      case 1:
+        return { left: 665, top: 67 }
+      case 2:
+        return { left: 651, top: 249 }
+      default:
+        return {}
+    }
+  }
+
+  getT6Position = ({ position }) => {
+    switch (position) {
+      case 0:
+        return { left: 465, top: 150 }
+      case 1:
+        return { left: 665, top: 91 }
+      case 2:
+        return { left: 585, top: 370 }
+      default:
+        return {}
+    }
+  }
+
   renderReadFields() {
+    const { data: { p128, p130, p132, p134, p136, p138 } } = this.props
+
     return (
       <g>
-        {this.props.data.p128.visible && <ReadField left={256} param={'p128'} />}
-        {this.props.data.p130.visible && <ReadField left={196} param={'p130'} top={352.5} />}
-        {this.props.data.p132.visible && <ReadField left={62} param={'p132'} top={236.5} />}
-        {this.props.data.p134.visible && <ReadField left={602} param={'p134'} top={249} />}
+        {p128.visible && <ReadField left={256} param={'p128'} />}
+        {p130.visible && <ReadField left={196} param={'p130'} top={352.5} />}
+        {p132.visible && <ReadField left={62} param={'p132'} top={236.5} />}
+        {p134.visible && <ReadField left={552} param={'p134'} top={249} />}
+        {p136.visible && <ReadField param={'p136'} {...this.getT5Position(p136)} />}
+        {p138.visible && <ReadField param={'p138'} {...this.getT6Position(p138)} />}
       </g>
     )
   }
@@ -155,26 +183,44 @@ class Scheme18 extends Component {
 
     return (
       <g transform={'translate(' + 198 + ' ' + 216 + ')'}>
-        <Pump label={{ position: 'left', sign: 'K' }} active={p154_1} />
+        <Pump direction='left' label={{ position: 'left', sign: 'K' }} active={p154_1} />
       </g>
     )
   }
 
   renderFlowMeters() {
+    const { data: { p152, p292 } } = this.props
+
     return (
       <g>
-        {this.props.data.p152.visible && (
+        {p152.visible && (
           <g transform={'translate(' + 34 + ' ' + 270 + ')'}>
             <FlowMeter />
             <ReadField left={28} param={'p152'} />
           </g>
         )}
-        {this.props.data.p292.visible && (
-          <g transform={'translate(' + 190 + ' ' + 393.5 + ')'}>
-            <FlowMeter direction={'horizontal'} />
-            <ReadField left={-25} param={'p292'} top={26} />
+        {p292.visible && (
+          <g>
+            {
+              p292.position === 0 && <g transform={'translate(' + 190 + ' ' + 393.5 + ')'}>
+                <FlowMeter direction={'horizontal'} />
+                <ReadField left={-25} param={'p292'} top={26} />
+              </g>
+            }
+            {
+              p292.position === 1 && <g transform={'translate(' + 690.32 + ' ' + 17 + ')'}>
+                <ReadField left={-25} param={'p292'} top={26} />
+              </g>
+            }
+            {
+              p292.position === 2 && <g transform={'translate(' + 610 + ' ' + 389.5 + ')'}>
+                <FlowMeter direction={'horizontal'} />
+                <ReadField left={-25} param={'p292'} top={26} />
+              </g>
+            }
           </g>
-        )}
+        )
+        }
       </g>
     )
   }
@@ -183,7 +229,7 @@ class Scheme18 extends Component {
     const { data: { p154_2 } } = this.props
 
     return (
-      <g transform={'translate(' + 520 + ' ' + 236 + ')'}>
+      <g transform={'translate(' + 470 + ' ' + 236 + ')'}>
         <Coil active={p154_2} />
         <Pipe
           active={p154_2}
@@ -199,7 +245,6 @@ class Scheme18 extends Component {
         <Pipe
           active={p154_2}
           activeColor={'cold'}
-          begin={0}
           d={'M 0 5 L 24.2 5 S 30 5 30 10.8 L 30 119.2 S 30 125 35.8 125 L 120 125'}
           duration={7}
           id={'furnace_cold'}
@@ -220,16 +265,16 @@ class Scheme18 extends Component {
     return (
       <SvgContainer height={558.1} width={650}>
         {this.renderPipes()}
-        <Shower left={614.25} top={165} />
+        <Shower left={564.25} top={165} />
         <SolarPanel left={50} />
-        <Clock left={751} />
+        <Clock left={711} />
         {this.renderBoiler()}
         {this.renderBoilerRight()}
+        {this.renderFurnace()}
         {this.renderPumpP()}
         {this.renderPumpK()}
         {this.renderReadFields()}
         {this.renderFlowMeters()}
-        {this.renderFurnace()}
       </SvgContainer>
     )
   }

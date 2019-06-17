@@ -33,6 +33,7 @@ class Scheme4 extends Component {
         id={'left_boiler_output_cold'}
         active={true}
         activeColor={'cold'}
+        anime={false}
         d={'M 5 5 L 150 5'}
         duration={7}
         left={120}
@@ -59,13 +60,12 @@ class Scheme4 extends Component {
         active={p154_2}
         activeColor={'hot'}
         begin={3}
-        d={'M 44 5 L 10.8 5 S 5 5 5 10.8 L 5 164.2 S 5 170 10.8 170 L 64 170'}
-        direction={'reversed'}
+        d={'M 160 20 L 160 10.8 S 160 5 154.2 5 L 10.8 5 S 5 5 5 10.8 L 5 184.2 S 5 190 10.8 190 L 64 190'}
         duration={7}
         left={206}
-        top={139.7}
+        top={119.7}
       />
-      <Pump label={{ position: 'left', sign: 'C' }} left={199} top={216} active={p154_2} />
+      <Pump direction="left" label={{ position: 'left', sign: 'C' }} left={199} top={216} active={p154_2} />
     </g>
   }
 
@@ -76,7 +76,7 @@ class Scheme4 extends Component {
       <Connector left={270} top={317} />
       <Connector left={270} top={359} />
       <Connector left={270} top={379.5} />
-      <TriConnector direction={'reversedVertical'} left={242.25} top={140} />
+      <TriConnector left={355.25} top={134} />
     </g>
   }
 
@@ -90,13 +90,41 @@ class Scheme4 extends Component {
     </g>
   }
 
+  getT5Position = ({ position }) => {
+    switch (position) {
+      case 0:
+        return { left: 85, top: 410 }
+      case 1:
+        return { left: 372, top: 67 }
+      default:
+        return {}
+    }
+  }
+
+  getT6Position = ({ position }) => {
+    switch (position) {
+      case 0:
+        return { left: 285.5, top: 150 }
+      case 1:
+        return { left: 372, top: 91 }
+      default:
+        return {}
+    }
+  }
+
   renderReadFields() {
-    return <g>
-      {this.props.data.p128.visible && <ReadField param={'p128'} left={256} />}
-      {this.props.data.p130.visible && <ReadField param={'p130'} left={196} top={352.5} />}
-      {this.props.data.p132.visible && <ReadField param={'p132'} left={62} top={236.5} />}
-      {this.props.data.p134.visible && <ReadField param={'p134'} left={372} top={249} />}
-    </g>
+    const { data: { p128, p130, p132, p134, p136, p138 } } = this.props
+
+    return (
+      <g>
+        {p128.visible && <ReadField param={'p128'} left={256} />}
+        {p130.visible && <ReadField param={'p130'} left={196} top={352.5} />}
+        {p132.visible && <ReadField param={'p132'} left={62} top={236.5} />}
+        {p134.visible && <ReadField param={'p134'} left={372} top={249} />}
+        {p136.visible && <ReadField param={'p136'} {...this.getT5Position(p136)} />}
+        {p138.visible && <ReadField param={'p138'} {...this.getT6Position(p138)} />}
+      </g>
+    )
   }
 
   renderPumpP() {
@@ -114,17 +142,36 @@ class Scheme4 extends Component {
     return <Heater left={312} top={302} active={p154_1} />
   }
 
+  getFlowMeterPosition = ({ position }) => {
+    switch (position) {
+      case 0:
+        return 'translate(' + 190 + ' ' + 393.5 + ')'
+      case 1:
+        return 'translate(' + 397 + ' ' + 17 + ')'
+      default:
+        return ''
+    }
+  }
+
   renderFlowMeters() {
-    return <g>
-      {this.props.data.p152.visible && <g transform={'translate(' + 34 + ' ' + 270 + ')'}>
-        <FlowMeter />
-        <ReadField param={'p152'} left={28} />
-      </g>}
-      {this.props.data.p292.visible && <g transform={'translate(' + 190 + ' ' + 393.5 + ')'}>
-        <FlowMeter direction={'horizontal'} />
-        <ReadField param={'p292'} left={-25} top={26} />
-      </g>}
-    </g>
+    const { data: { p152, p292 } } = this.props
+
+    return (
+      <g>
+        {p152.visible && (
+          <g transform={'translate(' + 34 + ' ' + 270 + ')'}>
+            <FlowMeter />
+            <ReadField left={28} param={'p152'} />
+          </g>
+        )}
+        {p292.visible && (
+          <g transform={this.getFlowMeterPosition(p292)}>
+            {p292.position === 0 && <FlowMeter direction={'horizontal'} />}
+            <ReadField left={-25} param={'p292'} top={26} />
+          </g>
+        )}
+      </g>
+    )
   }
 
   render() {
@@ -133,7 +180,7 @@ class Scheme4 extends Component {
       {this.renderCirculation()}
       <Shower left={384.25} top={165} />
       <SolarPanel left={50} />
-      <Clock left={459} />
+      <Clock left={416} />
       {this.renderBoiler()}
       {this.renderHeater()}
       {this.renderPumpP()}

@@ -51,6 +51,7 @@ class Scheme8 extends Component {
         <Pipe
           active={true}
           activeColor={'cold'}
+          anime={false}
           d={'M 5 5 L 150 5'}
           duration={7}
           id={'left_boiler_output_cold'}
@@ -114,13 +115,13 @@ class Scheme8 extends Component {
           active={p154_2}
           activeColor={'hot'}
           begin={3}
-          d={'M 44 5 L 10.8 5 S 5 5 5 10.8 L 5 170'}
+          d={'M 160 20 L 160 10.8 S 160 5 154.2 5 L 10.8 5 S 5 5 5 10.8 L 5 185 '}
           duration={7}
           id={'right_boiler_circulation_1'}
           left={436}
-          top={139.7}
+          top={119.7}
         />
-        <Pump label={{ position: 'left', sign: 'C' }} active={p154_2} left={429} top={216} />
+        <Pump direction="left" label={{ position: 'left', sign: 'C' }} active={p154_2} left={429} top={216} />
       </g>
     )
   }
@@ -137,7 +138,7 @@ class Scheme8 extends Component {
         <Connector left={270} top={379.5} />
         <Connector left={500} top={379.5} />
         <TriValve direction={'bottom'} left={428.25} top={302.5} />
-        <TriConnector direction={'reversedVertical'} left={472.25} top={140} />
+        <TriConnector left={585.25} top={134} />
       </g>
     )
   }
@@ -157,19 +158,45 @@ class Scheme8 extends Component {
   renderBoilerRight() {
     return (
       <g>
-        <Boiler left={500} top={200} />
+        <Boiler left={500} sign="A" top={200} />
         {Scheme8.renderConnectors()}
       </g>
     )
   }
 
+  getT5Position = ({ position }) => {
+    switch (position) {
+      case 0:
+        return { left: 85, top: 410 }
+      case 1:
+        return { left: 563.32, top: 67 }
+      default:
+        return {}
+    }
+  }
+
+  getT6Position = ({ position }) => {
+    switch (position) {
+      case 0:
+        return { left: 515, top: 150 }
+      case 1:
+        return { left: 563.32, top: 91 }
+      default:
+        return {}
+    }
+  }
+
   renderReadFields() {
+    const { data: { p128, p130, p132, p134, p136, p138 } } = this.props
+
     return (
       <g>
-        {this.props.data.p128.visible && <ReadField left={256} param={'p128'} />}
-        {this.props.data.p130.visible && <ReadField left={196} param={'p130'} top={352.5} />}
-        {this.props.data.p132.visible && <ReadField left={62} param={'p132'} top={236.5} />}
-        {this.props.data.p134.visible && <ReadField left={425.5} param={'p134'} top={352.5} />}
+        {p128.visible && <ReadField left={256} param={'p128'} />}
+        {p130.visible && <ReadField left={196} param={'p130'} top={352.5} />}
+        {p132.visible && <ReadField left={62} param={'p132'} top={236.5} />}
+        {p134.visible && <ReadField left={425.5} param={'p134'} top={352.5} />}
+        {p136.visible && <ReadField param={'p136'} {...this.getT5Position(p136)} />}
+        {p138.visible && <ReadField param={'p138'} {...this.getT6Position(p138)} />}
       </g>
     )
   }
@@ -185,18 +212,32 @@ class Scheme8 extends Component {
     )
   }
 
+
+  getFlowMeterPosition = ({ position }) => {
+    switch (position) {
+      case 0:
+        return 'translate(' + 190 + ' ' + 393.5 + ')'
+      case 1:
+        return 'translate(' + 588.32 + ' ' + 17 + ')'
+      default:
+        return ''
+    }
+  }
+
   renderFlowMeters() {
+    const { data: { p152, p292 } } = this.props
+
     return (
       <g>
-        {this.props.data.p152.visible && (
+        {p152.visible && (
           <g transform={'translate(' + 34 + ' ' + 270 + ')'}>
             <FlowMeter />
             <ReadField left={28} param={'p152'} />
           </g>
         )}
-        {this.props.data.p292.visible && (
-          <g transform={'translate(' + 190 + ' ' + 393.5 + ')'}>
-            <FlowMeter direction={'horizontal'} />
+        {p292.visible && (
+          <g transform={this.getFlowMeterPosition(p292)}>
+            {p292.position === 0 && <FlowMeter direction={'horizontal'} />}
             <ReadField left={-25} param={'p292'} top={26} />
           </g>
         )}

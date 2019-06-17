@@ -38,6 +38,7 @@ class Scheme10 extends Component {
         <Pipe
           active={true}
           activeColor={'cold'}
+          anime={false}
           d={'M 5 5 L 150 5'}
           duration={4}
           id={'left_boiler_output_cold'}
@@ -141,8 +142,8 @@ class Scheme10 extends Component {
         <Connector left={270} top={317} />
         <Connector left={270} top={359} />
         <Connector left={270} top={379.5} />
-        <TriConnector direction={'rotatedRight'} left={167} top={335} />
-        <TriConnector left={37} top={167.5} />
+        <TriConnector direction={'rotatedRight'} left={169} top={332.8} />
+        <TriConnector left={35} top={165} />
       </g>
     )
   }
@@ -159,13 +160,39 @@ class Scheme10 extends Component {
     )
   }
 
+  getT5Position = ({ position }) => {
+    switch (position) {
+      case 0:
+        return { left: 85, top: 410 }
+      case 1:
+        return { left: 529.32, top: 67 }
+      default:
+        return {}
+    }
+  }
+
+  getT6Position = ({ position }) => {
+    switch (position) {
+      case 0:
+        return { left: 285.5, top: 150 }
+      case 1:
+        return { left: 529.32, top: 91 }
+      default:
+        return {}
+    }
+  }
+
   renderReadFields() {
+    const { data: { p128, p130, p132, p134, p136, p138 } } = this.props
+
     return (
       <g>
-        {this.props.data.p128.visible && <ReadField left={256} param={'p128'} />}
-        {this.props.data.p130.visible && <ReadField left={196} param={'p130'} top={352.5} />}
-        {this.props.data.p132.visible && <ReadField left={82} param={'p132'} top={236.5} />}
-        {this.props.data.p134.visible && <ReadField left={505} param={'p134'} top={255} />}
+        {p128.visible && <ReadField left={256} param={'p128'} />}
+        {p130.visible && <ReadField left={196} param={'p130'} top={352.5} />}
+        {p132.visible && <ReadField left={82} param={'p132'} top={236.5} />}
+        {p134.visible && <ReadField left={505} param={'p134'} top={255} />}
+        {p136.visible && <ReadField param={'p136'} {...this.getT5Position(p136)} />}
+        {p138.visible && <ReadField param={'p138'} {...this.getT6Position(p138)} />}
       </g>
     )
   }
@@ -185,25 +212,42 @@ class Scheme10 extends Component {
     const { data: { p154_1 } } = this.props
 
     return (
-      <g transform={'translate(' + 13 + ' ' + 416.5 + ')'}>
+      <g transform={'translate(' + 13 + ' ' + 417.5 + ')'}>
         <Pump label={{ position: 'left', sign: 'K' }} active={p154_1} />
       </g>
     )
   }
 
   renderFlowMeters() {
+    const { data: { p152, p292 } } = this.props
+
     return (
       <g>
-        {this.props.data.p152.visible && (
+        {p152.visible && (
           <g transform={'translate(' + 54 + ' ' + 270 + ')'}>
             <FlowMeter />
             <ReadField left={28} param={'p152'} />
           </g>
         )}
-        {this.props.data.p292.visible && (
-          <g transform={'translate(' + 220.5 + ' ' + 393.5 + ')'}>
-            <FlowMeter direction={'horizontal'} />
-            <ReadField left={-25} param={'p292'} top={26} />
+        {p292.visible && (
+          <g>
+            {
+              p292.position === 0 && <g transform={'translate(' + 220.5 + ' ' + 393.5 + ')'}>
+                <FlowMeter direction={'horizontal'} />
+                <ReadField left={-25} param={'p292'} top={26} />
+              </g>
+            }
+            {
+              p292.position === 1 && <g transform={'translate(' + 554.32 + ' ' + 17 + ')'}>
+                <ReadField left={-25} param={'p292'} top={26} />
+              </g>
+            }
+            {
+              p292.position === 2 && <g transform={'translate(' + 14 + ' ' + 388 + ')'}>
+                <FlowMeter direction={'vertical'} />
+                <ReadField left={28} param={'p292'} top="2" />
+              </g>
+            }
           </g>
         )}
       </g>
@@ -217,7 +261,7 @@ class Scheme10 extends Component {
       <g transform={'translate(' + 415 + ' ' + 270 + ')'}>
         <PoolPump />
         <PoolTank left={90} top={12} />
-        <Pump label={{ position: 'bottom', sign: 'C' }} active={p154_2} left={44} top={70} />
+        <Pump direction="left" label={{ position: 'bottom', sign: 'C' }} active={p154_2} left={44} top={70} />
       </g>
     )
   }
