@@ -187,7 +187,7 @@ let config = {
       },
 };
 
-const scheme = Ekontrol.scheme(config, '#container');
+const scheme = EkontrolSchemes.scheme(config, '#container');
 
 config = {
     type: 'solar',
