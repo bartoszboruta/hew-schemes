@@ -181,7 +181,7 @@ const config = {
   },
   p170: {
     name: 'Schemat',
-    value: 13,
+    value: 1,
   },
   p136: {
     name: 'T5',

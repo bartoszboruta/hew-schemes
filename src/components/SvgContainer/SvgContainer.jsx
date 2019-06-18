@@ -22,15 +22,9 @@ class SvgContainer extends Component {
     return 'scale(' + proportion + ')';
   }
 
-  getHeight() {
-    return this.props.dimensions.height > this.props.height
-      ? this.props.dimensions.height
-      : this.props.height
-  }
-
   render() {
     return (
-      <svg height={this.getHeight()} viewBox={'-5 -5 ' + 480 + ' ' + 480} width={'100%'}>
+      <svg viewBox={'-5 -5 ' + 480 + ' ' + 480} width={'100%'}>
         <g ref={this.groupRef}>
           {this.props.children}
         </g>
