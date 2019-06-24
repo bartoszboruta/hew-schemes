@@ -137,21 +137,21 @@ class Scheme16 extends Component {
           activeColor={'cold'}
           anime={false}
           d={'M 5 5 L 100 5'}
-          duration={7}
           direction="reversed"
+          duration={7}
           id={'right_boiler_output_cold'}
           left={450}
           top={399}
         />
-        <Overlay height={20} width={20} left={310} top={208} />
-        <Overlay height={70} width={20} left={282} top={325} />
+        <Overlay height={20} left={310} top={208} width={20} />
+        <Overlay height={70} left={282} top={325} width={20} />
 
         <Pipe //ask Daniel
           active={true}
           activeColor={'hot'}
           d={'M 5 191 L 34.2 191 S 40 191 40 185.2 L 40 10.8 S 40 5 45.8 5 L 120 5 '}
-          duration={12}
           direction="reversed"
+          duration={12}
           id={'right_boiler_to_left'}
           left={252}
           top={213}
@@ -242,7 +242,7 @@ class Scheme16 extends Component {
       <g>
         {p128.visible && <ReadField left={250} param={'p128'} />}
         {p130.visible && <ReadField left={96} param={'p130'} top={352.5} />}
-        {p130.visible && <ReadField left={475} param={'p134'} top={352.5} />}
+        {p134.visible && <ReadField left={475} param={'p134'} top={352.5} />}
         {p132.visible && <ReadField left={323} param={'p132'} />}
         {p136.visible && <ReadField param={'p136'} {...this.getT5Position(p136)} />}
         {p138.visible && <ReadField param={'p138'} {...this.getT6Position(p138)} />}
@@ -255,7 +255,7 @@ class Scheme16 extends Component {
 
     return (
       <g transform={'translate(' + 32 + ' ' + 300 + ')'}>
-        <Pump label={{ position: 'left', sign: 'P' }} active={p154_0} />
+        <Pump active={p154_0} label={{ position: 'left', sign: 'P' }} />
         <ReadField left={30} param={'p156'} top={3} />
       </g>
     )
@@ -266,11 +266,10 @@ class Scheme16 extends Component {
 
     return (
       <g transform={'translate(' + 581 + ' ' + 300 + ')'}>
-        <Pump label={{ position: 'left', sign: 'K' }} active={p154_2} />
+        <Pump active={p154_2} label={{ position: 'left', sign: 'K' }} />
       </g>
     )
   }
-
 
   renderFlowMeters() {
     const { data: { p152, p292 } } = this.props
@@ -285,26 +284,25 @@ class Scheme16 extends Component {
         )}
         {p292.visible && (
           <g>
-            {
-              p292.position === 0 && <g transform={'translate(' + 480 + ' ' + 393.5 + ')'}>
+            {p292.position === 0 && (
+              <g transform={'translate(' + 480 + ' ' + 393.5 + ')'}>
                 <FlowMeter direction={'horizontal'} />
                 <ReadField left={-25} param={'p292'} top={29} />
               </g>
-            }
-            {
-              p292.position === 1 && <g transform={'translate(' + 589.32 + ' ' + 17 + ')'}>
+            )}
+            {p292.position === 1 && (
+              <g transform={'translate(' + 589.32 + ' ' + 17 + ')'}>
                 <ReadField left={-25} param={'p292'} top={26} />
               </g>
-            }
-            {
-              p292.position === 2 && <g transform={'translate(' + 581.5 + ' ' + 270 + ')'}>
+            )}
+            {p292.position === 2 && (
+              <g transform={'translate(' + 581.5 + ' ' + 270 + ')'}>
                 <FlowMeter direction={'vertical'} />
-                <ReadField param={'p292'} left={-75} />
+                <ReadField left={-75} param={'p292'} />
               </g>
-            }
+            )}
           </g>
-        )
-        }
+        )}
       </g>
     )
   }
