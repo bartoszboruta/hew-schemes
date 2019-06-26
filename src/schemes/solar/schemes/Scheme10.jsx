@@ -47,7 +47,7 @@ class Scheme10 extends Component {
         />
         <Overlay height={34} left={163} top={377.5} width={20} />
         <Pipe
-          active={p154_0 && p156.value > 0 || p154_1}
+          active={(p154_0 && p156.value > 0) || p154_1}
           activeColor={'cold'}
           d={'M 15 5 L 9.751545139010435 8.673918402692696 S 5 12 5 17.8 L 5 40'}
           duration={2}
@@ -69,7 +69,7 @@ class Scheme10 extends Component {
           top={170}
         />
         <Pipe
-          active={p154_0 && p156.value > 0 || p154_1}
+          active={(p154_0 && p156.value > 0) || p154_1}
           activeColor={'hot'}
           begin={5}
           d={

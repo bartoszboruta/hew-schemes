@@ -160,7 +160,7 @@ class CWU extends Component {
           </g>
         )}
 
-        <Boiler left={255.7} top={30.5} />
+        <Boiler left={255.7} top={30.5} sign={''} />
         <CWULabel left={266.5} top={256} />
 
         {this.getType()}

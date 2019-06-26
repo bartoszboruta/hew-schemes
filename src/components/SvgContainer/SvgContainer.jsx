@@ -19,18 +19,13 @@ class SvgContainer extends Component {
     const groupBounding = this.groupRef.current.getBoundingClientRect();
     const svgBounding = this.svgRef.current.getBoundingClientRect();
 
-    const widthProportion = (svgBounding.width - 10) / groupBounding.width;
+    const svgWidth = svgBounding.width - 10;
+    const widthProportion = (svgWidth - (groupBounding.left - svgBounding.left) * 2) / groupBounding.width;
     const heightProportion = (svgBounding.height - 10) / groupBounding.height;
 
-    const proportion = groupBounding.width > groupBounding.height ? widthProportion : heightProportion;
-    const factor = (widthProportion > 1 ? -1 : 1);
-    let translation = (groupBounding.left - (groupBounding.width/2)) * factor;
-    if (svgBounding.width - groupBounding.width < 0) {
-      translation = (groupBounding.left - svgBounding.left) * -1;
-    }
-    translation *= 480 / svgBounding.width
+    const proportion = Math.min(widthProportion, heightProportion);
 
-    return 'scale(' + proportion + ') translate(' + translation + ')';
+    return 'scale(' + proportion + ')';
   }
 
   getStyle() {
