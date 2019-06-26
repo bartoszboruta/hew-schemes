@@ -24,8 +24,9 @@ class SvgContainer extends Component {
     const heightProportion = (svgBounding.height - 10) / groupBounding.height;
 
     const proportion = Math.min(widthProportion, heightProportion);
+    const translate = groupBounding.left < svgBounding.left ? svgBounding.left - groupBounding.left + 5 : 0
 
-    return 'scale(' + proportion + ')';
+    return 'scale(' + proportion + ') translate(' + translate + ')';
   }
 
   getStyle() {
