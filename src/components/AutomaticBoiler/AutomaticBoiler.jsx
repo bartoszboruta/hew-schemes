@@ -110,7 +110,13 @@ class AutomaticBoiler extends Component {
 					/>
 					<Connector left={-69} top={137} />
 
-					<Pump top={120} left={32} active={this.props.active} activeDuration={2} />
+					<Pump
+            active={this.props.active}
+            activeDuration={2}
+            label={this.props.pumpLabel}
+            left={32}
+            top={120}
+          />
 
 					<rect
 						style={{ clipRule: 'evenodd', fill: '#999999', fillRule: 'evenodd', strokeWidth: '0.26458341' }}
@@ -207,10 +213,12 @@ export { AutomaticBoiler }
 
 AutomaticBoiler.propTypes = {
 	left: PropTypes.number,
+	pumpLabel: PropTypes.object,
 	top: PropTypes.number,
 };
 
 AutomaticBoiler.defaultProps = {
 	left: 0,
+	pumpLabel: {},
 	top: 0,
 };
