@@ -141,7 +141,7 @@ class CO extends Component {
 
             <COOutput left={0} top={330} />
 
-            <Boiler left={255.7} top={311.7} />
+            <Boiler left={255.7} top={311.7} sign={''} />
             <COLabel left={251} top={537} />
             {this.getAdditionalHeaterSource()}
 

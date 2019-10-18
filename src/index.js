@@ -14,7 +14,7 @@ import registerServiceWorker from './registerServiceWorker'
 //   },
 //   CWU: {
 //     value: true, // 3 pierwsze bity z 208 + p208_4 === 1
-//     visible: true, //z konfiguracji
+//     visible: false, //z konfiguracji
 //     type: {
 //       name: 'condenser', //condenser / coil
 //       value: true, //z konfiguracji
@@ -31,7 +31,7 @@ import registerServiceWorker from './registerServiceWorker'
 //   },
 //   CO: {
 //     value: true, // 3 pierwsze bity z 208 + p208_4 === 0
-//     visible: true, //z konfiguracji
+//     visible: false, //z konfiguracji
 //     type: {
 //       name: 'boiler', //noBoiler / boiler
 //       value: false, //z konfiguracji
@@ -181,7 +181,7 @@ const config = {
   },
   p170: {
     name: 'Schemat',
-    value: 13,
+    value: 14,
   },
   p136: {
     name: 'T5',

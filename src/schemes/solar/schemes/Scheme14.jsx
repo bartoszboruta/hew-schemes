@@ -172,7 +172,7 @@ class Scheme14 extends Component {
           top={101}
         />
         <Furnace left={190} top={59} />
-        <Pump label={{ position: 'top', sign: 'K' }} active={p154_2} left={85} top={155} />
+        <Pump label={{ position: 'top', sign: 'C' }} active={p154_2} left={85} top={155} />
 
         <Connector left={45.5} top={82} />
         <Connector left={45.5} top={144} />
@@ -185,7 +185,7 @@ class Scheme14 extends Component {
 
     return (
       <g transform={'translate(' + 424.5 + ' ' + 118 + ')'}>
-        <AutomaticBoiler active={p154_1} />
+        <AutomaticBoiler active={p154_1} pumpLabel={{ position: 'right', sign: 'K' }} />
       </g>
     )
   }
