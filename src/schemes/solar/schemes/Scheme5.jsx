@@ -1,25 +1,25 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import {
-  Clock,
   SvgContainer,
   SolarPanel,
   Boiler,
   Coil,
+  Clock,
   Connector,
   Pipe,
   Pump,
-  Overlay,
   FlowMeter,
   ReadField,
   Shower,
   TriConnector,
+  PumpSolar,
 } from '../../../components'
 import PropTypes from 'prop-types'
 
-class Scheme7 extends Component {
+class Scheme5 extends Component {
   renderPipes() {
-    const { data: { p154_0, p154_1, p156 } } = this.props
+    const { data: { p154_0, p156 } } = this.props
 
     return (
       <g>
@@ -40,7 +40,7 @@ class Scheme7 extends Component {
           activeColor={'hot'}
           begin={5}
           d={
-            'M 210 23 L 230.29310081958133 8.38896740990144 S 235 5 240.3974958658397 7.122978657039074 L 239.4925041341603 6.767021342960927 S 244.89 8.89 245.46712157032178 14.661215703217938 L 245.3128784296782 13.118784296782064 S 245.89 18.89 241.205355212781 22.30966419661081 L 239.464644787219 23.58033580338919 S 234.78 27 230.11987807370778 30.453007910806225 L 174.66012192629222 71.54699208919378 S 170 75 170 80.8 L 170 340.2 S 170 346 175.8 346 L 272 346'
+            'M 210 23 L 230.29310081958133 8.38896740990144 S 235 5 240.3974958658397 7.122978657039074 L 239.4925041341603 6.767021342960927 S 244.89 8.89 245.46712157032178 14.661215703217938 L 245.3128784296782 13.118784296782064 S 245.89 18.89 241.205355212781 22.30966419661081 L 239.464644787219 23.58033580338919 S 234.78 27 230.11987807370778 30.453007910806225 L 174.66012192629222 71.54699208919378 S 170 75 170 80.8 L 170 340.2 S 170 346 175.8 346 L 272 346 '
           }
           duration={11}
           id={'panel_left_hot'}
@@ -64,29 +64,22 @@ class Scheme7 extends Component {
             'M 26 78 L 10.8 78 S 5 78 5 72.2 L 5 10.8 S 5 5 10.8 5 L 144.2 5 S 150 5 150 10.8 L 150 30'
           }
           duration={7}
-          id={'right_boiler_output_hot'}
-          left={475}
+          id={'left_boiler_output_hot'}
+          left={245}
           top={139.5}
         />
-        <Pipe
-          active={p154_1}
-          activeColor={'hot'}
-          d={'M 280 5 L 10.8 5 S 5 5 5 10.8 L 5 164.2 S 5 170 10.8 170 L 64 170'}
-          duration={11}
-          id={'left_boiler_output_hot_left'}
-          left={206}
-          top={139.7}
-        />
-        <Overlay height={34} left={431} top={132} width={20} />
-        <Pipe
-          active={true}
-          activeColor={'hot'}
-          d={'M 0 5 L 24.2 5 S 30 5 30 10.8 L 30 185.2 S 30 191 35.8 191 L 135 191'}
-          duration={11}
-          id={'left_boiler_to_right_boiler'}
-          left={365}
-          top={212.5}
-        />
+      </g>
+    )
+  }
+
+  static renderConnectors() {
+    return (
+      <g>
+        <Connector left={270} top={193.5} />
+        <Connector left={270} top={317} />
+        <Connector left={270} top={359} />
+        <Connector left={270} top={379.5} />
+        <TriConnector left={355.25} top={134} />
       </g>
     )
   }
@@ -100,30 +93,13 @@ class Scheme7 extends Component {
           active={p154_2}
           activeColor={'hot'}
           begin={3}
-          d={'M 160 20 L 160 10.8 S 160 5 154.2 5 L 10.8 5 S 5 5 5 10.8 L 5 184.2 S 5 190 10.8 190 L 64 190'}
+          d={'M 160 20 L 160 10.8 S 160 5 154.2 5 L 10.8 5 S 5 5 5 10.8 L 5 184.2 S 5 190 10.8 190 L 64 190 '}
           duration={7}
-          id={'right_boiler_circulation_1'}
-          left={436}
+          id={'left_boiler_circulation_1'}
+          left={206}
           top={119.7}
         />
-        <Pump direction="left" label={{ position: 'left', sign: 'C' }} active={p154_2} left={429} top={216} />
-      </g>
-    )
-  }
-
-  static renderConnectors() {
-    return (
-      <g>
-        <Connector left={500} top={193.5} />
-        <Connector left={355.5} top={193.5} />
-        <Connector left={500} top={285.5} />
-        <Connector left={270} top={285.5} />
-        <Connector left={270} top={317} />
-        <Connector left={270} top={359} />
-        <Connector left={270} top={379.5} />
-        <Connector left={500} top={379.5} />
-        <TriConnector left={585.25} top={134} />
-        <TriConnector direction="reversedVertical" left={470} top={142.25} />
+        <Pump direction="left" label={{ position: 'left', sign: 'C' }} active={p154_2} left={199} top={216} />
       </g>
     )
   }
@@ -133,21 +109,9 @@ class Scheme7 extends Component {
 
     return (
       <g>
-        <Boiler left={270} top={200} />
+        <Boiler left={270} sign="K" top={200} />
         <Coil active={p154_0 && p156.value > 0} direction={'right'} left={270} top={340} />
-        {Scheme7.renderConnectors()}
-      </g>
-    )
-  }
-
-  renderBoilerRight() {
-    const { data: { p154_0, p156 } } = this.props
-
-    return (
-      <g>
-        <Boiler sign="A" left={500} top={200} />
-        <Coil active={p154_0 && p156.value > 0} direction={'right'} left={270} top={340} />
-        {Scheme7.renderConnectors()}
+        {Scheme5.renderConnectors()}
       </g>
     )
   }
@@ -157,7 +121,7 @@ class Scheme7 extends Component {
       case 0:
         return { left: 85, top: 410 }
       case 1:
-        return { left: 563.32, top: 67 }
+        return { left: 372, top: 67 }
       default:
         return {}
     }
@@ -166,9 +130,9 @@ class Scheme7 extends Component {
   getT6Position = ({ position }) => {
     switch (position) {
       case 0:
-        return { left: 515, top: 150 }
+        return { left: 285.5, top: 150 }
       case 1:
-        return { left: 563.32, top: 91 }
+        return { left: 372, top: 91 }
       default:
         return {}
     }
@@ -182,7 +146,7 @@ class Scheme7 extends Component {
         {p128.visible && <ReadField left={256} param={'p128'} />}
         {p130.visible && <ReadField left={196} param={'p130'} top={352.5} />}
         {p132.visible && <ReadField left={62} param={'p132'} top={236.5} />}
-        {p134.visible && <ReadField left={425.5} param={'p134'} top={352.5} />}
+        {p134.visible && <ReadField left={372} param={'p134'} top={249} />}
         {p136.visible && <ReadField param={'p136'} {...this.getT5Position(p136)} />}
         {p138.visible && <ReadField param={'p138'} {...this.getT6Position(p138)} />}
       </g>
@@ -200,22 +164,12 @@ class Scheme7 extends Component {
     )
   }
 
-  renderPumpK() {
-    const { data: { p154_1 } } = this.props
-
-    return (
-      <g transform={'translate(' + 198 + ' ' + 216 + ')'}>
-        <Pump direction="left" label={{ position: 'left', sign: 'K' }} active={p154_1} />
-      </g>
-    )
-  }
-
   getFlowMeterPosition = ({ position }) => {
     switch (position) {
       case 0:
         return 'translate(' + 190 + ' ' + 393.5 + ')'
       case 1:
-        return 'translate(' + 588.32 + ' ' + 17 + ')'
+        return 'translate(' + 397 + ' ' + 17 + ')'
       default:
         return ''
     }
@@ -242,18 +196,23 @@ class Scheme7 extends Component {
     )
   }
 
+  renderPumpSolar() {
+    const { data: { p154_1 } } = this.props
+
+    return (<PumpSolar active={p154_1} left={270} top={159} />)
+  }
+
   render() {
     return (
-      <SvgContainer height={558.1} width={650}>
+      <SvgContainer height={458.1} width={438.3}>
         {this.renderPipes()}
-        {this.renderCirculation()}
-        <Shower left={614.25} top={165} />
+        <Shower left={384.25} top={165} />
         <SolarPanel left={50} />
-        <Clock left={609} />
+        <Clock left={416} />
+        {this.renderCirculation()}
         {this.renderBoiler()}
-        {this.renderBoilerRight()}
+        {this.renderPumpSolar()}
         {this.renderPumpP()}
-        {this.renderPumpK()}
         {this.renderReadFields()}
         {this.renderFlowMeters()}
       </SvgContainer>
@@ -267,16 +226,16 @@ const mapStateToProps = ({ data }) => {
   }
 }
 
-const ConnectedScheme7 = connect(mapStateToProps)(Scheme7)
-export { ConnectedScheme7 as Scheme7 }
+const ConnectedScheme5 = connect(mapStateToProps)(Scheme5)
+export { ConnectedScheme5 as Scheme5 }
 
-Scheme7.propTypes = {
+Scheme5.propTypes = {
   data: PropTypes.object,
   height: PropTypes.number,
   width: PropTypes.number,
 }
 
-Scheme7.defaultProps = {
+Scheme5.defaultProps = {
   data: {},
   height: 0,
   width: 0,

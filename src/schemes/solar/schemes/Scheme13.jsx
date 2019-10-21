@@ -13,15 +13,20 @@ import {
   FlowMeter,
   ReadField,
   TriValve,
+  TriConnector,
+  Overlay,
 } from '../../../components'
 import PropTypes from 'prop-types'
 
 class Scheme13 extends Component {
+
   renderPipes() {
+    const { data: { p154_0, p156 } } = this.props
+
     return (
       <g>
         <Pipe
-          active={this.props.data.p154.value}
+          active={p154_0 && p156.value > 0}
           activeColor={'cold'}
           d={
             'M 15 5 L 9.751545139010435 8.673918402692696 S 5 12 5 17.8 L 5 247.2 S 5 253 10.8 253 L 235 253'
@@ -33,7 +38,7 @@ class Scheme13 extends Component {
           top={130}
         />
         <Pipe
-          active={this.props.data.p154.value}
+          active={p154_0 && p156.value > 0}
           activeColor={'hot'}
           begin={5}
           d={
@@ -47,6 +52,7 @@ class Scheme13 extends Component {
         <Pipe
           active={true}
           activeColor={'cold'}
+          anime={false}
           d={'M 5 5 L 150 5'}
           duration={7}
           id={'left_boiler_output_cold'}
@@ -68,74 +74,109 @@ class Scheme13 extends Component {
   }
 
   renderBoiler() {
+    const { data: { p154_0, p156 } } = this.props
+
     return (
       <g>
         <Boiler left={270} top={200} />
-        <Coil active={this.props.data.p154.value} direction={'right'} left={270} top={340} />
+        <Coil active={p154_0 && p156.value > 0} direction={'right'} left={270} top={340} />
         {Scheme13.renderConnectors()}
       </g>
     )
   }
 
+  getT5Position = ({ position }) => {
+    switch (position) {
+      case 0:
+        return { left: 85, top: 410 }
+      case 1:
+        return { left: 509, top: 67 }
+      case 2:
+        return { left: 370, top: 373 }
+      default:
+        return {}
+    }
+  }
+
+  getT6Position = ({ position }) => {
+    switch (position) {
+      case 0:
+        return { left: 370, top: 214 }
+      case 1:
+        return { left: 509, top: 91 }
+      default:
+        return {}
+    }
+  }
+
   renderReadFields() {
+    const { data: { p128, p130, p132, p134, p136, p138 } } = this.props
+
     return (
       <g>
-        {this.props.data.p128.visible && <ReadField left={256} param={'p128'} />}
-        {this.props.data.p130.visible && <ReadField left={196} param={'p130'} top={352.5} />}
-        {this.props.data.p132.visible && <ReadField left={62} param={'p132'} top={236.5} />}
+        {p128.visible && <ReadField left={256} param={'p128'} />}
+        {p130.visible && <ReadField left={196} param={'p130'} top={352.5} />}
+        {p132.visible && <ReadField left={62} param={'p132'} top={236.5} />}
+        {p134.visible && <ReadField left={464} param={'p134'} top={181} />}
+        {p136.visible && <ReadField param={'p136'} {...this.getT5Position(p136)} />}
+        {p138.visible && <ReadField param={'p138'} {...this.getT6Position(p138)} />}
       </g>
     )
   }
 
   renderPumpP() {
+    const { data: { p154_0, p156 } } = this.props
+
     return (
       <g transform={'translate(' + 32 + ' ' + 300 + ')'}>
-        <Pump active={this.props.data.p156.value} />
+        <Pump label={{ position: 'left', sign: 'P' }} active={p154_0 && p156.value > 0} />
         <ReadField left={30} param={'p156'} top={3} />
       </g>
     )
   }
 
   renderFurnace() {
+    const { data: { p154_1 } } = this.props
+
     const active = true
     return (
-      <g transform={'translate(' + 290 + ' ' + 236 + ')'}>
+      <g transform={'translate(' + 310 + ' ' + 236 + ')'}>
         <Pipe
           active={active}
           activeColor={'hot'}
           begin={3}
           d={'M 5 5 L 5 120'}
           direction={'reversed'}
+          id={'furnace_hot_1'}
           duration={7}
           left={250}
           top={-60}
         />
         <Pipe
-          active={active}
+          active={p154_1}
           activeColor={'cold'}
-          begin={0}
-          d={'M 5 5 L 60 5 '}
-          duration={7}
+          d={'M 5 5 L 80 5 '}
+          direction="reversed"
+          duration={4}
           id={'furnace_cold_1'}
-          left={68}
+          left={48}
           top={163}
         />
         <Pipe
-          active={active} // p154_1 > 0 = szary ; p154_1=0 = niebieski;
+          active={!p154_1} // p154_1 > 0 = szary ; p154_1=0 = niebieski;
           activeColor={'cold'}
-          begin={0}
           d={'M 5 5 L 30 5 '}
-          duration={7}
+          duration={2}
           id={'furnace_cold_2'}
           left={135}
           top={163}
         />
         <Pipe
-          active={active} // p154_1 == 0 && niebieski kiedy p154_1=0; p154_1 > 0 to czerwony
-          activeColor={'cold'} //czerwony albo niebieski
-          begin={0}
+          active={true} // p154_1 == 0 && niebieski kiedy p154_1=0; p154_1 > 0 to czerwony
+          activeColor={p154_1 ? 'hot' : 'cold'} //czerwony albo niebieski
+          begin={3}
           d={'M 5 5 L 30 5 '}
-          duration={7}
+          duration={2}
           id={'furnace_cold_2_1'}
           left={165}
           top={163}
@@ -143,48 +184,64 @@ class Scheme13 extends Component {
         <Pipe
           active={active}
           activeColor={'cold'}
-          begin={0}
+          begin={1}
           d={'M 5 220 L 5 35.8 S 5 30 10.8 30 L 94.2 30 S 100 30 100 24.2 L 100 5'}
-          duration={7}
+          direction="reversed"
+          duration={8}
           id={'furnace_cold_3'}
           left={128}
           top={-60}
         />
-
+        <Overlay width={20} height={20} left={125} top={-7} />
         <Pipe
-          active={active}
+          active={p154_1}
           activeColor={'hot'}
-          begin={0}
-          d={'M 5 5 L 94.2 5 S 100 5 100 10.8 L 100 170'}
+          d={'M 5 5 L 112.2 5 S 120 5 120 13.8 L 120 170'}
           duration={7}
-          id={'furnace_hot'}
-          left={68}
+          id={'furnace_hot_0'}
+          left={48}
           top={-2.5}
         />
 
+        <TriConnector left={158} top={158} />
         <TriValve direction="bottom" left={120} top={161} />
-
         <Furnace left={190} top={59} />
-
-        <Connector left={65.5} top={144} />
-        <Connector left={65.5} top={-22.5} />
+        <Connector left={45.5} top={144} />
+        <Connector left={45.5} top={-22.5} />
       </g>
     )
   }
 
   renderFlowMeters() {
+    const { data: { p152, p292 } } = this.props
+
     return (
       <g>
-        {this.props.data.p152.visible && (
+        {p152.visible && (
           <g transform={'translate(' + 34 + ' ' + 270 + ')'}>
             <FlowMeter />
             <ReadField left={28} param={'p152'} />
           </g>
         )}
-        {this.props.data.p292.visible && (
-          <g transform={'translate(' + 190 + ' ' + 393.5 + ')'}>
-            <FlowMeter direction={'horizontal'} />
-            <ReadField left={-25} param={'p292'} top={26} />
+        {p292.visible && (
+          <g>
+            {
+              p292.position === 0 && <g transform={'translate(' + 220.5 + ' ' + 393.5 + ')'}>
+                <FlowMeter direction={'horizontal'} />
+                <ReadField left={-25} param={'p292'} top={26} />
+              </g>
+            }
+            {
+              p292.position === 1 && <g transform={'translate(' + 534.32 + ' ' + 17 + ')'}>
+                <ReadField left={-25} param={'p292'} top={26} />
+              </g>
+            }
+            {
+              p292.position === 2 && <g transform={'translate(' + 370 + ' ' + 394 + ')'}>
+                <FlowMeter direction={'horizontal'} />
+                <ReadField left={-25} param={'p292'} top={29} />
+              </g>
+            }
           </g>
         )}
       </g>
@@ -196,7 +253,7 @@ class Scheme13 extends Component {
       <SvgContainer height={558.1} width={650}>
         {this.renderPipes()}
         <SolarPanel left={50} />
-        <Clock left={559} />
+        <Clock left={555} />
         {this.renderBoiler()}
         {this.renderFurnace()}
         {this.renderPumpP()}

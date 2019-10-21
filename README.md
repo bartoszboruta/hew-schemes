@@ -187,7 +187,7 @@ let config = {
       },
 };
 
-const scheme = Ekontrol.scheme(config, '#container');
+const scheme = EkontrolSchemes.scheme(config, '#container');
 
 config = {
     type: 'solar',
@@ -401,4 +401,7 @@ config = {
 };
 
 ```
+
+Hint: It is a good idea to add in to css #containerID > svg { max-height: {staticValue}px}
+
 Good luck!

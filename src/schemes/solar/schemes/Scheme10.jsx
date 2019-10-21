@@ -21,10 +21,12 @@ import PropTypes from 'prop-types'
 
 class Scheme10 extends Component {
   renderPipes() {
+    const { data: { p154_0, p154_1, p154_2, p156 } } = this.props
+
     return (
       <g>
         <Pipe
-          active={true}
+          active={p154_0 && p156.value > 0}
           activeColor={'cold'}
           d={'M 5 5 L 19.2 5 S 25 5 25 10.8 L 25 207.2 S 25 213 30.8 213 L 230 213'}
           direction={'reversed'}
@@ -36,6 +38,7 @@ class Scheme10 extends Component {
         <Pipe
           active={true}
           activeColor={'cold'}
+          anime={false}
           d={'M 5 5 L 150 5'}
           duration={4}
           id={'left_boiler_output_cold'}
@@ -44,34 +47,48 @@ class Scheme10 extends Component {
         />
         <Overlay height={34} left={163} top={377.5} width={20} />
         <Pipe
-          active={this.props.data.p154.value}
+          active={(p154_0 && p156.value > 0) || p154_1}
           activeColor={'cold'}
           d={'M 15 5 L 9.751545139010435 8.673918402692696 S 5 12 5 17.8 L 5 40'}
-          duration={10}
-          id={'panel_left_cold'}
+          duration={2}
+          direction="reversed"
+          id={'panel_left_cold_top'}
           left={40}
           top={130}
         />
         <Pipe
-          active={this.props.data.p154.value}
+          active={p154_1}
           activeColor={'cold'}
           d={
             'M 25 5 L 10.8 5 S 5 5 5 10.8 L 5 290.2 S 5 296 10.8 296 L 399.2 296 S 405 296 405 290.2 L 405 204'
           }
-          duration={10}
-          id={'panel_left_cold_1'}
+          duration={15}
+          direction='reversed'
+          id='panel_left_cold__bot'
           left={20}
           top={170}
         />
         <Pipe
-          active={this.props.data.p154.value}
+          active={(p154_0 && p156.value > 0) || p154_1}
           activeColor={'hot'}
           begin={5}
           d={
-            'M 210 23 L 230.29310081958133 8.38896740990144 S 235 5 240.3974958658397 7.122978657039074 L 239.4925041341603 6.767021342960927 S 244.89 8.89 245.46712157032178 14.661215703217938 L 245.3128784296782 13.118784296782064 S 245.89 18.89 241.205355212781 22.30966419661081 L 239.464644787219 23.58033580338919 S 234.78 27 230.11987807370778 30.453007910806225 L 174.66012192629222 71.54699208919378 S 170 75 170 80.8 L 170 440.2 S 170 446 175.8 446 L 382.2 446 S 388 446 388 440.2 L 388 255.8 S 388 250 393.8 250 L 416.7 250 S 422.5 250 422.5 255.8 L 422.5 280'
+            'M 210,23 230.2931,8.3889674 c 0,0 4.7069,-3.3889674 10.1044,-1.2659887 l -0.905,-0.3559574 c 0,0 5.3975,2.1229787 5.97462,7.8941947 l -0.15424,-1.542432 c 0,0 0.57712,5.771216 -4.10752,9.19088 l -1.74072,1.270672 c 0,0 -4.68464,3.419664 -9.34476,6.872672 L 174.66012,71.546992 C 174.66012,71.546992 170,75 170,80.8 v 260.72144'
           }
           duration={11}
-          id={'panel_left_hot'}
+          id={'panel_left_hot_top'}
+          left={3}
+          top={-5}
+        />
+        <Pipe
+          active={p154_1}
+          activeColor={'hot'}
+          begin={5}
+          d={
+            'M 170,341.52144 V 440.2 c 0,0 0,5.8 5.8,5.8 h 206.4 c 0,0 5.8,0 5.8,-5.8 V 255.8 c 0,0 0,-5.8 5.8,-5.8 h 22.9 c 0,0 5.8,0 5.8,5.8 V 280'
+          }
+          duration={11}
+          id={'panel_left_hot_bot'}
           left={3}
           top={-5}
         />
@@ -87,7 +104,7 @@ class Scheme10 extends Component {
           top={139.5}
         />
         <Pipe
-          active={true}
+          active={p154_0 && p156.value > 0}
           activeColor={'hot'}
           d={'M 5 5 L 100 5'}
           duration={4}
@@ -96,7 +113,7 @@ class Scheme10 extends Component {
           top={336}
         />
         <Pipe
-          active={true}
+          active={p154_2}
           activeColor={'cold'}
           d={'M 5 5 L 75 5'}
           direction={'reversed'}
@@ -106,7 +123,7 @@ class Scheme10 extends Component {
           top={346}
         />
         <Pipe
-          active={true}
+          active={p154_2}
           activeColor={'hot'}
           d={'M 5 5 L 75 5'}
           duration={4}
@@ -125,64 +142,112 @@ class Scheme10 extends Component {
         <Connector left={270} top={317} />
         <Connector left={270} top={359} />
         <Connector left={270} top={379.5} />
-        <TriConnector direction={'rotatedRight'} left={167} top={335} />
-        <TriConnector left={37} top={167.5} />
+        <TriConnector direction={'rotatedRight'} left={169} top={332.8} />
+        <TriConnector left={35} top={165} />
       </g>
     )
   }
 
   renderBoiler() {
+    const { data: { p154_0, p156 } } = this.props
+
     return (
       <g>
         <Boiler left={270} top={200} />
-        <Coil active={this.props.data.p154.value} direction={'right'} left={270} top={340} />
+        <Coil active={p154_0 && p156.value > 0} direction={'right'} left={270} top={340} />
         {Scheme10.renderConnectors()}
       </g>
     )
   }
 
+  getT5Position = ({ position }) => {
+    switch (position) {
+      case 0:
+        return { left: 85, top: 410 }
+      case 1:
+        return { left: 529.32, top: 67 }
+      default:
+        return {}
+    }
+  }
+
+  getT6Position = ({ position }) => {
+    switch (position) {
+      case 0:
+        return { left: 285.5, top: 150 }
+      case 1:
+        return { left: 529.32, top: 91 }
+      default:
+        return {}
+    }
+  }
+
   renderReadFields() {
+    const { data: { p128, p130, p132, p134, p136, p138 } } = this.props
+
     return (
       <g>
-        {this.props.data.p128.visible && <ReadField left={256} param={'p128'} />}
-        {this.props.data.p130.visible && <ReadField left={196} param={'p130'} top={352.5} />}
-        {this.props.data.p132.visible && <ReadField left={82} param={'p132'} top={236.5} />}
-        {this.props.data.p134.visible && <ReadField left={505} param={'p134'} top={255} />}
+        {p128.visible && <ReadField left={256} param={'p128'} />}
+        {p130.visible && <ReadField left={196} param={'p130'} top={352.5} />}
+        {p132.visible && <ReadField left={82} param={'p132'} top={236.5} />}
+        {p134.visible && <ReadField left={505} param={'p134'} top={255} />}
+        {p136.visible && <ReadField param={'p136'} {...this.getT5Position(p136)} />}
+        {p138.visible && <ReadField param={'p138'} {...this.getT6Position(p138)} />}
       </g>
     )
   }
 
   renderPumpP() {
+    const { data: { p154_0, p156 } } = this.props
+
     return (
       <g transform={'translate(' + 52 + ' ' + 300 + ')'}>
-        <Pump active={this.props.data.p156.value} />
+        <Pump label={{ position: 'left', sign: 'P' }} active={p154_0 && p156.value > 0} />
         <ReadField left={30} param={'p156'} top={3} />
       </g>
     )
   }
 
   renderPumpK() {
+    const { data: { p154_1 } } = this.props
+
     return (
-      <g transform={'translate(' + 13 + ' ' + 416.5 + ')'}>
-        <Pump active={this.props.data.p156.value} />
-        <ReadField left={30} param={'p156'} top={3} />
+      <g transform={'translate(' + 13 + ' ' + 417.5 + ')'}>
+        <Pump label={{ position: 'left', sign: 'K' }} active={p154_1} />
       </g>
     )
   }
 
   renderFlowMeters() {
+    const { data: { p152, p292 } } = this.props
+
     return (
       <g>
-        {this.props.data.p152.visible && (
+        {p152.visible && (
           <g transform={'translate(' + 54 + ' ' + 270 + ')'}>
             <FlowMeter />
             <ReadField left={28} param={'p152'} />
           </g>
         )}
-        {this.props.data.p292.visible && (
-          <g transform={'translate(' + 220.5 + ' ' + 393.5 + ')'}>
-            <FlowMeter direction={'horizontal'} />
-            <ReadField left={-25} param={'p292'} top={26} />
+        {p292.visible && (
+          <g>
+            {
+              p292.position === 0 && <g transform={'translate(' + 220.5 + ' ' + 393.5 + ')'}>
+                <FlowMeter direction={'horizontal'} />
+                <ReadField left={-25} param={'p292'} top={26} />
+              </g>
+            }
+            {
+              p292.position === 1 && <g transform={'translate(' + 554.32 + ' ' + 17 + ')'}>
+                <ReadField left={-25} param={'p292'} top={26} />
+              </g>
+            }
+            {
+              p292.position === 2 && <g transform={'translate(' + 14 + ' ' + 388 + ')'}>
+                <FlowMeter direction={'vertical'} />
+                <ReadField left={28} param={'p292'} top="2" />
+              </g>
+            }
           </g>
         )}
       </g>
@@ -190,12 +255,13 @@ class Scheme10 extends Component {
   }
 
   renderPool() {
-    const active = true
+    const { data: { p154_2 } } = this.props
+
     return (
       <g transform={'translate(' + 415 + ' ' + 270 + ')'}>
         <PoolPump />
         <PoolTank left={90} top={12} />
-        <Pump active={active} left={44} top={70} />
+        <Pump direction="left" label={{ position: 'bottom', sign: 'C' }} active={p154_2} left={44} top={70} />
       </g>
     )
   }

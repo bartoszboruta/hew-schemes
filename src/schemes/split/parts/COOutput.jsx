@@ -3,6 +3,8 @@ import { connect } from 'react-redux'
 import { OutputPipe, Circuit, Pipe, ReadField, VerticalReadField } from '../../../components'
 import PropTypes from 'prop-types'
 
+import FanCoilUnitLabel from '../labels/FanCoilUnitLabel'
+
 class COOutput extends Component {
   render() {
     return (
@@ -32,6 +34,7 @@ class COOutput extends Component {
 
         {this.props.data.Output.circuit3.visible && (
           <g>
+            <FanCoilUnitLabel left={1} top={-100} />
             <Circuit
               active={this.props.data.Output.circuit3.value}
               begin={2}

@@ -6,21 +6,6 @@ import { updateData, updateDimensions } from './actions'
 import { Split, Solar, COP, PV } from './schemes'
 
 class App extends Component {
-  componentDidMount() {
-    window.addEventListener('resize', this.updateDimensions.bind(this))
-    this.updateDimensions()
-  }
-
-  updateDimensions() {
-    this.props.parent.style.height = Math.max(700, this.props.parent.clientHeight) + 'px'
-    let dimensions = {
-      height: this.props.parent.clientHeight,
-      width: this.props.parent.clientWidth,
-    }
-
-    this.props.updateDimensions(dimensions)
-  }
-
   schemes = {
     split: Split,
     solar: Solar,
