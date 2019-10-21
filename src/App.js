@@ -3,13 +3,14 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { updateData, updateDimensions } from './actions'
-import { Split, Solar, COP } from './schemes'
+import { Split, Solar, COP, PV } from './schemes'
 
 class App extends Component {
   schemes = {
     split: Split,
     solar: Solar,
     cop: COP,
+    pv: PV,
   }
 
   render() {

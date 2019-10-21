@@ -61,7 +61,7 @@ class Scheme17 extends Component {
           active={true}
           activeColor={'hot'}
           d={
-            'M 26 78 L 10.8 78 S 5 78 5 72.2 L 5 10.8 S 5 5 10.8 5 L 144.2 5 S 150 5 150 10.8 L 150 30'
+            'M 26 78 L 10.8 78 S 5 78 5 72.2 L 5 32 S 5 27 10 25 L 118 25 S 120 25 120 20 L 120 10 S 120 7 123 5 L 150 5 S 150 5 150 10.8 L 150 30'
           }
           duration={7}
           id={'left_boiler_output_hot'}
