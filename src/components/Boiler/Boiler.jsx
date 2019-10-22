@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import Label from '../Label'
+import { Support } from '../../components'
 
 class Boiler extends Component {
   static getGradients() {
@@ -133,7 +134,10 @@ class Boiler extends Component {
           style={{ clipRule: 'evenodd', fill: '#2b2929', fillRule: 'evenodd', strokeWidth: '0.26458323' }}
           d='m 0.0016,217.10364 h 95.88166 v 2.8036 c 0,0.4507 -0.36457,0.81127 -0.81527,0.81127 H 0.81328 c -0.4447,0 -0.81128,-0.36057 -0.81128,-0.81127 z' />
       </g>
-      <Label sign={this.props.sign} top="235" left="43" />
+      <Label left="43" sign={this.props.sign} top="235" />
+      {
+        this.props.withSupport && <Support top="220" width="96" />
+      }
     </g>
   }
 }
@@ -144,10 +148,12 @@ Boiler.propTypes = {
   left: PropTypes.number,
   sign: PropTypes.string,
   top: PropTypes.number,
+  withSupport: PropTypes.bool,
 };
 
 Boiler.defaultProps = {
   left: 0,
   sign: 'B',
   top: 0,
+  withSupport: false,
 };
