@@ -15,6 +15,7 @@ import {
   ReadField,
   Roof,
   SvgContainer,
+  Text,
   Wall,
 } from '../../components'
 import PropTypes from 'prop-types'
@@ -62,7 +63,9 @@ class COP extends Component {
           top={250}
         />
         <NetworkOutlet left={650} scale={60} top={200} />
-        <Inverter heightScale={45} left={180} top={200} />
+        <Inverter heightScale={45} label={'Moduł'} left={180} top={200} />
+        <Text left={204} text={'Moduł'} top={164} />
+        <Text left={180} text={'zabezpieczający'} top={180} />
         <Pipe
           d={'M 0 0 L 0 44'}
           direction={'reversed'}
@@ -73,6 +76,8 @@ class COP extends Component {
         />
         <Dot left={576} top={204} />
         <Boiler left={530} sign="" top={250} withSupport={true} />
+        <Text left={546} text={'Pompa ciepła'} top={264} />
+        <Text left={560} text={'MONO'} top={278} />
         <Pipe
           active={p264_1}
           activeColor={'hot'}
