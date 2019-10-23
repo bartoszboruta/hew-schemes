@@ -9,6 +9,8 @@ class Pipe extends Component {
         return '#fd5757'
       case 'cold':
         return '#4444ea'
+      case 'power':
+        return '#c87f7f'
       default:
         return '#666666'
     }

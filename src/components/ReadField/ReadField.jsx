@@ -9,25 +9,28 @@ class ReadField extends Component {
     }
 
     render() {
+        const unit = this.props.unitAsName ? this.getValue('unit') : this.getValue('name')
         return <g className='ReadField' transform={'translate(' + this.props.left + ' ' + this.props.top + ')'}>
             <rect
-                x='49.261093'
-                y='0.43046296'
-                width='17.602509'
-                height='17.600546'
+                x='49'
+                y='0'
+                width={`${18.3 + unit.length * 2}`}
+                height='18.3'
                 style={{
                     fill: '#dcdcdc',
                     fillRule:'evenodd'
                 }} />
-            <path
+            <rect
+                x='50'
+                y='1'
+                width={`${16.3 + unit.length * 2}`}
+                height='16.3'
                 style={{
-                    fill:'#cccccc',
+                    fill: '#cccccc',
                     fillRule:'nonzero'
-                }}
-                d='M 66.43492,0.85957908 H 49.69012 V 17.601919 h 16.7448 z m -17.17384,-0.85808 H 66.86396 67.293 v 0.42904 17.60041992 0.42904 H 66.86396 49.26108 48.83205 v -0.42904 -17.60041992 -0.42904 z'
-            />
+                }} />
             <text
-                x='58'
+                x={`${58 + unit.length}`}
                 y='12.865'
                 style={{
                     fontSize:9.8102932,
@@ -37,7 +40,7 @@ class ReadField extends Component {
                     fontFamily:'Arial',
                     textAnchor:'middle',
                 }}>
-                { this.getValue('name') }
+                { unit }
             </text>
             <rect
                 style={{
@@ -66,7 +69,7 @@ class ReadField extends Component {
                     fillRule:'evenodd',
                     fontFamily:'Arial'
                 }}>
-                { this.getValue('value') + ' ' + this.getValue('unit') }
+                { this.getValue('value') + (this.props.unitAsName ? '' : (' ' + this.getValue('unit'))) }
             </text>
         </g>
     }
@@ -87,6 +90,7 @@ ReadField.propTypes = {
     left: PropTypes.number,
     param: PropTypes.string,
     top: PropTypes.number,
+    unitAsName: PropTypes.bool,
 };
 
 ReadField.defaultProps = {
@@ -94,4 +98,5 @@ ReadField.defaultProps = {
     left: 0,
     param: '',
     top: 0,
+    unitAsName: false,
 };

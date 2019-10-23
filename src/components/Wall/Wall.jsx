@@ -30,20 +30,22 @@ class Wall extends Component {
                 {
                     Wall.getGradients()
                 }
-                <rect
-                    style={{fill: '#dcdcdc', fillRule: 'evenodd', strokeWidth: '0.26736256'}}
-                    height='15.539989'
-                    width='238.696'
-                    y='348.34579'
-                    x='0'
-                    id='_650851920' />
-                <rect
-                    style={{fill: 'url(#id7)', fillRule: 'evenodd', strokeWidth: '0.26736256'}}
-                    height='2.4381266'
-                    width='238.696'
-                    y='348.34579'
-                    x='0'
-                    id='_650842392' />
+                <g className="Floor" transform={`translate(${this.props.floorLeft} 0) scale(${this.props.floorLengthScale / 100}  1)`}>
+                    <rect
+                        style={{fill: '#dcdcdc', fillRule: 'evenodd', strokeWidth: '0.26736256'}}
+                        height='15.539989'
+                        width='238.696'
+                        y='348.34579'
+                        x='0'
+                        id='_650851920' />
+                    <rect
+                        style={{fill: 'url(#id7)', fillRule: 'evenodd', strokeWidth: '0.26736256'}}
+                        height='2.4381266'
+                        width='238.696'
+                        y='348.34579'
+                        x='0'
+                        id='_650842392' />
+                </g>
                 <rect
                     x='118.39182'
                     y='0.11929577'
@@ -1673,11 +1675,15 @@ class Wall extends Component {
 export { Wall }
 
 Wall.propTypes = {
+    floorLengthScale: PropTypes.number,
+    floorLeft: PropTypes.number,
     left: PropTypes.number,
     top: PropTypes.number,
 };
 
 Wall.defaultProps = {
+    floorLengthScale: 100,
+    floorLeft: 0,
     left: 0,
     top: 0,
 };

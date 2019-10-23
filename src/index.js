@@ -396,7 +396,7 @@ import registerServiceWorker from './registerServiceWorker'
 //     value: 1,
 //   },
 //   PC2: {
-//     //p372
+//     //p372ssmecnaro
 //     value: 0,
 //   },
 //   callbacks: {},
@@ -416,8 +416,7 @@ const config = {
     visible: true,
     position: 'default',
   },
-  p132: {
-    name: 'Moc',
+  p132: {    name: 'Moc',
     value: 11,
     unit: 'W',
     visible: true,
@@ -491,7 +490,7 @@ const config = {
     value: 11,
     unit: 'W',
     visible: true,
-    position: 'default'
+    position: 'default',
   },
   p190: {
     name: 'Przepływ',
@@ -534,7 +533,9 @@ const config = {
     unit: 'kWh',
     visible: true,
     position: 'default',
-  }
+  },
+  p264_0: true,
+  p264_1: true,
 }
 
 const run = (config, selector) => {
@@ -547,7 +548,7 @@ const run = (config, selector) => {
     <Provider store={store}>
       <App parent={target} />
     </Provider>,
-    target
+    target,
   )
 
   handler.props.store.dispatch(updateData(config))
@@ -564,6 +565,6 @@ export const scheme = (config, selector) => {
   return {
     updateConfig: config => {
       handler.props.store.dispatch(updateData(config))
-    }
+    },
   }
 }

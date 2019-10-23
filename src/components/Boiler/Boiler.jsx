@@ -136,7 +136,7 @@ class Boiler extends Component {
       </g>
       <Label left="43" sign={this.props.sign} top="235" />
       {
-        this.props.withSupport && <Support top="220" width="96" />
+        this.props.withSupport && <Support top={220} width={96} />
       }
     </g>
   }
