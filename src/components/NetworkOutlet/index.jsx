@@ -11,9 +11,10 @@ class NetworkOutlet extends React.Component {
           transform="matrix(4.2985163,0,0,-4.2985163,-2053.4994,1768.1814) translate(0, 60)"
         >
           <g>
-            <text id="text4545" transform="matrix(1,0,0,-1,477.5986,295.7832)">
+            <text id="text4545" transform="matrix(1,0,0,-1,485,301)">
               <tspan
                 className="label"
+                dy="1.2em"
                 id="tspan4547"
                 style={{
                   fontSize: 2.76539993,
@@ -27,8 +28,29 @@ class NetworkOutlet extends React.Component {
                   stroke: 'none',
                   fontFamily: 'Myriad Pro',
                 }}
+                x="0"
               >
-                SIEĆENERGETYCZNA
+                SIEĆ
+              </tspan>
+              <tspan
+                className="label"
+                dy="1.2em"
+                id="tspan4547"
+                style={{
+                  fontSize: 2.76539993,
+                  fontVariant: 'normal',
+                  fontWeight: 'normal',
+                  fontStretch: 'condensed',
+                  writingMode: 'lr-tb',
+                  fill: '#4d4d4d',
+                  fillOpacity: 1,
+                  fillRule: 'nonzero',
+                  stroke: 'none',
+                  fontFamily: 'Myriad Pro',
+                }}
+                x="0"
+              >
+                ENERGETYCZNA
               </tspan>
             </text>
             <path

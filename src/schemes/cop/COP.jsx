@@ -25,89 +25,88 @@ class COP extends Component {
     const { data: { p264_0 = false, p264_1 = false } } = this.props
 
     return (
-      <SvgContainer height={600} width={775}>
-        <Wall floorLeft={-340} floorLengthScale={310} left={350} top={148} />
-        <Clock left={735} />
+      <SvgContainer>
+        <Wall floorLeft={-170} floorLengthScale={230} left={178} top={128} />
+        <Clock left={540} />
         <Pipe
           active={p264_0}
           activeColor={'power'}
-          d={'M 0 0 L 0 -68 L 138 -68'}
-          direction={'reversed'}
+          d={'M 0 0 L 0 -68 L 98 -68'}
           duration={5}
           id={'cop_battery_plus'}
           left={44}
-          top={276}
+          top={270}
         />
         <Pipe
-          d={'M 0 0 L 0 -54 L 102 -54'}
+          d={'M 0 0 L 0 -54 L 62 -54'}
           duration={5}
           id={'cop_battery_minus'}
           left={80}
-          top={276}
+          top={270}
         />
-        <Battery left={20} scale={150} top={270} />
+        <Battery left={20} scale={150} top={264} />
         <Pipe
-          d={'M 0 0 L 430 0'}
+          d={'M 0 0 L 300 0'}
           direction={'reversed'}
           duration={10}
           id={'to_inverter'}
-          left={256}
-          top={208}
+          left={216}
+          top={200}
         />
         <Pipe
           d={'M 0 0 L 0 130'}
           direction={'reversed'}
           duration={10}
           id={'pump_energy'}
-          left={220}
-          top={250}
+          left={180}
+          top={230}
         />
-        <NetworkOutlet left={650} scale={60} top={200} />
-        <Inverter heightScale={45} label={'Moduł'} left={180} top={200} />
-        <Text left={204} text={'Moduł'} top={164} />
-        <Text left={180} text={'zabezpieczający'} top={180} />
+        <NetworkOutlet left={476} scale={70} top={192} />
+        <Inverter heightScale={45} label={'Moduł'} left={140} top={186} />
+        <Text left={164} text={'Moduł'} top={154} />
+        <Text left={140} text={'zabezpieczający'} top={170} />
         <Pipe
-          d={'M 0 0 L 0 44'}
+          d={'M 0 0 L 0 32'}
           direction={'reversed'}
           duration={10}
           id={'boiler_energy'}
-          left={580}
-          top={208}
+          left={420}
+          top={200}
         />
-        <Dot left={576} top={204} />
-        <Boiler left={530} sign="" top={250} withSupport={true} />
-        <Text left={546} text={'Pompa ciepła'} top={264} />
-        <Text left={560} text={'MONO'} top={278} />
+        <Dot left={416} top={196} />
+        <Boiler left={370} sign="" top={230} withSupport={true} />
+        <Text left={386} text={'Pompa ciepła'} top={244} />
+        <Text left={400} text={'MONO'} top={258} />
         <Pipe
           active={p264_1}
           activeColor={'hot'}
-          d={'M 0 0 L 570 0'}
+          d={'M 0 0 L 410 0'}
           direction={'reversed'}
           duration={10}
           id={'cop_hot'}
           left={10}
-          top={380}
+          top={360}
         />
-        <Connector left={580} top={355} />
-        <Pump active={p264_1} direction={'left'} left={208} top={368} />
+        <Connector left={420} top={335} />
+        <Pump active={p264_1} direction={'left'} left={168} top={348} />
         <Pipe
           active={p264_1}
           activeColor={'cold'}
-          d={'M 0 0 L 570 0'}
+          d={'M 0 0 L 410 0'}
           duration={10}
           id={'cop_cold'}
           left={10}
-          top={430}
+          top={410}
         />
-        <Connector left={580} top={405} />
-        <FlowMeter direction={'horizontal'} left={208} top={420} />
-        <Condenser active={true} left={590} top={370} />
-        <ReadField left={230} param={'p128'} top={300} unitAsName={true} />
-        <ReadField left={590} param={'p132'} top={220} unitAsName={true} />
-        <ReadField left={530} param={'p184'} top={350} unitAsName={true} />
-        <ReadField left={530} param={'p186'} top={440} unitAsName={true} />
-        <ReadField left={180} param={'p190'} top={450} unitAsName={true} />
-        <Roof left={-90} top={-30} />
+        <Connector left={420} top={385} />
+        <FlowMeter direction={'horizontal'} left={168} top={400} />
+        <Condenser active={true} left={430} top={350} />
+        <ReadField left={190} param={'p128'} top={290} unitAsName={true} />
+        <ReadField left={425} param={'p132'} top={208} unitAsName={true} />
+        <ReadField left={370} param={'p184'} top={330} unitAsName={true} />
+        <ReadField left={370} param={'p186'} top={420} unitAsName={true} />
+        <ReadField left={140} param={'p190'} top={430} unitAsName={true} />
+        <Roof left={-80} top={-30} />
       </SvgContainer>
     )
   }
