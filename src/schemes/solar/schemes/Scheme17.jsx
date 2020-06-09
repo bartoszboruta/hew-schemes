@@ -11,7 +11,6 @@ import {
   Pump,
   FlowMeter,
   ReadField,
-  DateRead,
   Shower,
   TriConnector,
   SingleValve,
@@ -20,10 +19,12 @@ import PropTypes from 'prop-types'
 
 class Scheme17 extends Component {
   renderPipes() {
+    const { data: { p154_0, p154_1, p156 } } = this.props
+
     return (
       <g>
         <Pipe
-          active={this.props.data.p154.value}
+          active={p154_0 && p156.value > 0}
           activeColor={'cold'}
           d={
             'M 15 5 L 9.751545139010435 8.673918402692696 S 5 12 5 17.8 L 5 247.2 S 5 253 10.8 253 L 235 253'
@@ -35,7 +36,7 @@ class Scheme17 extends Component {
           top={130}
         />
         <Pipe
-          active={this.props.data.p154.value}
+          active={p154_0 && p156.value > 0}
           activeColor={'hot'}
           begin={5}
           d={
@@ -49,6 +50,7 @@ class Scheme17 extends Component {
         <Pipe
           active={true}
           activeColor={'cold'}
+          anime={false}
           d={'M 5 5 L 150 5'}
           duration={7}
           id={'left_boiler_output_cold'}
@@ -67,7 +69,7 @@ class Scheme17 extends Component {
           top={139.5}
         />
         <Pipe
-          active={true}
+          active={p154_1}
           activeColor={'hot'}
           d={'M 5 5 L 84.2 5 S 90 5 90 10.8 L 90 80'}
           duration={7}
@@ -80,22 +82,21 @@ class Scheme17 extends Component {
   }
 
   renderCirculation() {
+    const { data: { p154_2 } } = this.props
+
     return (
       <g>
         <Pipe
-          active={true}
+          active={p154_2}
           activeColor={'hot'}
           begin={3}
-          d={
-            'M 189 25 L 189 10 S 189 8 189 5 L 159 5 L 10.8 5 S 5 5 5 10.8 L 5 164.2 S 5 170 10.8 170 L 64 170'
-          }
-          direction={'reversed'}
+          d={'M 160 20 L 160 10.8 S 160 5 154.2 5 L 10.8 5 S 5 5 5 10.8 L 5 184.2 S 5 190 10.8 190 L 64 190 '}
           duration={7}
           id={'left_boiler_circulation_1'}
           left={206}
-          top={139.7}
+          top={119.7}
         />
-        <Pump active={this.props.data.p156.value} left={199} top={216} />
+        <Pump direction="left" label={{ position: 'left', sign: 'C' }} active={p154_2} left={199} top={216} />
       </g>
     )
   }
@@ -110,53 +111,97 @@ class Scheme17 extends Component {
         <Connector left={270} top={359} />
         <Connector left={270} top={379.5} />
         <SingleValve direction={'right'} left={447} top={245} />
-        <TriConnector direction={'reversedVertical'} left={357.25} top={140} />
+        <TriConnector left={355.25} top={134} />
       </g>
     )
   }
 
   renderBoiler() {
+    const { data: { p154_0, p156 } } = this.props
+
     return (
       <g>
         <Boiler left={270} top={200} />
-        <Coil active={this.props.data.p154.value} direction={'right'} left={270} top={340} />
+        <Coil active={p154_0 && p156.value > 0} direction={'right'} left={270} top={340} />
         {Scheme17.renderConnectors()}
       </g>
     )
   }
 
+  getT5Position = ({ position }) => {
+    switch (position) {
+      case 0:
+        return { left: 85, top: 410 }
+      case 1:
+        return { left: 402, top: 67 }
+      default:
+        return {}
+    }
+  }
+
+  getT6Position = ({ position }) => {
+    switch (position) {
+      case 0:
+        return { left: 285.5, top: 150 }
+      case 1:
+        return { left: 402, top: 91 }
+      default:
+        return {}
+    }
+  }
+
   renderReadFields() {
+    const { data: { p128, p130, p132, p134, p136, p138 } } = this.props
+
     return (
       <g>
-        {this.props.data.p128.visible && <ReadField left={265} param={'p128'} />}
-        {this.props.data.p130.visible && <ReadField left={190} param={'p130'} top={352.5} />}
-        {this.props.data.p132.visible && <ReadField param={'p132'} />}
+        {p128.visible && <ReadField left={256} param={'p128'} />}
+        {p130.visible && <ReadField left={196} param={'p130'} top={352.5} />}
+        {p132.visible && <ReadField left={62} param={'p132'} top={236.5} />}
+        {p134.visible && <ReadField left={372} param={'p134'} top={249} />}
+        {p136.visible && <ReadField param={'p136'} {...this.getT5Position(p136)} />}
+        {p138.visible && <ReadField param={'p138'} {...this.getT6Position(p138)} />}
       </g>
     )
   }
 
   renderPumpP() {
+    const { data: { p154_0, p156 } } = this.props
+
     return (
       <g transform={'translate(' + 32 + ' ' + 300 + ')'}>
-        <Pump active={this.props.data.p156.value} />
-        <ReadField left={35} param={'p156'} top={3} />
+        <Pump label={{ position: 'left', sign: 'P' }} active={p154_0 && p156.value > 0} />
+        <ReadField left={30} param={'p156'} top={3} />
       </g>
     )
   }
 
+  getFlowMeterPosition = ({ position }) => {
+    switch (position) {
+      case 0:
+        return 'translate(' + 190 + ' ' + 393.5 + ')'
+      case 1:
+        return 'translate(' + 427.32 + ' ' + 17 + ')'
+      default:
+        return ''
+    }
+  }
+
   renderFlowMeters() {
+    const { data: { p152, p292 } } = this.props
+
     return (
       <g>
-        {this.props.data.p152.visible && (
+        {p152.visible && (
           <g transform={'translate(' + 34 + ' ' + 270 + ')'}>
             <FlowMeter />
-            <ReadField left={33} param={'p152'} />
+            <ReadField left={28} param={'p152'} />
           </g>
         )}
-        {this.props.data.p292.visible && (
-          <g transform={'translate(' + 190 + ' ' + 393.5 + ')'}>
-            <FlowMeter direction={'horizontal'} />
-            <ReadField left={-25} param={'p292'} top={30} />
+        {p292.visible && (
+          <g transform={this.getFlowMeterPosition(p292)}>
+            {p292.position === 0 && <FlowMeter direction={'horizontal'} />}
+            <ReadField left={-25} param={'p292'} top={26} />
           </g>
         )}
       </g>
@@ -170,7 +215,6 @@ class Scheme17 extends Component {
         {this.renderCirculation()}
         <Shower left={384.25} top={165} />
         <SolarPanel left={50} />
-        <DateRead />
         <Clock left={448} />
         {this.renderBoiler()}
         {this.renderPumpP()}

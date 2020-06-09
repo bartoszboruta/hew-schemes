@@ -11,6 +11,10 @@ import {
   Valve,
   TriConnector,
 } from '../../../components'
+import Label from '../../../components/Label'
+import HeaterLabel from '../labels/HeaterLabel'
+import AutomaticBoilerLabel from '../labels/AutomaticBoilerLabel'
+import COLabel from '../labels/COLabel'
 import { COOutput } from './COOutput'
 import PropTypes from 'prop-types'
 
@@ -20,17 +24,24 @@ class CO extends Component {
       case 'automatic_boiler':
         if (this.props.data.CO.type.name === 'boiler') {
           return (
-            <AutomaticBoiler
-              active={this.props.data.CO.additionalHeater.value}
-              left={410}
-              top={250}
-            />
+            <g>
+              <AutomaticBoilerLabel left={305} top={284} />
+              <AutomaticBoiler
+                active={this.props.data.CO.additionalHeater.value}
+                left={410}
+                top={250}
+              />
+            </g>
           )
         }
         return null
       case 'heater':
         if (this.props.data.CO.type.name === 'boiler') {
-          return <Heater active={this.props.data.CO.additionalHeater.value} left={298} top={430} />
+          return <g>
+            <Label left={361} top={442} sign="E" />
+            <HeaterLabel left={384} top={429} />
+            <Heater active={this.props.data.CO.additionalHeater.value} left={298} top={430} />
+          </g>
         }
         if (this.props.data.CO.type.name === 'noBoiler') {
           return (
@@ -130,7 +141,8 @@ class CO extends Component {
 
             <COOutput left={0} top={330} />
 
-            <Boiler left={255.7} top={311.7} />
+            <Boiler left={255.7} top={311.7} sign={''} />
+            <COLabel left={251} top={537} />
             {this.getAdditionalHeaterSource()}
 
             <Connector left={255.7} top={311} />
