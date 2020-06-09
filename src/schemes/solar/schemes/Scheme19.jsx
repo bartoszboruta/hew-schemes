@@ -20,7 +20,7 @@ import PropTypes from 'prop-types'
 
 class Scheme19 extends Component {
   renderPipes() {
-    const { data: { p154_0, p154_2, p156 } } = this.props
+    const { data: { p154_0, p154_1, p154_2, p156 } } = this.props
 
     return (
       <g>
@@ -79,7 +79,7 @@ class Scheme19 extends Component {
           top={139.7}
         />
         <Pipe
-          active={p154_2}
+          active={p154_1 || p154_2}
           activeColor={'hot'}
           d={'M 0 5 L 24.2 5 S 30 5 30 10.8 L 30 185.2 S 30 191 35.8 191 L 135 191'}
           duration={11}

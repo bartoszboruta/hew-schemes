@@ -109,6 +109,12 @@ class Scheme13 extends Component {
     }
   }
 
+  isSolarP09 = () => {
+    const { data: { p100 } } = this.props
+
+    return [49185, 49193, 49201, 49205].includes(p100.value)
+  }
+
   renderReadFields() {
     const { data: { p128, p130, p132, p134, p136, p138 } } = this.props
 
@@ -248,17 +254,29 @@ class Scheme13 extends Component {
     )
   }
 
+  renderCirculation() {
+    const { data: { p154_2 } } = this.props
+
+    return (
+      this.isSolarP09() &&
+      <g>
+        <Pump direction="left" label={{ position: 'left', sign: 'C' }} active={p154_2} left={553} top={216} />
+      </g>
+    )
+  }
+
   render() {
     return (
       <SvgContainer height={558.1} width={650}>
         {this.renderPipes()}
         <SolarPanel left={50} />
-        <Clock left={555} />
+        <Clock left={555} />    
         {this.renderBoiler()}
         {this.renderFurnace()}
         {this.renderPumpP()}
         {this.renderReadFields()}
         {this.renderFlowMeters()}
+        {this.renderCirculation()}
       </SvgContainer>
     )
   }
