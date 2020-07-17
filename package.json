@@ -4,7 +4,7 @@
   "private": true,
   "dependencies": {
     "animejs": "^2.2.0",
-    "lodash": "^4.17.5",
+    "lodash": "^4.17.19",
     "material-ui": "^0.20.0",
     "prop-types": "^15.6.0",
     "react": "^16.2.0",
