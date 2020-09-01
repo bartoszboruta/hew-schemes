@@ -156,7 +156,7 @@ class CWU extends Component {
               left={112.5}
               top={40}
             />
-            <ReadField left={135} param={'p146'} top={80} />
+            <ReadField left={135} param={this.props.data.p100 === 45570 ? 'p180' : 'p146'} top={80} />
           </g>
         )}
 
@@ -171,7 +171,7 @@ class CWU extends Component {
         <Connector left={341} top={201} />
         <Connector left={255.7} top={201} />
 
-        <ReadField left={360} param={'p128'} top={130} />
+        <ReadField left={360} param={this.props.data.p100 === 45570 ? 'p164' : 'p130'} top={130} />
       </g>
     )
   }

@@ -17,6 +17,7 @@ import AutomaticBoilerLabel from '../labels/AutomaticBoilerLabel'
 import COLabel from '../labels/COLabel'
 import { COOutput } from './COOutput'
 import PropTypes from 'prop-types'
+import { Split } from '../Split'
 
 class CO extends Component {
   getAdditionalHeaterSource() {
@@ -46,7 +47,7 @@ class CO extends Component {
         if (this.props.data.CO.type.name === 'noBoiler') {
           return (
             <g>
-              <ReadField left={275} param={'p152'} top={495} />
+              <ReadField left={275} param={this.props.data.p100 === 45570 ? 'p186' : 'p152'} top={495} />
               <FlowHeater
                 active={this.props.data.CO.additionalHeater.value}
                 left={392.5}
@@ -151,7 +152,7 @@ class CO extends Component {
             <Connector left={341} top={311} />
             <Connector left={341} top={481} />
 
-            <ReadField left={180} param={'p132'} top={420} />
+            <ReadField left={180} param={this.props.data.p100 === 45570 ? 'p166' : 'p132'} top={420} />
           </g>
         )}
 

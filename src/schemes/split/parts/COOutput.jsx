@@ -52,14 +52,14 @@ class COOutput extends Component {
         )}
         {this.props.data.Output.circuit2.visible && (
           <g>
-            <VerticalReadField left={76.5} param={'p154'} top={-166} />
+            <VerticalReadField left={76.5} param={this.props.data.p100 === 45570 ? 'p188' : 'p154'} top={-166} />
             <Circuit active={this.props.data.Output.circuit2.value} begin={4.5} left={85} />
           </g>
         )}
         {this.props.data.Output.circuit1.visible && (
           <g>
-            <VerticalReadField left={131.5} param={'p152'} top={-166} />
-            <ReadField left={176} param={'p150'} top={-60} />
+            <VerticalReadField left={131.5} param={this.props.data.p100 === 45570 ? 'p186' : 'p152'} top={-166} />
+            <ReadField left={176} param={this.props.data.p100 === 45570 ? 'p184' : 'p150'} top={-60} />
             <Circuit active={this.props.data.Output.circuit1.value} left={140} />
           </g>
         )}

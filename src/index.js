@@ -115,95 +115,209 @@ import registerServiceWorker from './registerServiceWorker'
 //   },
 // }
 
+
 const config = {
-  type: 'solar',
+  type: 'split',
   date: {
     fill: '#00b100',
     value: '15-12-2017 14:01:50',
   },
-  p100: {
-    value: 49201,
+  CWU: {
+    value: false, // 3 pierwsze bity z 208 + p208_4 === 1
+    visible: true, //z konfiguracji
+    type: {
+      name: 'condenser', //condenser / coil
+      value: true, //z konfiguracji
+    },
+    additionalHeater: {
+      name: 'heater', //grzałka i dodać dodatkowy kocioł(DOROBIĆ)
+      unit: '',
+      value: true, //p208_11
+    },
+    circulation: {
+      value: true, //p208_4 > 0 to true
+      visible: true,
+    },
   },
-  p128: {
-    //visible, position
+  CO: {
+    value: true, // 3 pierwsze bity z 208 + p208_4 === 0
+    visible: true, //z konfiguracji
+    type: {
+      name: 'boiler', //noBoiler / boiler
+      value: false, //z konfiguracji
+    },
+    additionalHeater: {
+      name: 'heater', //heater /automatic_boiler
+      unit: '',
+      value: true, //p208_12
+    },
+  },
+  p100: {
+    name: 'ID sterownika',
+    value: 45570,//P02 - 36903 , P03 - 45570
+  },
+  p130: {
     name: 'T1',
     value: 123,
     unit: '°C',
-    visible: true,
-    position: 'default',
-  },
-  p130: {
-    name: 'T2',
-    value: 11,
-    unit: '°C',
-    visible: true,
-    position: 'default',
   },
   p132: {
+    name: 'T2',
+    value: 33,
+    unit: '°C',
+  },
+  p134: {
     name: 'T3',
     value: 33,
     unit: '°C',
-    visible: true,
-    position: 'default',
   },
-  p134: {
-    name: 'T4',
-    value: 34,
-    unit: '°C',
-    visible: true,
-    position: 'default',
-  },
-  p136: {
-    name: 'T5',
-    value: 34,
-    unit: '°C',
-    visible: true,
-    position: 'default',
-  },
-  p138: {
+  p140: {
     name: 'T6',
-    value: 34,
+    value: 33,
     unit: '°C',
-    visible: true,
-    position: 'default',
+  },
+  p146: {
+    name: 'T9',
+    value: 33,
+    unit: '°C',
+  },
+  p150: {
+    name: 'T11',
+    value: 15,
+    unit: '°C',
   },
   p152: {
-    name: 'F1',
-    value: 33,
-    unit: 'l/min',
-    visible: true,
-    position: 'default',
-  },
-  p170: {
-    name: 'Schemat',
-    value: 13,
+    name: 'T12',
+    value: 15,
+    unit: '°C',
   },
   p154: {
-    name: 'F2',
-    value: 7,
-    unit: 'l/min',
-    visible: true,
-    position: 'default',
-  },
-  p292: {
-    name: 'F2',
-    value: 12,
-    unit: 'l/min',
-    visible: true,
-    position: 'default',
+    name: 'T13',
+    value: 15,
+    unit: '°C',
   },
   p156: {
-    name: 'E1',
-    value: 100,
-    unit: '%',
-    visible: true,
-    position: 'default',
+    name: 'T14',
+    value: 15,
+    unit: '°C',
   },
-
-  p154_0: 0,
-  p154_1: 0,
-  p154_2: 1,
+  Output: {
+    circuit1: {
+      value: true, //p208_5 > 0
+      visible: true, //z konfiguracji
+    },
+    circuit2: {
+      value: true, //p208_8 > 0
+      visible: true, //z konfiguracji
+    },
+    circuit3: {
+      value: true, //p208_10 > 0
+      visible: true, //z konfiguracji
+    },
+    temperatureSensor: {
+      name: 'digital', //digital lub analog
+    },
+    value: true, //p208_5 > 0 || /p208_8 > 0 || /p208_10 > 0,
+  },
+  PC1: {
+    //p322
+    value: 1,
+  },
+  PC2: {
+    //p372
+    value: 0,
+  },
 }
+
+// const config = {
+//   type: 'solar',
+//   date: {
+//     fill: '#00b100',
+//     value: '15-12-2017 14:01:50',
+//   },
+//   p100: {
+//     value: 49201,
+//   },
+//   p128: {
+//     //visible, position
+//     name: 'T1',
+//     value: 123,
+//     unit: '°C',
+//     visible: true,
+//     position: 'default',
+//   },
+//   p130: {
+//     name: 'T2',
+//     value: 11,
+//     unit: '°C',
+//     visible: true,
+//     position: 'default',
+//   },
+//   p132: {
+//     name: 'T3',
+//     value: 33,
+//     unit: '°C',
+//     visible: true,
+//     position: 'default',
+//   },
+//   p134: {
+//     name: 'T4',
+//     value: 34,
+//     unit: '°C',
+//     visible: true,
+//     position: 'default',
+//   },
+//   p136: {
+//     name: 'T5',
+//     value: 34,
+//     unit: '°C',
+//     visible: true,
+//     position: 'default',
+//   },
+//   p138: {
+//     name: 'T6',
+//     value: 34,
+//     unit: '°C',
+//     visible: true,
+//     position: 'default',
+//   },
+//   p152: {
+//     name: 'F1',
+//     value: 33,
+//     unit: 'l/min',
+//     visible: true,
+//     position: 'default',
+//   },
+//   p170: {
+//     name: 'Schemat',
+//     value: 13,
+//   },
+//   p154: {
+//     name: 'F2',
+//     value: 7,
+//     unit: 'l/min',
+//     visible: true,
+//     position: 'default',
+//   },
+//   p292: {
+//     name: 'F2',
+//     value: 12,
+//     unit: 'l/min',
+//     visible: true,
+//     position: 'default',
+//   },
+//   p156: {
+//     name: 'E1',
+//     value: 100,
+//     unit: '%',
+//     visible: true,
+//     position: 'default',
+//   },
+
+//   p154_0: 0,
+//   p154_1: 0,
+//   p154_2: 1,
+// }
 
 // const config = {
 //   type: 'pv',
