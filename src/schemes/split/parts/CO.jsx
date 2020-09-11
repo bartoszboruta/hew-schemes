@@ -17,7 +17,6 @@ import AutomaticBoilerLabel from '../labels/AutomaticBoilerLabel'
 import COLabel from '../labels/COLabel'
 import { COOutput } from './COOutput'
 import PropTypes from 'prop-types'
-import { Split } from '../Split'
 
 class CO extends Component {
   getAdditionalHeaterSource() {
