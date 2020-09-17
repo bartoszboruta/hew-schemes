@@ -109,7 +109,7 @@ class CO extends Component {
                   top={345}
                 />
                 <Valve left={514.2} top={472.5} />
-                <TriConnector left={489.2} top={497.5} />
+                <TriConnector left={486.7} top={495.5} />
               </g>
             )}
             {!this.props.data.CWU.visible && (
@@ -179,10 +179,12 @@ class CO extends Component {
             {this.props.data.CWU.visible && (
               <g>
                 <Valve left={514.2} top={472.5} />
-                <TriConnector left={489.2} top={497.5} />
+                <TriConnector left={486.7} top={495.5} />
               </g>
             )}
             {this.getAdditionalHeaterSource()}
+
+            <ReadField left={400} param={this.props.data.p100 === 45570 ? 'p186' : 'p152'} top={450} />
           </g>
         )}
       </g>

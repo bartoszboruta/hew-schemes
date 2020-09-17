@@ -12,19 +12,23 @@ class SvgContainer extends Component {
   }
 
   componentDidMount() {
+    const width = this.getWidth();
+    const height = this.getHeight();
+    this.svgRef.current.setAttribute('width', width);
+    this.svgRef.current.setAttribute('height', height);
+    this.svgRef.current.setAttribute('viewBox', '0 0 ' + width + ' ' + height);
     this.groupRef.current.setAttribute('transform', this.getGroupTransform() + '');
   }
 
   getGroupTransform() {
     const groupBounding = this.groupRef.current.getBoundingClientRect();
     const svgBounding = this.svgRef.current.getBoundingClientRect();
-
     const svgWidth = svgBounding.width - 10;
-    const widthProportion = (svgWidth - (groupBounding.left - svgBounding.left) * 2) / groupBounding.width;
-    const heightProportion = (svgBounding.height - 10) / groupBounding.height;
 
+    const widthProportion = svgWidth / groupBounding.width;
+    const heightProportion = svgBounding.height / groupBounding.height;
     const proportion = Math.min(widthProportion, heightProportion);
-    const translate = groupBounding.left < svgBounding.left ? svgBounding.left - groupBounding.left + 5 : 0
+    const translate = svgBounding.left - groupBounding.left;
 
     return 'scale(' + proportion + ') translate(' + translate + ')';
   }
@@ -38,9 +42,19 @@ class SvgContainer extends Component {
     };
   }
 
+  getWidth() {
+    const svgBounding = this.svgRef.current.getBoundingClientRect();
+    return svgBounding.width.toFixed(0)
+  }
+
+  getHeight() {
+    const svgBounding = this.svgRef.current.getBoundingClientRect();
+    return svgBounding.height.toFixed(0);
+  }
+
   render() {
-    const width = 580;
-    const height = 480;
+    const width = 800;
+    const height = 600;
     return (
       <svg 
         ref={this.svgRef}
@@ -58,9 +72,10 @@ class SvgContainer extends Component {
 }
 
 const mapStateToProps = state => {
-  const { dimensions } = state
+  const { dimensions, data } = state
   return {
     dimensions,
+    data,
   }
 }
 

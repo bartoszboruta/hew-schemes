@@ -149,7 +149,7 @@ class CWU extends Component {
               left={120}
               top={5}
             />
-            <TriConnector direction={'reversedVertical'} left={117.2} top={5.5} />
+            <TriConnector direction={'reversedVertical'} left={114.7} top={7.5} />
             <Pump
               active={this.props.data.CWU.circulation.value}
               label={{ position: 'right', sign: 'P' }}

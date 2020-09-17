@@ -130,9 +130,10 @@ const config = {
       value: true, //z konfiguracji
     },
     additionalHeater: {
-      name: 'heater', //grzałka i dodać dodatkowy kocioł(DOROBIĆ)
+      name: '', //grzałka i dodać dodatkowy kocioł(DOROBIĆ)
       unit: '',
       value: true, //p208_11
+      visible: false,
     },
     circulation: {
       value: true, //p208_4 > 0 to true
@@ -140,21 +141,22 @@ const config = {
     },
   },
   CO: {
-    value: true, // 3 pierwsze bity z 208 + p208_4 === 0
-    visible: true, //z konfiguracji
+    value: false, // 3 pierwsze bity z 208 + p208_4 === 0
+    visible: false, //z konfiguracji
     type: {
       name: 'boiler', //noBoiler / boiler
       value: false, //z konfiguracji
     },
     additionalHeater: {
-      name: 'heater', //heater /automatic_boiler
+      name: '', //heater /automatic_boiler
       unit: '',
       value: true, //p208_12
+      visible: false,
     },
   },
   p100: {
     name: 'ID sterownika',
-    value: 45570,//P02 - 36903 , P03 - 45570
+    value: 36903,//P02 - 36903 , P03 - 45570
   },
   p130: {
     name: 'T1',
@@ -290,7 +292,7 @@ const config = {
 //   },
 //   p170: {
 //     name: 'Schemat',
-//     value: 13,
+//     value: 19,
 //   },
 //   p154: {
 //     name: 'F2',
