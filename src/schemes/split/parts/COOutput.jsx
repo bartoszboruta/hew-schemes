@@ -62,7 +62,7 @@ class COOutput extends Component {
             <ReadField left={176} param={this.props.data.p100 === 45570 ? 'p184' : 'p150'} top={-60} />
             <Circuit active={this.props.data.Output.circuit1.value} begin={6} left={140} />
             <Pipe
-                active={true}
+                active={this.props.data.Output.circuit1.value}
                 activeColor={'cold'}
                 anime={false}
                 d={'M 5 5 L 30 5 '}
