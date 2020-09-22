@@ -46,7 +46,6 @@ class CO extends Component {
         if (this.props.data.CO.type.name === 'noBoiler') {
           return (
             <g>
-              <ReadField left={275} param={this.props.data.p100 === 45570 ? 'p186' : 'p152'} top={495} />
               <FlowHeater
                 active={this.props.data.CO.additionalHeater.value}
                 left={392.5}

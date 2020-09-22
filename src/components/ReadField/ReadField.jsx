@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 class ReadField extends Component {
 
     getValue(value) {
-        return this.props.data[this.props.param] ? this.props.data[this.props.param][value] : '';
+        return !this.props.data[this.props.param] ? '' : this.props.data[this.props.param][value];
     }
 
     render() {
@@ -13,7 +13,7 @@ class ReadField extends Component {
             <rect
                 x='49.261093'
                 y='0.43046296'
-                width='17.602509'
+                width='18.602509'
                 height='17.600546'
                 style={{
                     fill: '#dcdcdc',
@@ -28,13 +28,13 @@ class ReadField extends Component {
             />
             <text
                 x='58'
-                y='12.865'
+                y='13.665'
                 style={{
-                    fontSize:9.8102932,
+                    fontSize:11,
                     fontWeight:'bold',
                     fill:'#4d4d4d',
                     fillRule:'evenodd',
-                    fontFamily:'Arial',
+                    fontFamily:'"Source Code Pro", Arial, monospace',
                     textAnchor:'middle',
                 }}>
                 { this.getValue('name') }
@@ -57,16 +57,16 @@ class ReadField extends Component {
             />
             <text
                 x='25'
-                y='12.865'
+                y='13.665'
                 style={{
                     textAnchor:'middle',
-                    fontSize:9.92680454,
-                    fontWeight:'normal',
+                    fontSize:11,
+                    fontWeight:'500',
                     fill:'#4d4d4d',
                     fillRule:'evenodd',
-                    fontFamily:'Arial'
+                    fontFamily:'"Source Code Pro", Arial, monospace'
                 }}>
-                { this.getValue('value') + ' ' + this.getValue('unit') }
+                { this.getValue('value') + this.getValue('unit') }
             </text>
         </g>
     }

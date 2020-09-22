@@ -27,7 +27,7 @@ class Circuit extends Component {
                     d={'M 5 125 L 5 5'}
                     top={-125}
                 />
-                <Pump left={this.props.reversed ? -7.5 : 15} top={-90} active={this.props.active}/>
+                <Pump left={this.props.reversed ? 15 : -7.5} top={-90} active={this.props.active}/>
             </g>
         )
     }

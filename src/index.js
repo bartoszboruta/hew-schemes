@@ -142,13 +142,13 @@ const config = {
   },
   CO: {
     value: false, // 3 pierwsze bity z 208 + p208_4 === 0
-    visible: false, //z konfiguracji
+    visible: true, //z konfiguracji
     type: {
       name: 'boiler', //noBoiler / boiler
       value: false, //z konfiguracji
     },
     additionalHeater: {
-      name: '', //heater /automatic_boiler
+      name: 'heater', //heater /automatic_boiler
       unit: '',
       value: true, //p208_12
       visible: false,
@@ -165,17 +165,17 @@ const config = {
   },
   p132: {
     name: 'T2',
-    value: 33,
+    value: 33.5,
     unit: '°C',
   },
   p134: {
     name: 'T3',
-    value: 33,
+    value: 33.6,
     unit: '°C',
   },
   p140: {
     name: 'T6',
-    value: 33,
+    value: 33.4,
     unit: '°C',
   },
   p146: {
@@ -190,17 +190,17 @@ const config = {
   },
   p152: {
     name: 'T12',
-    value: 15,
+    value: 15.7,
     unit: '°C',
   },
   p154: {
     name: 'T13',
-    value: 15,
+    value: 15.4,
     unit: '°C',
   },
   p156: {
     name: 'T14',
-    value: 15,
+    value: 15.1,
     unit: '°C',
   },
   Output: {
@@ -665,6 +665,11 @@ const run = (config, selector) => {
   if (!target) {
     return
   }
+
+  const link = document.createElement(link)
+  link.setAttribute('href', 'https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@500&display=swap')
+  link.setAttribute('rel', 'stylesheet')
+  target.appendChild(link)
 
   const handler = render(
     <Provider store={store}>

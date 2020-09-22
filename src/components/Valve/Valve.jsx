@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 class Valve extends Component {
     render() {
         return (
-            <g className='Valve' transform={'translate(' + this.props.left + ' ' + this.props.top + ')'}>
+            <g className='Valve' transform={'translate(' + this.props.left + ' ' + this.props.top + ')  rotate(' + this.props.rotate + ')'}>
                 <rect
                     style={{opacity:1, fill:'#ffffff', fillOpacity:1, strokeWidth: 0.26458332}}
                     width='9.6605959'
@@ -33,6 +33,7 @@ Valve.propTypes = {
     left: PropTypes.number,
     reversedColors: PropTypes.bool,
     top: PropTypes.number,
+    rotate: PropTypes.number,
 };
 
 Valve.defaultProps = {
@@ -40,4 +41,5 @@ Valve.defaultProps = {
     left: 0,
     reversedColors: false,
     top: 0,
+    rotate: 0,
 };

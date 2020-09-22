@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { OutputPipe, Circuit, Pipe, ReadField, VerticalReadField } from '../../../components'
+import { OutputPipe, Circuit, Pipe, ReadField, VerticalReadField, Valve } from '../../../components'
 import PropTypes from 'prop-types'
 
 import FanCoilUnitLabel from '../labels/FanCoilUnitLabel'
@@ -39,7 +39,7 @@ class COOutput extends Component {
               active={this.props.data.Output.circuit3.value}
               begin={2}
               left={30}
-              reversed={true}
+              reversed={false}
             />
             <OutputPipe active={this.props.data.Output.value} activeColor={'hot'} left={25} />
             <OutputPipe
@@ -53,14 +53,24 @@ class COOutput extends Component {
         {this.props.data.Output.circuit2.visible && (
           <g>
             <VerticalReadField left={76.5} param={this.props.data.p100 === 45570 ? 'p188' : 'p154'} top={-166} />
-            <Circuit active={this.props.data.Output.circuit2.value} begin={4.5} left={85} />
+            <Circuit active={this.props.data.Output.circuit2.value} begin={4} left={85} />
           </g>
         )}
         {this.props.data.Output.circuit1.visible && (
           <g>
             <VerticalReadField left={131.5} param={this.props.data.p100 === 45570 ? 'p186' : 'p152'} top={-166} />
             <ReadField left={176} param={this.props.data.p100 === 45570 ? 'p184' : 'p150'} top={-60} />
-            <Circuit active={this.props.data.Output.circuit1.value} left={140} />
+            <Circuit active={this.props.data.Output.circuit1.value} begin={6} left={140} />
+            <Pipe
+                active={true}
+                activeColor={'cold'}
+                anime={false}
+                d={'M 5 5 L 30 5 '}
+                id={'CWU_1_1'}
+                left={136}
+                top={-37.3}
+              />
+            <Valve left={152.5} top={-40} rotate={90}/>
           </g>
         )}
 

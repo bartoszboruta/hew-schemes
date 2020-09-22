@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 
 class VerticalReadField extends Component {
   getValue(value) {
-    return this.props.data[this.props.param] ? this.props.data[this.props.param][value] : '';
+    return !this.props.data[this.props.param] ? '' : this.props.data[this.props.param][value];
   }
 
   render() {
@@ -26,8 +26,8 @@ class VerticalReadField extends Component {
             x='0.40540996'
             y='18.492474' />
           <text
-            style={{ fontWeight: 'bold', fontSize: 9.8102932, lineHeight: '0%', fontFamily: 'Arial', fill: '#4d4d4d', fillRule: 'evenodd', strokeWidth: 0.26458335, textAnchor: 'middle' }}
-            y='13.069446'
+            style={{ fontWeight: 'bold', fontSize: 11, lineHeight: '0%', fontFamily: '"Source Code Pro", Arial, monospace', fill: '#4d4d4d', fillRule: 'evenodd', strokeWidth: 0.26458335, textAnchor: 'middle' }}
+            y='14.069446'
             x='23.5'>
             {name}
           </text>
@@ -37,10 +37,10 @@ class VerticalReadField extends Component {
         d='M 48.439118,18.95061 H 0.852466 V 35.584584 H 48.439118 Z M 0.426213,18.098114 h 48.439189 0.426263 v 0.426203 17.4865 V 36.437 H 48.865402 0.426213 0 v -0.426183 -17.4865 -0.426203 z'
         style={{ fill: '#cecece', fillRule: 'nonzero', strokeWidth: 0.26458335 }} />
       <text
-        style={{ fontWeight: 'normal', fontSize: 9.86254787, lineHeight: '0%', fontFamily: 'Arial', fill: '#4d4d4d', fillRule: 'evenodd', strokeWidth: 0.26458335, textAnchor: 'middle' }}
-        y='30.669422'
+        style={{ fontWeight: '500', fontSize: 11, lineHeight: '0%', fontFamily: '"Source Code Pro", Arial, monospace', fill: '#4d4d4d', fillRule: 'evenodd', strokeWidth: 0.26458335, textAnchor: 'middle' }}
+        y='31.669422'
         x='23'>
-        {this.getValue('value') + ' ' + this.getValue('unit')}
+        {this.getValue('value') + this.getValue('unit')}
       </text>
     </g>
   }
