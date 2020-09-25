@@ -143,7 +143,6 @@ class CWU extends Component {
               active={this.props.data.CWU.circulation.value}
               activeColor={'hot'}
               d={'M 5 5 L 5 112 S 5 120 13 120 L 140 120'}
-              direction={'reversed'}
               duration={9}
               id={'CWU_Circulation'}
               left={120}
@@ -155,6 +154,7 @@ class CWU extends Component {
               label={{ position: 'right', sign: 'P' }}
               left={112.5}
               top={40}
+              direction={'left'}
             />
             <ReadField left={135} param={this.props.data.p100 === 45570 ? 'p180' : 'p146'} top={80} />
           </g>
